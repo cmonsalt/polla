@@ -1,0 +1,114 @@
+body {
+    padding-top: 50px;
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    padding: 20px; /* Añade un poco de padding */
+  }
+  
+  .grid-container div {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #0275d8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 2px solid #fff; /* Añade bordes a los círculos si lo deseas */
+  }
+  
+  /* Añade estilos para las columnas con bordes */
+  .border {
+    border: 1px solid #ddd; /* Añade un borde sutil */
+    border-radius: 5px; /* Opcional: para bordes redondeados */
+    padding: 15px; /* Añade algo de espacio dentro de las columnas */
+  }
+  
+  .card-state{
+    background-color: #28a745;
+  }
+  .card-info{
+    background-color: #6c757d;
+  }
+  
+  .card-awards{
+    background-color: #f0ad4e;
+  }
+  
+  .available-slots-card{
+    background-color: #0275d8;
+  }
+  
+  .custom-navbar-color {
+    background-color: #0275d8; /* Cambia este color por el que desees */
+  }
+  
+  .fixed-size-card {
+    height: 85px; /* Altura fija */
+    width: 230px; /* Ancho fijo */
+  }
+  
+  .card-title {
+    font-size: 16px; /* O cualquier tamaño que prefieras */
+  }
+  
+  .card-text {
+    font-size: 14px; /* O cualquier tamaño que prefieras */
+  }
+  .table-responsive {
+    max-height: 300px; /* O el valor que prefieras */
+    overflow-y: auto;
+  }
+  
+  .table-responsive thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: white;
+    box-shadow: 0 2px 2px -1px rgba(0,0,0,0.4); /* Opcional: sombra para destacar el encabezado */
+  }
+
+  .my-table th,
+  .my-table td {
+  text-align: center; /* Centra el contenido horizontalmente */
+  padding: 8px; /* Agrega relleno para que el contenido respire */
+}
+  .title-style{
+    color: #17a2b8;
+  }
+  
+  .nav-link-enhanced {
+    color: #ffffff !important; /* Asegura que el color sea blanco o cualquier color más claro que el fondo */
+  }
+  
+  .nav-link-enhanced {
+    color: #ffffff !important; /* Asegura que el color sea blanco o cualquier color más claro que el fondo */
+    transition: opacity 0.5s ease; /* Añade una transición suave para la opacidad */
+  }
+  
+  .nav-link-enhanced:hover {
+    opacity: 0.75; /* Hace el enlace un poco opaco al pasar el mouse */
+  }
+  
+  .price-info{
+    color:#28a745;
+    text-align: left !important;
+  }
+
+  .icon {
+    margin-right: 6px;
+}
+  
+  footer a.text-white:hover {
+    text-decoration: none;
+    color: #ccc; /* Cambia el color al pasar el mouse */
+  }
+  
+  footer{
+    background-color: #0275d8;
+  }
+  
+  
