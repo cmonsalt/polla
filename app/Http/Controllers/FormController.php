@@ -55,6 +55,9 @@ class FormController extends Controller
 
         if ($request->input('paymentMethod') === 'gateway') {
             $id = date('YmdHis') . uniqid();
+            $name = $request->input('name');
+            $last_name = $request->input('last_name');
+            $email = $request->input('email');
 
             $transaction  = new Transaction();
             $transaction ->id = $id;
@@ -68,7 +71,7 @@ class FormController extends Controller
             $transaction ->save();
 
             // Lógica para el método de pago gateway
-            $preferenceResponse = $this->mercadoPagoController->createPreference($id);
+            $preferenceResponse = $this->mercadoPagoController->createPreference($id, $name, $last_name, $email);
             // Devuelve la respuesta de crear la preferencia, que incluye el ID de preferencia
             return $preferenceResponse;
         } else {

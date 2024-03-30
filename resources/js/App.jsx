@@ -11,7 +11,7 @@ import PurchaseInfo from "./components/PurchaseInfo.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
 
-
+window.Navbar = Navbar;
 export default function App() {
     // Datos de prueba para los participantes
     const participantes = [

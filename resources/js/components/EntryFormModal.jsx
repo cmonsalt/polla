@@ -13,6 +13,7 @@ const EntryFormModal = ({ onClose }) => {
     });
 
     const [csrfToken, setCsrfToken] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     useEffect(() => {
         const fetchCsrfToken = async () => {
@@ -29,6 +30,7 @@ const EntryFormModal = ({ onClose }) => {
             }
         };
         fetchCsrfToken();
+        return () => setIsSubmitting(false);
     }, []);
 
     const handleChange = (e) => {
@@ -40,6 +42,7 @@ const EntryFormModal = ({ onClose }) => {
     };
 
     const handleSubmit = async (e) => {
+        setIsSubmitting(true); // Deshabilitar el botón al enviar el formulario
         e.preventDefault();
 
         try {
@@ -55,6 +58,7 @@ const EntryFormModal = ({ onClose }) => {
             const responseData = await response.json(); // Extrae los datos de la respuesta aquí, una sola vez
 
             if (!response.ok) {
+                setIsSubmitting(false); // Re-habilitar el botón si hay un error
                 // Si la respuesta no es ok, maneja los errores
                 if (responseData.errors) {
                     // Construir el mensaje de error concatenando todos los mensajes
@@ -265,6 +269,7 @@ const EntryFormModal = ({ onClose }) => {
                             <button
                                 type="submit"
                                 className="btn btn-primary mt-3"
+                                disabled={isSubmitting}
                             >
                                 {formData.paymentMethod === "gateway"
                                     ? "PAGAR"
