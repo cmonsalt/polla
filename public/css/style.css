@@ -1,6 +1,18 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
 body {
     padding-top: 50px;
+    display: flex;
+    flex-direction: column;
   }
+
+  body.success-view {
+    padding-top: 0;
+}
   .grid-container {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -110,5 +122,5 @@ body {
   footer{
     background-color: #0275d8;
   }
-  
+
   

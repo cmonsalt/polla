@@ -8,6 +8,7 @@
         @vite('resources/js/app.js')
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <script src="https://sdk.mercadopago.com/js/v2"></script>
 
 

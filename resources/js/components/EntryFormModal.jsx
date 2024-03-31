@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboard } from "@fortawesome/free-solid-svg-icons";
+import ReCAPTCHA from "react-google-recaptcha";
+
 
 const EntryFormModal = ({ onClose }) => {
     const [formData, setFormData] = useState({
@@ -14,6 +16,9 @@ const EntryFormModal = ({ onClose }) => {
 
     const [csrfToken, setCsrfToken] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
+    const [recaptchaToken, setRecaptchaToken] = useState("");
+    
 
     useEffect(() => {
         const fetchCsrfToken = async () => {
@@ -40,11 +45,27 @@ const EntryFormModal = ({ onClose }) => {
             [name]: value,
         });
     };
-
+    
     const handleSubmit = async (e) => {
-        setIsSubmitting(true); // Deshabilitar el botón al enviar el formulario
         e.preventDefault();
+        setIsSubmitting(true); // Deshabilitar el botón al enviar el formulario
+  
+        
+  
 
+        // if (!isCaptchaVerified) {
+        //     alert("Por favor, completa el reCAPTCHA.");
+        //     setIsSubmitting(false); // Re-habilitar el botón si hay un error
+        //     return;
+        // }
+
+        if (formData.email !== formData.confirm_email) {
+            alert("Los correos electrónicos no coinciden.");
+            setIsSubmitting(false); // Re-habilitar el botón si hay un error
+            return;
+        }
+    
+       
         try {
             const response = await fetch("/form", {
                 method: "POST",
@@ -52,7 +73,7 @@ const EntryFormModal = ({ onClose }) => {
                     "Content-Type": "application/json",
                     "X-CSRF-TOKEN": csrfToken,
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({ ...formData, recaptchaToken }),
             });
 
             const responseData = await response.json(); // Extrae los datos de la respuesta aquí, una sola vez
@@ -70,9 +91,10 @@ const EntryFormModal = ({ onClose }) => {
                 }
             } else {
                 // Si la respuesta es exitosa y contiene preferenceId, redirige a MercadoPago
-                // Esto pasa solo cuando se elije la pasarela de pago como emdiod e
+                // Esto pasa solo cuando se elije la pasarela de pago como medio  de
                 if (responseData.id) {
                     openMercadoPagoCheckout(responseData.id);
+                    onClose();
                 } else {
                     // Si la respuesta es exitosa pero no contiene preferenceId, maneja según corresponda
                     // Podría ser un caso donde el formulario fue enviado exitosamente sin necesitar ir a MercadoPago
@@ -84,6 +106,12 @@ const EntryFormModal = ({ onClose }) => {
             console.error(error);
             alert("Ocurrió un error al procesar el formulario.");
         }
+    };
+
+    const handleCaptchaVerify = (token) => {
+        console.log("ReCAPTCHA token:", token);
+        setRecaptchaToken(token); // Almacena el token ReCAPTCHA en el estado del componente
+        setIsCaptchaVerified(true);
     };
 
     const openMercadoPagoCheckout = (preferenceId) => {
@@ -103,7 +131,6 @@ const EntryFormModal = ({ onClose }) => {
             autoOpen: true, // Opcional: abre el checkout automáticamente
         });
     };
-
     console.error(formData);
 
     return (
@@ -212,7 +239,7 @@ const EntryFormModal = ({ onClose }) => {
 
                             <div className="form-group">
                                 <label>Método de Pago:</label>
-                                <div className="form-check">
+                                <div className="form-check d-flex align-items-center">
                                     <input
                                         type="radio"
                                         id="gateway"
@@ -225,10 +252,18 @@ const EntryFormModal = ({ onClose }) => {
                                         className="form-check-input"
                                     />
                                     <label
-                                        className="form-check-label"
+                                        className="form-check-label d-flex align-items-center"
                                         htmlFor="gateway"
                                     >
-                                        PSE,Tarjeta Debito/Credito
+                                        <img
+                                            src="/images/pse.png"
+                                            alt="Logo PSE"
+                                            style={{
+                                                height: "65px",
+                                                width: "auto",
+                                                marginRight: "35px",
+                                            }}
+                                        />
                                     </label>
                                 </div>
                                 <div className="form-check">
@@ -250,6 +285,12 @@ const EntryFormModal = ({ onClose }) => {
                                         Cupón
                                     </label>
                                 </div>
+                            </div>
+                            <div className="form-group">
+                                <ReCAPTCHA
+                                    sitekey="6LfW2KkpAAAAAKKagjTC-G14JJ7fxCpP3T2kPgYM"
+                                    onChange={handleCaptchaVerify}
+                                />
                             </div>
 
                             {formData.paymentMethod === "coupon" && (

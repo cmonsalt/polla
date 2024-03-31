@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\MercadoPagoController;
 use App\Models\Transaction;
+use GuzzleHttp\Client;
 
 class FormController extends Controller
 {
@@ -25,6 +26,7 @@ class FormController extends Controller
             'email' => 'required|email|max:50',
             'paymentMethod' => 'required|in:gateway,coupon', // IMPORTANTE: De aqui activo o desactivo el metodo(s) que requiera
             'coupon' => 'required_if:paymentMethod,coupon|string|max:20',
+            'recaptchaToken' => 'required'
         ];
 
         // Define los mensajes de error personalizados
@@ -53,22 +55,36 @@ class FormController extends Controller
             return response()->json(['errors' => $validator->errors()->all()], 422);
         }
 
+        $recaptchaToken = $request->input('recaptchaToken');
+        $client = new Client();
+        $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
+            'form_params' => [
+                'secret' => '6LfW2KkpAAAAAIpdAdRx0SFG11ZQ-DtEp2ARMhJq', // Reemplaza con tu clave secreta de reCAPTCHA
+                'response' => $recaptchaToken,
+            ],
+        ]);
+        $responseData = json_decode($response->getBody(), true);
+        if (!$responseData['success']) {
+            // El reCAPTCHA no se ha completado correctamente
+            return response()->json(['error' => 'Por favor, completa el reCAPTCHA BACK.'], 422);
+        }
+
         if ($request->input('paymentMethod') === 'gateway') {
             $id = date('YmdHis') . uniqid();
             $name = $request->input('name');
             $last_name = $request->input('last_name');
             $email = $request->input('email');
 
-            $transaction  = new Transaction();
-            $transaction ->id = $id;
-            $transaction ->event_name = env('EVENT_NAME');
-            $transaction ->payment_method = 'gateway';
-            $transaction ->name =  strtoupper($request->input('name'));
-            $transaction ->last_name = strtoupper($request->input('last_name'));
-            $transaction ->phone = $request->input('phone');
-            $transaction ->email = $request->input('email');
-            $transaction ->status = 'Pendiente';
-            $transaction ->save();
+            $transaction = new Transaction();
+            $transaction->id = $id;
+            $transaction->event_name = env('EVENT_NAME');
+            $transaction->payment_method = 'gateway';
+            $transaction->name = strtoupper($request->input('name'));
+            $transaction->last_name = strtoupper($request->input('last_name'));
+            $transaction->phone = $request->input('phone');
+            $transaction->email = $request->input('email');
+            $transaction->status = 'Pendiente';
+            $transaction->save();
 
             // Lógica para el método de pago gateway
             $preferenceResponse = $this->mercadoPagoController->createPreference($id, $name, $last_name, $email);
