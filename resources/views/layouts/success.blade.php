@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div id="react-navbar-container"></div>
 <div class="container h-100 d-flex flex-column justify-content-center">
     <div class="row">
         <div class="col-md-8 col-lg-6 mx-auto">
@@ -10,7 +11,7 @@
             </div>
             <table class="table table-bordered my-4">
                 <tbody>
-            
+
                     <tr>
                         <th>Referencia de Pago</th>
                         <td>{{ $payment->id }}</td>
@@ -22,8 +23,9 @@
                     <tr>
                         <th>Método de Pago:</th>
                         <td>
-        <img src="/images/pse.png" alt="Logo PSE" style="height: 50px; width: auto; margin-right: 20px;" />
-    </td>
+                            <img src="/images/pse.png" alt="Logo PSE"
+                                style="height: 50px; width: auto; margin-right: 20px;" />
+                        </td>
                     </tr>
                     <tr>
                         <th>Dirección IP del Comprador:</th>
@@ -36,7 +38,7 @@
                 </tbody>
             </table>
             <div class="text-center">
-            <a href="/" class="btn btn-primary">Volver al Comercio</a>
+                <a href="/" class="btn btn-primary">Volver al Inicio</a>
             </div>
         </div>
     </div>

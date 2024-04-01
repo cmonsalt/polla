@@ -59,11 +59,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// if (document.getElementById("react-navbar-container")) {
-//     createRoot(document.getElementById("react-navbar-container")).render(
-//         <Navbar />
-//     );
-// }
+if (document.getElementById("react-navbar-container")) {
+    createRoot(document.getElementById("react-navbar-container")).render(
+        <Navbar />
+    );
+}
 if (document.getElementById("react-footer-container")) {
     createRoot(document.getElementById("react-footer-container")).render(
         <Footer />

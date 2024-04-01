@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboard } from "@fortawesome/free-solid-svg-icons";
 import ReCAPTCHA from "react-google-recaptcha";
 
-
 const EntryFormModal = ({ onClose }) => {
     const [formData, setFormData] = useState({
         name: "",
@@ -18,7 +17,6 @@ const EntryFormModal = ({ onClose }) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
     const [recaptchaToken, setRecaptchaToken] = useState("");
-    
 
     useEffect(() => {
         const fetchCsrfToken = async () => {
@@ -45,13 +43,10 @@ const EntryFormModal = ({ onClose }) => {
             [name]: value,
         });
     };
-    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true); // Deshabilitar el botón al enviar el formulario
-  
-        
-  
 
         // if (!isCaptchaVerified) {
         //     alert("Por favor, completa el reCAPTCHA.");
@@ -64,8 +59,7 @@ const EntryFormModal = ({ onClose }) => {
             setIsSubmitting(false); // Re-habilitar el botón si hay un error
             return;
         }
-    
-       
+
         try {
             const response = await fetch("/form", {
                 method: "POST",
@@ -103,13 +97,11 @@ const EntryFormModal = ({ onClose }) => {
                 }
             }
         } catch (error) {
-            console.error(error);
             alert("Ocurrió un error al procesar el formulario.");
         }
     };
 
     const handleCaptchaVerify = (token) => {
-        console.log("ReCAPTCHA token:", token);
         setRecaptchaToken(token); // Almacena el token ReCAPTCHA en el estado del componente
         setIsCaptchaVerified(true);
     };
@@ -131,11 +123,10 @@ const EntryFormModal = ({ onClose }) => {
             autoOpen: true, // Opcional: abre el checkout automáticamente
         });
     };
-    console.error(formData);
 
     return (
         <div className="modal" style={{ display: "block" }}>
-            <div className="modal-dialog">
+            <div className="modal-dialog modal-lg">
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title title-style">
@@ -157,7 +148,7 @@ const EntryFormModal = ({ onClose }) => {
                         <input type="hidden" name="_token" value={csrfToken} />
                         <form onSubmit={handleSubmit}>
                             <div className="row">
-                                <div className="col-md-6">
+                                <div className="col-md-4">
                                     <div className="form-group">
                                         <label htmlFor="name">*Nombre:</label>
                                         <input
@@ -170,7 +161,7 @@ const EntryFormModal = ({ onClose }) => {
                                         />
                                     </div>
                                 </div>
-                                <div className="col-md-6">
+                                <div className="col-md-4">
                                     <div className="form-group">
                                         <label htmlFor="last_name">
                                             *Apellidos:
@@ -185,9 +176,7 @@ const EntryFormModal = ({ onClose }) => {
                                         />
                                     </div>
                                 </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-md-6">
+                                <div className="col-md-4">
                                     <div className="form-group">
                                         <label htmlFor="phone">
                                             *Teléfono:
@@ -202,8 +191,8 @@ const EntryFormModal = ({ onClose }) => {
                                         />
                                     </div>
                                 </div>
-                                <div className="col-md-6"></div>
                             </div>
+
                             <div className="row">
                                 <div className="col-md-6">
                                     <div className="form-group">
@@ -256,12 +245,12 @@ const EntryFormModal = ({ onClose }) => {
                                         htmlFor="gateway"
                                     >
                                         <img
-                                            src="/images/pse.png"
+                                            src="/images/pse.svg"
                                             alt="Logo PSE"
                                             style={{
-                                                height: "65px",
+                                                height: "35px",
                                                 width: "auto",
-                                                marginRight: "35px",
+                                                marginRight: "5px",
                                             }}
                                         />
                                     </label>

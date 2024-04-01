@@ -5,12 +5,12 @@
     <div class="row">
         <div class="col-md-8 col-lg-6 mx-auto">
             <div class="text-center">
-            <h1 class="display-4 text-danger">¡Ha ocurrido un error!</h1>
-            <p class="lead">Tu pago no ha sido procesado correctamente. Por favor, inténtalo de nuevo más tarde.</p>
+                <h1 class="display-4 text-danger">¡Ha ocurrido un error!</h1>
+                <p class="lead">Tu pago no ha sido procesado correctamente. Por favor, inténtalo de nuevo más tarde.</p>
             </div>
             <table class="table table-bordered my-4">
                 <tbody>
-            
+
                     <tr>
                         <th>Referencia de Pago</th>
                         <td>{{ $payment->id }}</td>
@@ -22,8 +22,9 @@
                     <tr>
                         <th>Método de Pago:</th>
                         <td>
-        <img src="/images/pse.png" alt="Logo PSE" style="height: 50px; width: auto; margin-right: 20px;" />
-    </td>
+                            <img src="/images/pse.png" alt="Logo PSE"
+                                style="height: 50px; width: auto; margin-right: 20px;" />
+                        </td>
                     </tr>
                     <tr>
                         <th>Dirección IP del Comprador:</th>
