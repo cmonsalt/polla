@@ -6,10 +6,12 @@ function TicketsSection() {
     const [marcadores, setMarcadores] = useState([]);
 
     useEffect(() => {
-        fetch('/api/marcadores')
-            .then(response => response.json())
-            .then(data => setMarcadores(data))
-            .catch(error => console.error('Error al cargar los marcadores:', error));
+        fetch("/api/marcadores")
+            .then((response) => response.json())
+            .then((data) => setMarcadores(data))
+            .catch((error) =>
+                console.error("Error al cargar los marcadores:", error)
+            );
     }, []);
 
     return (
@@ -20,7 +22,10 @@ function TicketsSection() {
             </h4>
             <div className="grid-container">
                 {marcadores.map((marcador, index) => (
-                    <div key={index} className={`circle`}>
+                    <div
+                        key={index}
+                        className={`circle ${!marcador.status ? "gray" : ""}`}
+                    >
                         {marcador.marcador}
                     </div>
                 ))}

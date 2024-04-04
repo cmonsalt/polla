@@ -6,6 +6,7 @@ use App\Http\Controllers\MercadoPagoController;
 use App\Http\Middleware\EnsureIsFromAppFlow;
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -26,6 +27,7 @@ Route::get('/pending', [MercadoPagoController::class, 'pending'])->name('mercado
 
 
 Route::get('/api/marcadores', [MarcadorController::class, 'index']);
+
 
 
 

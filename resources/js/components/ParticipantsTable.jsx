@@ -17,10 +17,7 @@ const ParticipantsTable = ({ participantes }) => {
                             <FontAwesomeIcon icon={faUser} className="icon" />
                             Nombre
                         </th>
-                        <th>
-                            <FontAwesomeIcon icon={faGlobe} className="icon" />
-                            País
-                        </th>
+
                         <th>
                             <FontAwesomeIcon icon={faTicket} className="icon" />
                             Entrada
@@ -32,7 +29,6 @@ const ParticipantsTable = ({ participantes }) => {
                         <tr key={index}>
                             <td>{participante.id}</td>
                             <td>{participante.nombre}</td>
-                            <td>{participante.pais}</td>
                             <td>{participante.resultado}</td>
                         </tr>
                     ))}

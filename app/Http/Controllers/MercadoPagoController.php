@@ -7,9 +7,17 @@ use MercadoPago\SDK;
 use MercadoPago\Item;
 use MercadoPago\Preference;
 use MercadoPago\Payment;
+use App\Services\TransactionService;
 
 class MercadoPagoController extends Controller
 {
+
+    protected $transactionService;
+
+    public function __construct(TransactionService $transactionService)
+    {
+        $this->transactionService = $transactionService;
+    }
     public function createPreference($id, $name, $last_name, $email)
     {
         // Establecer el Access Token
@@ -30,8 +38,8 @@ class MercadoPagoController extends Controller
 
             ),
             "excluded_payment_types" => array(
-                // array("id" => "ticket"),
-                // array("id" => "atm"),
+                array("id" => "ticket"),
+                array("id" => "atm"),
                 // array("id" => "credit_card"),
                 // array("id" => "debit_card")
             ),
@@ -69,9 +77,18 @@ class MercadoPagoController extends Controller
         // Consulta el detalle del pago usando la API de MercadoPago
         $payment = Payment::find_by_id($paymentId);
 
-        $externalReference = $payment->external_reference;
+        if ($payment) {
+            $externalReference = $payment->external_reference;
 
-        return view('layouts.success', ['payment' => $payment, 'externalReference' => $externalReference]);
+            $status = "Aprobado";
+
+            // Aquí llamas a la función de actualización de estado de la transacción.
+            $this->transactionService->updateTransactionStatus($externalReference, $paymentId, $status);
+
+            // Procesamiento adicional, como mostrar una vista de éxito.
+            return view('layouts.success', ['payment' => $payment, 'externalReference' => $externalReference]);
+        }
+        return response()->json(['error' => 'Pago no encontrado'], 404);
     }
     public function failure(Request $request)
     {
@@ -83,10 +100,18 @@ class MercadoPagoController extends Controller
         // Consulta el detalle del pago usando la API de MercadoPago
         $payment = Payment::find_by_id($paymentId);
 
-        // Aquí puedes extraer más datos del pago o del comprador si lo necesitas
-        // Por ejemplo, $payment->transaction_amount para el monto de la transacción
+        if ($payment) {
+            $externalReference = $payment->external_reference;
 
-        return view('layouts.failure', ['payment' => $payment]);
+            $status = "Rechazado";
+
+            // Aquí llamas a la función de actualización de estado de la transacción.
+            $this->transactionService->updateTransactionStatus($externalReference, $paymentId, $status);
+
+            // Procesamiento adicional, como mostrar una vista de éxito.
+            return view('layouts.failure', ['payment' => $payment, 'externalReference' => $externalReference]);
+        }
+
     }
 
     public function pending(Request $request)
@@ -99,10 +124,18 @@ class MercadoPagoController extends Controller
         // Consulta el detalle del pago usando la API de MercadoPago
         $payment = Payment::find_by_id($paymentId);
 
-        // Aquí puedes extraer más datos del pago o del comprador si lo necesitas
-        // Por ejemplo, $payment->transaction_amount para el monto de la transacción
+       
+        if ($payment) {
+            $externalReference = $payment->external_reference;
 
-        return view('layouts.pending', ['payment' => $payment]);
+            $status = "Pendiente";
+
+            // Aquí llamas a la función de actualización de estado de la transacción.
+            $this->transactionService->updateTransactionStatus($externalReference, $paymentId, $status);
+
+            // Procesamiento adicional, como mostrar una vista de éxito.
+            return view('layouts.pending', ['payment' => $payment, 'externalReference' => $externalReference]);
+        }
     }
 
 }

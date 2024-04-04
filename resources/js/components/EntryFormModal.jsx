@@ -17,6 +17,8 @@ const EntryFormModal = ({ onClose }) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isCaptchaVerified, setIsCaptchaVerified] = useState(false);
     const [recaptchaToken, setRecaptchaToken] = useState("");
+    const [errorMessages, setErrorMessages] = useState([]);
+    const [showError, setShowError] = useState(false);
 
     useEffect(() => {
         const fetchCsrfToken = async () => {
@@ -46,7 +48,7 @@ const EntryFormModal = ({ onClose }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setIsSubmitting(true); // Deshabilitar el botón al enviar el formulario
+        setIsSubmitting(true); 
 
         // if (!isCaptchaVerified) {
         //     alert("Por favor, completa el reCAPTCHA.");
@@ -55,8 +57,14 @@ const EntryFormModal = ({ onClose }) => {
         // }
 
         if (formData.email !== formData.confirm_email) {
-            alert("Los correos electrónicos no coinciden.");
-            setIsSubmitting(false); // Re-habilitar el botón si hay un error
+            setErrorMessages(["Los correos electrónicos no coinciden."]);
+            setShowError(true);
+
+            setTimeout(() => {
+                setShowError(false);
+            }, 5000);
+
+            setIsSubmitting(false);
             return;
         }
 
@@ -70,19 +78,22 @@ const EntryFormModal = ({ onClose }) => {
                 body: JSON.stringify({ ...formData, recaptchaToken }),
             });
 
-            const responseData = await response.json(); // Extrae los datos de la respuesta aquí, una sola vez
+            const responseData = await response.json(); 
 
             if (!response.ok) {
-                setIsSubmitting(false); // Re-habilitar el botón si hay un error
-                // Si la respuesta no es ok, maneja los errores
-                if (responseData.errors) {
-                    // Construir el mensaje de error concatenando todos los mensajes
-                    const errorMessage = responseData.errors.join("\n");
-                    alert(errorMessage);
-                } else {
-                    // Si no hay un campo 'errors' específico, maneja el error de otra manera
-                    alert("Ocurrió un error al enviar el formulario.");
-                }
+                console.log(responseData);
+                const errors = responseData.errors
+                    ? responseData.errors
+                    : ["Ocurrió un error al enviar el formulario."];
+                setErrorMessages(errors); 
+                setShowError(true);
+
+                setTimeout(() => {
+                    setShowError(false);
+                }, 5000);
+
+                setIsSubmitting(false); 
+                return;
             } else {
                 // Si la respuesta es exitosa y contiene preferenceId, redirige a MercadoPago
                 // Esto pasa solo cuando se elije la pasarela de pago como medio  de
@@ -123,9 +134,37 @@ const EntryFormModal = ({ onClose }) => {
             autoOpen: true, // Opcional: abre el checkout automáticamente
         });
     };
+    const handleCloseError = () => {
+        setShowError(false);
+    };
 
     return (
         <div className="modal" style={{ display: "block" }}>
+            {showError && (
+                <div
+                    className="alert alert-danger alert-dismissible fade show"
+                    role="alert"
+                    style={{
+                        position: "absolute",
+                        zIndex: 1050,
+                    }}
+                >
+                    <ul>
+                        {errorMessages.map((message, index) => (
+                            <li key={index}>{message}</li>
+                        ))}
+                    </ul>
+                    <button
+                        type="button"
+                        className="close"
+                        data-dismiss="alert"
+                        aria-label="Close"
+                        onClick={handleCloseError}
+                    >
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            )}
             <div className="modal-dialog modal-lg">
                 <div className="modal-content">
                     <div className="modal-header">

@@ -8,7 +8,7 @@ class MarcadorController extends Controller
 {
     public function index()
     {
-        $marcadores = Marcador::where('status', true)->get(['marcador']); // Solo traemos los marcadores disponibles.
+        $marcadores = Marcador::get(['marcador','status']);
         return response()->json($marcadores);
     }
 }

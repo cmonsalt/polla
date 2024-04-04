@@ -7,14 +7,17 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\MercadoPagoController;
 use App\Models\Transaction;
 use GuzzleHttp\Client;
+use App\Services\TicketAvailabilityChecker;
 
 class FormController extends Controller
 {
     protected $mercadoPagoController;
+    protected $availabilityChecker;
 
-    public function __construct(MercadoPagoController $mercadoPagoController)
+    public function __construct(MercadoPagoController $mercadoPagoController, TicketAvailabilityChecker $availabilityChecker)
     {
         $this->mercadoPagoController = $mercadoPagoController;
+        $this->availabilityChecker = $availabilityChecker;
     }
     public function store(Request $request)
     {
@@ -26,7 +29,7 @@ class FormController extends Controller
             'email' => 'required|email|max:50',
             'paymentMethod' => 'required|in:gateway,coupon', // IMPORTANTE: De aqui activo o desactivo el metodo(s) que requiera
             'coupon' => 'required_if:paymentMethod,coupon|string|max:20',
-            'recaptchaToken' => 'required'
+            'recaptchaToken' => 'required',
         ];
 
         // Define los mensajes de error personalizados
@@ -37,7 +40,7 @@ class FormController extends Controller
             'same' => 'El campo :attribute debe coincidir con el campo de confirmación de correo electrónico.',
             'in' => 'El :attribute no es válido.',
             'string' => 'El campo :attribute es obligatorio.',
-
+            'required_if' => 'El campo :attribute es obligatorio cuando el método de pago es cupón.'
         ];
         $attributes = [
             'name' => 'nombre',
@@ -48,6 +51,11 @@ class FormController extends Controller
             'paymentMethod' => 'método de pago',
             'coupon' => 'cupón',
         ];
+
+        if (!$this->availabilityChecker->checkAvailability()) {
+            return response()->json(['errors' => ['No hay entradas disponibles.']], 422);
+        }
+
         // Valida los datos del formulario
         $validator = Validator::make($request->all(), $rules, $messages, $attributes);
         // Si la validación falla, retornar los errores
@@ -59,14 +67,15 @@ class FormController extends Controller
         $client = new Client();
         $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [
             'form_params' => [
-                'secret' => '6LfW2KkpAAAAAIpdAdRx0SFG11ZQ-DtEp2ARMhJq', // Reemplaza con tu clave secreta de reCAPTCHA
+                'secret' => env('RECATCHA_SECRET'),
                 'response' => $recaptchaToken,
             ],
         ]);
+
         $responseData = json_decode($response->getBody(), true);
         if (!$responseData['success']) {
             // El reCAPTCHA no se ha completado correctamente
-            return response()->json(['error' => 'Por favor, completa el reCAPTCHA BACK.'], 422);
+            return response()->json(['errors' => ['Por favor, completa el reCAPTCHA BACK.']], 422);
         }
 
         if ($request->input('paymentMethod') === 'gateway') {
