@@ -14,40 +14,67 @@ class MarkerService
      */
     public static function getMarker(): ?string
     {
-        $porcentajeAvance = self::calcularPorcentajeAvance();
-        $totalEntregados = Marcador::where('status', 0)->count();
+        $entradasVendidas = self::calcularEntradasVendidas();
 
-        if ($totalEntregados == 99) {
-            $resultado = Marcador::where('peso', 'Alto')->where('status', 1)->first();
+        // Obtiene los puntos de cantidad de entradas vendidas definidos en las variables de entorno
+        $puntosAlto = [
+            env('ALTO_ENTRADAS_1'),
+            env('ALTO_ENTRADAS_2'),
+            env('ALTO_ENTRADAS_3'),
+            env('ALTO_ENTRADAS_4'),
+            env('ALTO_ENTRADAS_5'),
+        ];
+
+        // Verifica si la cantidad actual de entradas vendidas coincide con algún punto definido para entregar un "Alto"
+        if (in_array($entradasVendidas, $puntosAlto)) {
+            $resultado = Marcador::where('peso', 'Alto')->where('status', 1)->inRandomOrder()->first();
         } else {
-            $peso = self::determinarPesoPorAvance($porcentajeAvance, $totalEntregados);
-            $resultado = Marcador::where('peso', $peso)->where('status', 1)->inRandomOrder()->first();
+            // Entrega resultados aleatorios si no estamos en un punto específico para "Alto"
+            $resultado = Marcador::where('peso', '!=', 'Alto')->where('status', 1)->inRandomOrder()->first();
         }
 
         if ($resultado) {
             $resultado->status = 0;
             $resultado->save();
+
+            self::updateTicketCount();
+
             return $resultado->marcador;
-        }
-
-        return null;
-    }
-
-    protected static function calcularPorcentajeAvance(): float
-    {
-        $entradasVendidas = DB::table('estados')->value('entradas_vendidas');
-        $totalEntradas = 100;
-        return ($entradasVendidas / $totalEntradas) * 100;
-    }
-
-    protected static function determinarPesoPorAvance(float $porcentajeAvance, int $totalEntregados): string
-    {
-        // La lógica para determinar el peso se mantiene igual
-        if ($porcentajeAvance <= 75) {
-            $altosEntregados = Marcador::where('peso', 'Alto')->where('status', 0)->count();
-            return $altosEntregados < 3 ? 'Alto' : (rand(0, 1) ? 'Medio' : 'Bajo');
         } else {
-            return $totalEntregados < 99 ? (rand(0, 1) ? 'Medio' : 'Bajo') : 'Alto';
+            return null;
         }
     }
+
+    protected static function calcularEntradasVendidas(): int
+    {
+        return DB::table('estados')->value('entradas_vendidas');
+    }
+
+    protected static function updateTicketCount(): void
+    {
+        // Inicia la transacción
+        DB::beginTransaction();
+        try {
+            // Obtén el estado actual de las entradas
+            $estado = DB::table('estados')->first();
+
+            // Asegúrate de que existen entradas disponibles antes de actualizar
+            if ($estado && $estado->entradas_disponibles > 0) {
+                // Actualiza las entradas disponibles y vendidas
+                DB::table('estados')->update([
+                    'entradas_disponibles' => DB::raw('entradas_disponibles - 1'),
+                    'entradas_vendidas' => DB::raw('entradas_vendidas + 1')
+                ]);
+            }
+
+            // Confirma la transacción
+            DB::commit();
+        } catch (\Exception $e) {
+            // Revierte la transacción si hay un error
+            DB::rollBack();
+            // Considera manejar la excepción o rethrowing
+            throw $e;
+        }
+    }
+
 }

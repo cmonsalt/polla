@@ -36,10 +36,6 @@ class TransactionService
 
     // Suponiendo que esta función devuelve el marcador que necesitas asignar.
     // Implementa la lógica necesaria para obtener este valor.
-    protected function getMarker()
-    {
-        // Lógica para obtener un marcador.
-        return '3-1';
-    }
+    
 }
 
