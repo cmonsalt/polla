@@ -38,7 +38,7 @@ export default function App() {
                 <div className="row mt-4">
                     <TicketsSection />
                     <div className="col-md-1"></div>
-                    <div className="col-md-6 border ps-md- d-flex flex-column align-items-center">
+                    <div className="col-md-5 border ps-md- d-flex flex-column align-items-center">
                         <h4 className="title-style">
                             <FontAwesomeIcon icon={faUsers} className="icon" />
                             Participantes

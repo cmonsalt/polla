@@ -8,10 +8,11 @@ export default function PrizeCard() {
             <div className="card text-white justify-content-center card-awards fixed-size-card">
                 <div className="card-body text-center">
                     <h5 className="card-title">
-                        <FontAwesomeIcon icon={faDollarSign} className="icon" />
+                        {/* <FontAwesomeIcon icon={faDollarSign} className="icon" /> */}
+                        🤑
                         Premio
                     </h5>
-                    <p className="card-text">600.000 COP</p>
+                    <p className="card-text"> 💰 1.100.000 $ + 1 Entrada</p>
                 </div>
             </div>
         </div>

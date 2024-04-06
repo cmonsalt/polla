@@ -7,6 +7,14 @@ use Illuminate\Support\Facades\DB; // Importa la fachada DB si decides usar tran
 
 class TransactionService
 {
+    protected $markerService;
+
+    // Inyectar MarkerService en el constructor
+    public function __construct(MarkerService $markerService)
+    {
+        $this->markerService = $markerService;
+    }
+
     public function updateTransactionStatus($id, $paymentId, $status)
     {
         // Opcionalmente, puedes envolver la operación en una transacción de base de datos para garantizar la atomicidad.
@@ -18,7 +26,7 @@ class TransactionService
                 $transaction->status = $status;
 
                 if ($status === 'Aprobado') {
-                    $marcador = $this->getMarker();
+                    $marcador = $this->markerService->getMarker();
                     $transaction->marcador = $marcador;
                 }
                 $transaction->save();
