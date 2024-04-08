@@ -12,7 +12,6 @@ import Footer from "./components/Footer.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
 
-
 window.Navbar = Navbar;
 export default function App() {
     // Datos de prueba para los participantes
@@ -29,16 +28,19 @@ export default function App() {
             <Navbar />
             <div className="container mt-3">
                 <div className="row justify-content-center">
-                    <EventCard />
+                    {/* <EventCard /> */}
                     <PrizeCard />
-                    <TicketsAvailabilityCard />
-                    <TicketsSoldCard />
                 </div>
-                <hr />
                 <div className="row mt-4">
-                    <TicketsSection />
+                    <div className="col-md-6 d-flex flex-column align-items-center bg-col pt-3">
+                        <TicketsSection />
+                        <div className="d-flex justify-content-center pt-3">
+                            <TicketsAvailabilityCard />
+                            <TicketsSoldCard />
+                        </div>
+                    </div>
                     <div className="col-md-1"></div>
-                    <div className="col-md-5 border ps-md- d-flex flex-column align-items-center  bg-col">
+                    <div className="col-md-5 d-flex flex-column align-items-center bg-col pt-3">
                         <h4 className="title-style">
                             <FontAwesomeIcon icon={faUsers} className="icon" />
                             Participantes

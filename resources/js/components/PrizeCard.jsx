@@ -1,20 +1,16 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
+import { faTrophy } from "@fortawesome/free-solid-svg-icons"; // Asegúrate de importar faTrophy
 
-export default function PrizeCard() {
+export default function PrizeInfo() {
     return (
-        <div className="col-12 col-md-3 d-flex flex-column align-items-center">
-            <div className="card justify-content-center card-awards fixed-size-card">
-                <div className="card-body text-center">
-                    <h5 className="card-title">
-                        {/* <FontAwesomeIcon icon={faDollarSign} className="icon" /> */}
-                        🤑
-                        Premio
-                    </h5>
-                    <p className="card-text"> 💰 1.100.000 $ + 1 Entrada</p>
-                </div>
-            </div>
+        <div className="prize-info-container text-center">
+            <FontAwesomeIcon icon={faTrophy} className="trophy-icon" />
+            <h2 className="prize-title">Premio del Evento</h2>
+            <p className="prize-amount">$1,100,000 + Entrada para el Próximo Evento</p>
+            <p className="prize-detail">
+            El ganador se anunciará al término del evento, basado en un partido de fútbol seleccionado por la organización.
+            </p>
         </div>
     );
 }

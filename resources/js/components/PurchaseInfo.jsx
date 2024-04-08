@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import EntryFormModal from "./EntryFormModal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTicket } from "@fortawesome/free-solid-svg-icons";
 
 const PurchaseInfo = () => {
     const [showModal, setShowModal] = useState(false);
@@ -17,8 +19,8 @@ const PurchaseInfo = () => {
 
     return (
         <div>
-            <button className="btn btn-primary mt-4" onClick={handleOpenModal}>
-                Comprar Entrada
+            <button className="btn btn-primary mt-4 cta-button" onClick={handleOpenModal}>
+            <FontAwesomeIcon icon={faTicket} className="icon" />Comprar Entrada
             </button>
             {showModal && (
                 <EntryFormModal onClose={handleCloseModal} />
