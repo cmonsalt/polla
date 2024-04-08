@@ -24,7 +24,7 @@ const PurchaseInfo = () => {
                 <EntryFormModal onClose={handleCloseModal} />
             )}
             <div className="price-info mt-2">
-                Precio Por Entrada: <strong>30.000 COP</strong>
+                Precio Por Entrada: <strong>15.000 COP</strong>
             </div>
         </div>
     );

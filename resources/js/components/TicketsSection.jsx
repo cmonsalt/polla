@@ -15,7 +15,7 @@ function TicketsSection() {
     }, []);
 
     return (
-        <div className="col-md-6 bg-light border pe-md-2 d-flex flex-column align-items-center">
+        <div className="col-md-6 border pe-md-2 d-flex flex-column align-items-center bg-col">
             <h4 className="title-style">
                 <FontAwesomeIcon icon={faTicket} className="icon" />
                 Entradas

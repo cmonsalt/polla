@@ -1,33 +1,39 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  box-sizing: border-box;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%; /* Cambiado de 'height' a 'min-height' */
+    box-sizing: border-box;
 }
 body {
     padding-top: 50px;
     display: flex;
     flex-direction: column;
-  }
-
-  .modal-body {
-    overflow-y: auto; 
-    max-height: 70vh; 
+    background-image: url("/images/fondo.webp"); /* Asegúrate de que esta sea la ruta correcta a tu imagen */
+    background-size: cover; /* La imagen de fondo cubre toda la página, ajustándose según sea necesario */
+    background-position: center center; /* Centra la imagen de fondo horizontal y verticalmente */
+    background-attachment: fixed; /* La imagen de fondo es fija en la ventana gráfica */
+    background-repeat: no-repeat; /* La imagen no se repite */
 }
-  /* body.success-view {
+
+.modal-body {
+    overflow-y: auto;
+    max-height: 70vh;
+}
+/* body.success-view {
     padding-top: 0;
 } */
 
 .grid-container {
-  max-height: 350px; /* O el alto que prefieras */
-  overflow-y: auto; /* Muestra la barra de desplazamiento verticalmente solo si es necesario */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start; /* Ajusta esto según tu necesidad de alineación */
-  gap: 10px; /* Espacio entre los elementos */
+    max-height: 350px; /* O el alto que prefieras */
+    overflow-y: auto; /* Muestra la barra de desplazamiento verticalmente solo si es necesario */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start; /* Ajusta esto según tu necesidad de alineación */
+    gap: 10px; /* Espacio entre los elementos */
 }
-  
-  .grid-container div {
+
+.grid-container div {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -37,102 +43,124 @@ body {
     align-items: center;
     color: white;
     border: 2px solid #fff; /* Añade bordes a los círculos si lo deseas */
-  }
+}
 
-  .circle.gray {
+.circle.gray {
     background-color: #6c757d; /* Cambia el color de fondo a gris */
 }
 
-  
-  /* Añade estilos para las columnas con bordes */
-  .border {
+/* Añade estilos para las columnas con bordes */
+.border {
     border: 1px solid #ddd; /* Añade un borde sutil */
     border-radius: 5px; /* Opcional: para bordes redondeados */
     padding: 15px; /* Añade algo de espacio dentro de las columnas */
+}
+
+.card-state {
+    color: #28a745;
+}
+.card-info {
+  color: #6c757d;
+}
+
+.card-awards {
+  color: #f0ad4e;
+}
+
+.available-slots-card {
+    color: #0275d8;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.7); /* Blanco con opacidad */
+    backdrop-filter: blur(10px); /* Desenfoque del fondo */
+}
+
+/* .custom-navbar-color {
+    background-color: #0275d8; 
   }
-  
-  .card-state{
-    background-color: #28a745;
-  }
-  .card-info{
-    background-color: #6c757d;
-  }
-  
-  .card-awards{
-    background-color: #f0ad4e;
-  }
-  
-  .available-slots-card{
-    background-color: #0275d8;
-  }
-  
-  .custom-navbar-color {
-    background-color: #0275d8; /* Cambia este color por el que desees */
-  }
-  
-  .fixed-size-card {
+   */
+.fixed-size-card {
     height: 85px; /* Altura fija */
     width: 230px; /* Ancho fijo */
-  }
-  
-  .card-title {
-    font-size: 16px; /* O cualquier tamaño que prefieras */
-  }
-  
-  .card-text {
-    font-size: 14px; /* O cualquier tamaño que prefieras */
-  }
-  .table-responsive {
-    max-height: 300px; /* O el valor que prefieras */
-    overflow-y: auto;
-  }
-  
-  .table-responsive thead th {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background-color: white;
-    box-shadow: 0 2px 2px -1px rgba(0,0,0,0.4); /* Opcional: sombra para destacar el encabezado */
-  }
-
-  .my-table th,
-  .my-table td {
-  text-align: center; /* Centra el contenido horizontalmente */
-  padding: 8px; /* Agrega relleno para que el contenido respire */
 }
-  .title-style{
+
+.card-title {
+    font-size: 16px; /* O cualquier tamaño que prefieras */
+}
+
+.card-text {
+    font-size: 14px; /* O cualquier tamaño que prefieras */
+}
+
+.bg-col{
+  background-color: rgba(255, 255, 255, 0.7); 
+}
+
+.table-responsive {
+    border-radius: 8px;
+    overflow: hidden; /* Mantiene el borde redondeado en el scroll */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.my-table {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.my-table thead th {
+    background-color: rgba(0, 123, 255, 0.8); /* Un azul que combine con tu paleta */
+    color: white;
+}
+
+.my-table tbody tr {
+    border-bottom: 1px solid #dee2e6; /* Un borde sutil para separar filas */
+}
+
+.my-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* Resaltado al pasar el cursor */
+}
+
+.my-table td, .my-table th {
+    padding: 12px; /* Espaciado interior para celdas */
+    text-align: left; /* Alineación del texto */
+}
+
+/* Tipografía para el texto dentro de la tabla */
+.my-table th, .my-table td {
+    font-size: 0.9em; /* Ajusta el tamaño de la fuente según sea necesario */
+}
+.title-style {
     color: #17a2b8;
-  }
-  
-  .nav-link-enhanced {
+}
+
+.nav-link-enhanced {
     color: #ffffff !important; /* Asegura que el color sea blanco o cualquier color más claro que el fondo */
-  }
-  
-  .nav-link-enhanced {
+}
+
+.nav-link-enhanced {
     color: #ffffff !important; /* Asegura que el color sea blanco o cualquier color más claro que el fondo */
     transition: opacity 0.5s ease; /* Añade una transición suave para la opacidad */
-  }
-  
-  .nav-link-enhanced:hover {
-    opacity: 0.75; /* Hace el enlace un poco opaco al pasar el mouse */
-  }
-  
-  .price-info{
-    color:#28a745;
-    text-align: left !important;
-  }
+}
 
-  .icon {
+.nav-link-enhanced:hover {
+    opacity: 0.75; /* Hace el enlace un poco opaco al pasar el mouse */
+}
+
+.price-info {
+    color: #28a745;
+    text-align: left !important;
+}
+
+.icon {
     margin-right: 6px;
 }
-  
-  footer a.text-white:hover {
+
+footer a.text-white:hover {
     text-decoration: none;
     color: #ccc; /* Cambia el color al pasar el mouse */
-  }
-  
-  footer{
-    background-color: #0275d8;
-  }
+}
 
-  
+/* footer {
+    background-color: #0275d8;
+} */

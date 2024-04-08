@@ -4,6 +4,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\MarcadorController;
 use App\Http\Controllers\MercadoPagoController;
 use App\Http\Middleware\EnsureIsFromAppFlow;
+use App\Http\Controllers\EntradasController;
 
 
 
@@ -27,6 +28,9 @@ Route::get('/pending', [MercadoPagoController::class, 'pending'])->name('mercado
 
 
 Route::get('/api/marcadores', [MarcadorController::class, 'index']);
+
+Route::get('/api/entradas-disponibles', [EntradasController::class, 'disponibles']);
+Route::get('/api/entradas-vendidas', [EntradasController::class, 'vendidas']);
 
 
 
