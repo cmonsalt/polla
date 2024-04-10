@@ -5,6 +5,8 @@ use App\Http\Controllers\MarcadorController;
 use App\Http\Controllers\MercadoPagoController;
 use App\Http\Middleware\EnsureIsFromAppFlow;
 use App\Http\Controllers\EntradasController;
+use App\Http\Controllers\EventStatusController;
+use App\Http\Controllers\TransactionController;
 
 
 
@@ -31,6 +33,10 @@ Route::get('/api/marcadores', [MarcadorController::class, 'index']);
 
 Route::get('/api/entradas-disponibles', [EntradasController::class, 'disponibles']);
 Route::get('/api/entradas-vendidas', [EntradasController::class, 'vendidas']);
+
+Route::get('/api/estado-evento', [EventStatusController::class, 'show']);
+
+Route::get('/api/participantes-aprobados', [TransactionController::class, 'getApprovedParticipants']);
 
 
 

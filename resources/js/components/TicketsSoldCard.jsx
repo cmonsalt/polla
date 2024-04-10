@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTicket } from "@fortawesome/free-solid-svg-icons";
 
 export default function TicketsSoldCard() {
-    const [entradasVendidas, setEntradasVendidas] = useState(0);
+    const [entradasVendidas, setEntradasVendidas] = useState("Cargando...");
 
     useEffect(() => {
         fetch("/api/entradas-vendidas")

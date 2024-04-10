@@ -1,9 +1,24 @@
-// ParticipantsTable.jsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faListOl, faUser, faGlobe, faTicket } from "@fortawesome/free-solid-svg-icons";
 
-const ParticipantsTable = ({ participantes }) => {
+const ParticipantsTable = () => {
+    const [participantes, setParticipantes] = useState([]);
+
+    useEffect(() => {
+        fetch('/api/participantes-aprobados')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setParticipantes(data);
+            })
+            .catch(error => console.error('Error al obtener los participantes:', error));
+    }, []);
+    
     return (
         <div className="table-responsive">
             <table className="table my-table">
@@ -27,9 +42,9 @@ const ParticipantsTable = ({ participantes }) => {
                 <tbody>
                     {participantes.map((participante, index) => (
                         <tr key={index}>
-                            <td>{participante.id}</td>
+                            <td>{index+1}</td>
                             <td>{participante.nombre}</td>
-                            <td>{participante.resultado}</td>
+                            <td>{participante.marcador}</td>
                         </tr>
                     ))}
                 </tbody>
