@@ -283,13 +283,14 @@ const EntryFormModal = ({ onClose }) => {
                                         className="form-check-label d-flex align-items-center"
                                         htmlFor="gateway"
                                     >
+                                    PSE-Debito-Credito
                                         <img
-                                            src="/images/pse.svg"
+                                            src="/images/pse.png"
                                             alt="Logo PSE"
                                             style={{
-                                                height: "35px",
+                                                height: "30px",
                                                 width: "auto",
-                                                marginRight: "5px",
+                                                marginLeft: "5px",
                                             }}
                                         />
                                     </label>

@@ -98,8 +98,9 @@ body {
 
 .table-responsive {
     border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más suave para mantener la ligereza */
+    overflow-y: auto;
+    box-shadow: 0 2px 4px rgba(171, 12, 12, 0.1);
+    max-height: 260px;
 }
 
 .my-table {
@@ -111,21 +112,21 @@ body {
     background-color: rgba(0, 123, 255, 0.8);
     color: white;
     padding: 8px; /* Reducción del padding */
-    font-size: 0.85em; /* Ligeramente más pequeño */
+    font-size: 0.80em; /* Ligeramente más pequeño */
 }
 
 .my-table tbody tr {
     border-bottom: 1px solid #dee2e6;
 }
 
-.my-table tbody tr:hover {
+/* .my-table tbody tr:hover {
     background-color: rgba(255, 255, 255, 0.9);
-}
+} */
 
 .my-table td, .my-table th {
-    padding: 8px; /* Reducción del padding para hacer las celdas más compactas */
-    text-align: left;
-    font-size: 0.8em; /* Tamaño de fuente reducido para ahorrar espacio */
+    padding: 7px; /* Reducción del padding para hacer las celdas más compactas */
+    font-size: 0.7em; /* Tamaño de fuente reducido para ahorrar espacio */
+    text-align: center;
 }
 
 /* Para títulos fuera de las tablas, si deseas hacerlos más pequeños y sutiles */
@@ -133,6 +134,31 @@ body {
     color: #17a2b8;
     font-size: 1.2em; /* Ajuste del tamaño de fuente del título */
 }
+
+/* Estilos para las filas de la tabla */
+.table-row-odd {
+    background-color: #F8F9FA;  /* Color para filas impares */
+}
+
+.table-row-even {
+    background-color: #ffffff; /* Color para filas pares */
+}
+
+.my-table-wrapper {
+    display: block;
+    max-height: 200px; /* Ajusta según la altura deseada */
+    overflow-y: auto;
+}
+
+.my-table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #5F9EA0; /* O el color de fondo de tu encabezado */
+    color: #FFFFFF;
+    z-index: 1; /* Asegura que el encabezado se sobreponga al contenido del cuerpo */
+}
+
+
 .event-finished-message {
     text-align: center; /* Alinea el texto al centro */
     padding: 10px; /* Menos espacio interior para compactar */
@@ -241,7 +267,7 @@ body {
     background-color: #17a2b8; /* Color llamativo para el fondo */
     color: #ffffff; /* Contraste con el color del texto */
     padding: 10px 20px; /* Espaciado interno para hacerlo grande y fácil de clickear */
-    font-size: 1.25rem; /* Tamaño de la fuente grande y legible */
+    font-size: 1.20rem; /* Tamaño de la fuente grande y legible */
     border: none; /* Sin borde para un diseño moderno */
     border-radius: 5px; /* Bordes redondeados suaves */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */

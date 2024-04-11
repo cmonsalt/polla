@@ -4,7 +4,7 @@
 <div id="react-navbar-container"></div>
 <div class="container h-100 d-flex flex-column justify-content-center">
     <div class="row">
-        <div class="col-md-8 col-lg-6 mx-auto">
+        <div class="col-md-8 col-lg-6 mx-auto prize-info-container">
             <div class="text-center">
                 <h1 class="display-4 text-success">¡Gracias por tu compra!</h1>
                 <p class="lead">Tu pago se ha procesado correctamente.</p>
