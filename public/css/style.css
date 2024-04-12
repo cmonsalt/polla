@@ -134,6 +134,10 @@ body {
     color: #17a2b8;
     font-size: 1.2em; /* Ajuste del tamaño de fuente del título */
 }
+.event-finished-message h3 {
+    color: #DC3545; 
+    font-size: 2em;
+}
 
 /* Estilos para las filas de la tabla */
 .table-row-odd {

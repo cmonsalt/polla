@@ -31,7 +31,7 @@ class MercadoPagoController extends Controller
         $item->title = "Evento";
         $item->description = "Evento";
         $item->quantity = 1;
-        $item->unit_price = "30000";
+        $item->unit_price = env('PRECIO_ENTRADA');
         $preference->items = array($item);
         $preference->payment_methods = array(
             "excluded_payment_methods" => array(

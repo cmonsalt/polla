@@ -66,7 +66,7 @@ export default function App() {
                         <ParticipantsTable />
                         {eventStatus && eventStatus === "Finalizado" && (
                         <div className="event-finished-message">
-                            <h3>¡Gracias por participar!</h3>
+                            <h3 className="event-finished-message">¡Gracias por participar!</h3>
                             <p>El evento ha finalizado. Estén atentos para futuros eventos.</p>
                         </div>
                     )}

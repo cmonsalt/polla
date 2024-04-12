@@ -4,6 +4,9 @@ namespace App\Services;
 
 use App\Models\Marcador; // Asegúrate de que este modelo existe y está correctamente vinculado a tu tabla 'resultados'
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ResultAvailableMail;
+use App\Mail\NoMoreResultsMail;
 
 class MarkerService
 {
@@ -12,7 +15,7 @@ class MarkerService
      *
      * @return string|null
      */
-    public static function getMarker(): ?string
+    public static function getMarker($email): ?string
     {
         $entradasVendidas = self::calcularEntradasVendidas();
 
@@ -39,8 +42,12 @@ class MarkerService
 
             self::updateTicketCount();
 
+            Mail::to($email)->send(new ResultAvailableMail($resultado->marcador));
+
             return $resultado->marcador;
         } else {
+            self::updateTicketCount();
+            Mail::to($email)->send(new NoMoreResultsMail());
             return null;
         }
     }
@@ -52,7 +59,6 @@ class MarkerService
 
     protected static function updateTicketCount(): void
     {
-        // Inicia la transacción
         DB::beginTransaction();
         try {
             // Obtén el estado actual de las entradas
@@ -65,6 +71,10 @@ class MarkerService
                     'entradas_disponibles' => DB::raw('entradas_disponibles - 1'),
                     'entradas_vendidas' => DB::raw('entradas_vendidas + 1')
                 ]);
+                $estado = DB::table('estados')->first();
+            }
+            if ($estado->entradas_disponibles === 0) {
+                DB::table('estados')->update(['estado' => 0]);
             }
 
             // Confirma la transacción

@@ -17,7 +17,6 @@ class TransactionService
 
     public function updateTransactionStatus($id, $paymentId, $status)
     {
-        // Opcionalmente, puedes envolver la operación en una transacción de base de datos para garantizar la atomicidad.
         DB::transaction(function () use ($id, $paymentId, $status) {
             $transaction = Transaction::where('id', $id)->first();
 
@@ -26,16 +25,13 @@ class TransactionService
                 $transaction->status = $status;
 
                 if ($status === 'Aprobado') {
-                    $marcador = $this->markerService->getMarker();
+                    $email = $transaction->email;
+                    $marcador = $this->markerService->getMarker($email);
                     $transaction->marcador = $marcador;
                 }
                 $transaction->save();
             }
         });
     }
-
-    // Suponiendo que esta función devuelve el marcador que necesitas asignar.
-    // Implementa la lógica necesaria para obtener este valor.
-    
 }
 
