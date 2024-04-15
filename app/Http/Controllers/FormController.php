@@ -8,16 +8,20 @@ use App\Http\Controllers\MercadoPagoController;
 use App\Models\Transaction;
 use GuzzleHttp\Client;
 use App\Services\TicketAvailabilityChecker;
+use App\Services\CouponService;
 
 class FormController extends Controller
 {
     protected $mercadoPagoController;
     protected $availabilityChecker;
 
-    public function __construct(MercadoPagoController $mercadoPagoController, TicketAvailabilityChecker $availabilityChecker)
+    protected $couponService;
+
+    public function __construct(MercadoPagoController $mercadoPagoController, TicketAvailabilityChecker $availabilityChecker, CouponService $couponService)
     {
         $this->mercadoPagoController = $mercadoPagoController;
         $this->availabilityChecker = $availabilityChecker;
+        $this->couponService = $couponService;
     }
     public function store(Request $request)
     {
@@ -100,9 +104,16 @@ class FormController extends Controller
             // Devuelve la respuesta de crear la preferencia, que incluye el ID de preferencia
             return $preferenceResponse;
         } else {
-            // Lógica para el método de pago coupon u otros casos
-            // Por ejemplo, puedes procesar el cupón aquí
-            return response()->json(['message' => 'Cupón procesado exitosamente'], 200);
+            $couponCode = $request->input('coupon');
+            $isValidCoupon = $this->couponService->validateCoupon($couponCode);
+
+            if ($isValidCoupon) {
+                // Procesar el cupón válido
+                return response()->json(['message' => 'Cupón procesado exitosamente'], 200);
+            } else {
+                // Manejar el cupón inválido
+                return response()->json(['errors' => ['Cupón inválido o ya ha sido utilizado.']], 422);
+            }
         }
 
 
