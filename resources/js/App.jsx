@@ -13,16 +13,9 @@ import { faUsers } from "@fortawesome/free-solid-svg-icons";
 
 window.Navbar = Navbar;
 export default function App() {
-    // Datos de prueba para los participantes
-    // const participantes = [
-    //     { id: 1, nombre: "Juan Pérez", pais: "España", resultado: "2-1" },
-    //     { id: 2, nombre: "Ana Gómez", pais: "México", resultado: "1-0" },
-    //     { id: 3, nombre: "Marco Rossi", pais: "Italia", resultado: "3-2" },
-    //     { id: 4, nombre: "Marco Rossi", pais: "Italia", resultado: "3-2" },
-    //     { id: 5, nombre: "Marco Rossi", pais: "Italia", resultado: "3-2" },
-    // ];
-
+ 
     const [eventStatus, setEventStatus] = useState("null");
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         fetch("/api/estado-evento")
@@ -31,12 +24,24 @@ export default function App() {
                 setEventStatus(
                     Number(data.estado.estado) === 1 ? "Activo" : "Finalizado"
                 );
+                setIsLoading(false);
             })
             .catch((error) => {
                 console.error("Error al obtener el estado del evento:", error);
                 setEventStatus("Error");
+                setIsLoading(false);
             });
     }, []);
+
+    if (isLoading) {
+        return (
+            <div className="spinner-container d-flex justify-content-center align-items-center">
+                <div className="spinner-border text-primary" role="status">
+                    <span className="sr-only">Cargando...</span>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="App">

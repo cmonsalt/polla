@@ -26,7 +26,9 @@ class TransactionService
 
                 if ($status === 'Aprobado') {
                     $email = $transaction->email;
-                    $marcador = $this->markerService->getMarker($email);
+                    $name = $transaction->name;
+                    $last_name = $transaction->last_name;
+                    $marcador = $this->markerService->getMarker($email, $name, $last_name, $id);
                     $transaction->marcador = $marcador;
                 }
                 $transaction->save();

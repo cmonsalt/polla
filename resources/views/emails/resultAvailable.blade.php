@@ -4,38 +4,59 @@
     <meta charset="UTF-8">
     <title>Resultado Disponible</title>
     <!-- Añade la CDN de Bootstrap para usar sus clases -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f8f9fa; /* Un gris claro, común en los diseños de Bootstrap */
-            color: #333; /* Color de texto más oscuro para mejorar la legibilidad */
-            font-family: Arial, sans-serif; /* Una tipografía más genérica y profesional */
+            background-color: #f8f9fa; 
+            color: #333;
+            font-family: Arial, sans-serif; 
         }
-        .email-container {
-            background-color: #ffffff; /* Fondo blanco para el contenido del correo */
+        .email-table {
+            background-color: #f7f7f7; 
             padding: 20px;
-            margin: 10px auto; /* Centrado automático */
-            border-radius: 8px; /* Bordes redondeados para un look moderno */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra sutil para el contenedor */
-            width: 80%; /* Ajusta al 80% del ancho del contenedor padre */
-            max-width: 600px; /* Máximo ancho de 600px */
+            margin: 0 auto; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+            width: 100%; 
+            max-width: 600px; 
         }
-        .text-success {
-            color: #DC143C; /* Azul de Bootstrap para encabezados */
+        .text-exit {
+            color: #28a745;
+            text-align: center;
         }
-        p {
-            font-size: 18px; /* Aumenta el tamaño de la fuente del párrafo */
-            line-height: 1.6; /* Espaciado de línea para mejor legibilidad */
+        .email-content {
+            font-size: 15px; 
+            line-height: 1.6; 
+            text-align: center;
+        }
+        .marcador-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #0275d8;
+            color: white;
+            line-height: 40px; 
+            border: 1px solid #fff;
+            margin: 0 auto; 
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div class="email-container">
-        <h1 class="text-center text-success">¡Gracias por tu Compra!</h1>
-        <p class="lead text-center">Estaras participando con el resultado: <strong>{{ $marcador }}</strong> <hr>
-        Recuerda estar pendientes de nuestras redes sociales para enterarte cual 
-        sera el partido de futbol que definira el ganador.
-    </p>
-    </div>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" class="email-table">
+        <tr>
+            <td>
+                <p class="email-content">Hola, <strong>{{ $name }} {{ $last_name }}<strong> </p>
+                <h1 class="text-exit">¡Gracias por tu Compra!</h1>
+                <p class="email-content">Tu número de pedido es: <strong>{{ $id }}</strong></p>
+                <p class="email-content">Estarás participando con el marcador:</p>
+                <div class="marcador-circle">{{ $marcador }}</div>
+               
+            </td>
+        </tr>
+        <tr>
+        <p class="email-content">Recuerda estar pendientes de nuestras redes sociales para enterarte de cuál será el partido de fútbol que definirá el ganador.</p>
+        </tr>
+    </table>
 </body>
 </html>

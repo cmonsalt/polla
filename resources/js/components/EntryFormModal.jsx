@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboard } from "@fortawesome/free-solid-svg-icons";
 import ReCAPTCHA from "react-google-recaptcha";
+import { Modal } from "react-bootstrap";
 
 const EntryFormModal = ({ onClose }) => {
     const [formData, setFormData] = useState({
@@ -19,6 +20,8 @@ const EntryFormModal = ({ onClose }) => {
     const [recaptchaToken, setRecaptchaToken] = useState("");
     const [errorMessages, setErrorMessages] = useState([]);
     const [showError, setShowError] = useState(false);
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
 
     useEffect(() => {
         const fetchCsrfToken = async () => {
@@ -48,13 +51,18 @@ const EntryFormModal = ({ onClose }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setIsSubmitting(true); 
+        setIsSubmitting(true);
 
-        // if (!isCaptchaVerified) {
-        //     alert("Por favor, completa el reCAPTCHA.");
-        //     setIsSubmitting(false); // Re-habilitar el botón si hay un error
-        //     return;
-        // }
+        if (!isCaptchaVerified) {
+            setErrorMessages(["Por favor, completa el reCAPTCHA."]);
+            setShowError(true);
+            setTimeout(() => {
+                setShowError(false);
+            }, 5000);
+
+            setIsSubmitting(false);
+            return;
+        }
 
         if (formData.email !== formData.confirm_email) {
             setErrorMessages(["Los correos electrónicos no coinciden."]);
@@ -78,37 +86,44 @@ const EntryFormModal = ({ onClose }) => {
                 body: JSON.stringify({ ...formData, recaptchaToken }),
             });
 
-            const responseData = await response.json(); 
+            const responseData = await response.json();
 
             if (!response.ok) {
-                console.log(responseData);
+                // console.log(responseData);
                 const errors = responseData.errors
                     ? responseData.errors
                     : ["Ocurrió un error al enviar el formulario."];
-                setErrorMessages(errors); 
+                setErrorMessages(errors);
                 setShowError(true);
 
                 setTimeout(() => {
                     setShowError(false);
                 }, 5000);
 
-                setIsSubmitting(false); 
+                setIsSubmitting(false);
                 return;
             } else {
-                // Si la respuesta es exitosa y contiene preferenceId, redirige a MercadoPago
-                // Esto pasa solo cuando se elije la pasarela de pago como medio  de
                 if (responseData.id) {
                     openMercadoPagoCheckout(responseData.id);
                     onClose();
                 } else {
-                    // Si la respuesta es exitosa pero no contiene preferenceId, maneja según corresponda
-                    // Podría ser un caso donde el formulario fue enviado exitosamente sin necesitar ir a MercadoPago
-                    alert("El formulario se envió correctamente.");
-                    onClose(); // Cierra el modal o realiza otra acción necesaria
+                    // alert("El formulario se envió correctamente.");
+                    setSuccessMessage(
+                        "¡Registro exitoso! Bienvenido al sorteo."
+                    );
+                    setShowSuccessModal(true);
+                    setTimeout(() => {
+                        setShowSuccessModal(false);
+                        onClose();
+                        window.location.reload()
+                    }, 5000);
+                  
                 }
             }
         } catch (error) {
             alert("Ocurrió un error al procesar el formulario.");
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -118,20 +133,18 @@ const EntryFormModal = ({ onClose }) => {
     };
 
     const openMercadoPagoCheckout = (preferenceId) => {
-        // Inicializar Mercado Pago SDK con tu Public Key
         const mp = new window.MercadoPago(
             "TEST-ee6a13a8-0e8a-47c4-a052-3e04d42a7175",
             {
-                locale: "es-CO", // Asegúrate de configurar el locale adecuado
+                locale: "es-CO",
             }
         );
 
-        // Abrir el Checkout Pro con el ID de la preferencia
         mp.checkout({
             preference: {
                 id: preferenceId,
             },
-            autoOpen: true, // Opcional: abre el checkout automáticamente
+            autoOpen: true,
         });
     };
     const handleCloseError = () => {
@@ -165,6 +178,43 @@ const EntryFormModal = ({ onClose }) => {
                     </button>
                 </div>
             )}
+            {showSuccessModal && (
+                <div
+                    className="modal d-block"
+                    style={{
+                        backgroundColor: "rgba(0,0,0,0.5)"
+                    }}
+                >
+                    <div className="modal-dialog modal-dialog-centered" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title text-success">Éxito</h5>
+                                <button
+                                    type="button"
+                                    className="close"
+                                    data-dismiss="modal"
+                                    aria-label="Close"
+                                    onClick={() => setShowSuccessModal(false)}
+                                >
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                {successMessage}
+                            </div>
+                            <div className="modal-footer">
+                                <button
+                                    type="button"
+                                    className="btn btn-secondary"
+                                    onClick={() => setShowSuccessModal(false)}
+                                >
+                                    Cerrar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
             <div className="modal-dialog modal-lg">
                 <div className="modal-content">
                     <div className="modal-header">
@@ -184,6 +234,22 @@ const EntryFormModal = ({ onClose }) => {
                         </button>
                     </div>
                     <div className="modal-body">
+                        {isSubmitting && (
+                            <div
+                                className="position-absolute w-100 h-100 d-flex justify-content-center align-items-center"
+                                style={{
+                                    backgroundColor: "rgba(255,255,255,0.5)",
+                                    zIndex: 1050,
+                                }}
+                            >
+                                <div
+                                    className="spinner-border text-primary"
+                                    role="status"
+                                >
+                                    <span className="sr-only">Cargando...</span>
+                                </div>
+                            </div>
+                        )}
                         <input type="hidden" name="_token" value={csrfToken} />
                         <form onSubmit={handleSubmit}>
                             <div className="row">
@@ -283,7 +349,7 @@ const EntryFormModal = ({ onClose }) => {
                                         className="form-check-label d-flex align-items-center"
                                         htmlFor="gateway"
                                     >
-                                    PSE-Debito-Credito
+                                        PSE-Debito-Credito
                                         <img
                                             src="/images/pse.png"
                                             alt="Logo PSE"
@@ -335,7 +401,6 @@ const EntryFormModal = ({ onClose }) => {
                                     />
                                 </div>
                             )}
-
                             <button
                                 type="submit"
                                 className="btn btn-primary mt-3"

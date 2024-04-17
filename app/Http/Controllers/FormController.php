@@ -9,6 +9,7 @@ use App\Models\Transaction;
 use GuzzleHttp\Client;
 use App\Services\TicketAvailabilityChecker;
 use App\Services\CouponService;
+use App\Services\TransactionService;
 
 class FormController extends Controller
 {
@@ -17,19 +18,22 @@ class FormController extends Controller
 
     protected $couponService;
 
-    public function __construct(MercadoPagoController $mercadoPagoController, TicketAvailabilityChecker $availabilityChecker, CouponService $couponService)
+    protected $transactionService;
+
+    public function __construct(MercadoPagoController $mercadoPagoController, TicketAvailabilityChecker $availabilityChecker, CouponService $couponService, TransactionService $transactionService)
     {
         $this->mercadoPagoController = $mercadoPagoController;
         $this->availabilityChecker = $availabilityChecker;
         $this->couponService = $couponService;
+        $this->transactionService = $transactionService;
     }
     public function store(Request $request)
     {
         // Define las reglas de validación para cada campo
         $rules = [
-            'name' => 'required|string|max:50',
-            'last_name' => 'required|string|max:50',
-            'phone' => 'required|string|max:10',
+            'name' => 'required|string|max:50|regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/',
+            'last_name' => 'required|string|max:50|regex:/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/',
+            'phone' => 'required|string|max:10|regex:/^[0-9]+$/',
             'email' => 'required|email|max:50',
             'paymentMethod' => 'required|in:gateway,coupon', // IMPORTANTE: De aqui activo o desactivo el metodo(s) que requiera
             'coupon' => 'required_if:paymentMethod,coupon|string|max:20',
@@ -44,7 +48,10 @@ class FormController extends Controller
             'same' => 'El campo :attribute debe coincidir con el campo de confirmación de correo electrónico.',
             'in' => 'El :attribute no es válido.',
             'string' => 'El campo :attribute es obligatorio.',
-            'required_if' => 'El campo :attribute es obligatorio cuando el método de pago es cupón.'
+            'required_if' => 'El campo :attribute es obligatorio cuando el método de pago es cupón.',
+            'name.regex' => 'El nombre solo puede contener letras y espacios.',
+            'last_name.regex' => 'El apellido solo puede contener letras y espacios.',
+            'phone.regex' => 'El teléfono solo puede contener números.',
         ];
         $attributes = [
             'name' => 'nombre',
@@ -76,11 +83,11 @@ class FormController extends Controller
             ],
         ]);
 
-        $responseData = json_decode($response->getBody(), true);
-        if (!$responseData['success']) {
-            // El reCAPTCHA no se ha completado correctamente
-            return response()->json(['errors' => ['Por favor, completa el reCAPTCHA BACK.']], 422);
-        }
+        // $responseData = json_decode($response->getBody(), true);
+        // if (!$responseData['success']) {
+        //     // El reCAPTCHA no se ha completado correctamente
+        //     return response()->json(['errors' => ['Por favor, completa el reCAPTCHA BACK.']], 422);
+        // }
 
         if ($request->input('paymentMethod') === 'gateway') {
             $id = date('YmdHis') . uniqid();
@@ -109,6 +116,27 @@ class FormController extends Controller
 
             if ($isValidCoupon) {
                 // Procesar el cupón válido
+                $id = date('YmdHis') . uniqid();
+                $name = $request->input('name');
+                $last_name = $request->input('last_name');
+                $email = $request->input('email');
+
+                $transaction = new Transaction();
+                $transaction->id = $id;
+                $transaction->event_name = env('EVENT_NAME');
+                $transaction->payment_method = 'coupon';
+                $transaction->name = strtoupper($request->input('name'));
+                $transaction->last_name = strtoupper($request->input('last_name'));
+                $transaction->phone = $request->input('phone');
+                $transaction->email = $request->input('email');
+                $transaction->status = 'Pendiente';
+                $transaction->save();
+
+                $externalReference = $id;
+                $paymentId = 'coupon';
+                $status = "Aprobado";
+
+                $this->transactionService->updateTransactionStatus($externalReference, $paymentId, $status);
                 return response()->json(['message' => 'Cupón procesado exitosamente'], 200);
             } else {
                 // Manejar el cupón inválido

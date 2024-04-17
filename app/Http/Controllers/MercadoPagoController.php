@@ -46,12 +46,7 @@ class MercadoPagoController extends Controller
             "installments" => 6,
             "default_installments" => 1
         );
-        // $preference->payer = array(
-        //     "name" => $name,
-        //     "surname" => $last_name,
-        //     "email" => $email,
-        // );
-
+       
         $preference->external_reference = $id;
 
         // Asegúrate de que estas URLs sean accesibles y manejen la lógica post-pago

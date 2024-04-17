@@ -15,7 +15,7 @@ class MarkerService
      *
      * @return string|null
      */
-    public static function getMarker($email): ?string
+    public static function getMarker($email,$name, $last_name, $id): ?string
     {
         $entradasVendidas = self::calcularEntradasVendidas();
 
@@ -42,12 +42,11 @@ class MarkerService
 
             self::updateTicketCount();
 
-            Mail::to($email)->send(new ResultAvailableMail($resultado->marcador));
+            Mail::to($email)->send(new ResultAvailableMail($resultado->marcador,$name,$last_name,$id));
 
             return $resultado->marcador;
         } else {
-            self::updateTicketCount();
-            Mail::to($email)->send(new NoMoreResultsMail());
+            Mail::to($email)->send(new NoMoreResultsMail($name,$last_name,$id));
             return null;
         }
     }
