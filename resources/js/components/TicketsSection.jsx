@@ -18,7 +18,7 @@ function TicketsSection() {
         <div className="pe-md-2 d-flex flex-column align-items-center">
             <h4 className="title-style">
                 <FontAwesomeIcon icon={faTicket} className="icon" />
-                Entradas
+                Marcadores
             </h4>
             <div className="grid-container">
                 {marcadores.map((marcador, index) => (

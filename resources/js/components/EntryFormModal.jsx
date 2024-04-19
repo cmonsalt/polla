@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboard } from "@fortawesome/free-solid-svg-icons";
 import ReCAPTCHA from "react-google-recaptcha";
-import { Modal } from "react-bootstrap";
+
 
 const EntryFormModal = ({ onClose }) => {
     const [formData, setFormData] = useState({

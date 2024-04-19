@@ -24,7 +24,7 @@ export default function TicketsSoldCard() {
             <p className="info-text highlight">{entradasVendidas}</p>
             <h6 className="info-title">
                 <FontAwesomeIcon icon={faTicket} className="icon" />
-                Adquiridas
+                Adquiridos
             </h6>
         </div>
     );

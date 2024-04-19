@@ -1,18 +1,11 @@
 import React from "react";
 
-export default function Navbar({ eventStatus }) {
+export default function Navbar() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark custom-navbar-color fixed-top">
+        <nav className="navbar navbar-expand-lg navbar-dark">
             <a className="navbar-brand" href="#">
-                PollaLatina.com
-                <div className={`event-status ${eventStatus.toLowerCase()}`}>
-                    {eventStatus}
-                    {eventStatus === "Activo" && (
-                        <span className="blinking-dot"></span>
-                    )}
-                </div>
+                <img className="logo" src="/images/logo.png" alt="logo" />
             </a>
-
             <button
                 className="navbar-toggler"
                 type="button"

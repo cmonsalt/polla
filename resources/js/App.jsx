@@ -13,7 +13,6 @@ import { faUsers } from "@fortawesome/free-solid-svg-icons";
 
 window.Navbar = Navbar;
 export default function App() {
- 
     const [eventStatus, setEventStatus] = useState("null");
     const [isLoading, setIsLoading] = useState(true);
 
@@ -45,38 +44,51 @@ export default function App() {
 
     return (
         <div className="App">
-            <Navbar eventStatus={eventStatus} />
-            <div className="container mt-3">
-                <div className="row justify-content-center">
-                    <PrizeCard />
-                </div>
-                <div className="row mt-4">
-                    <div className="col-md-6 d-flex flex-column align-items-center bg-col pt-3">
-                        <TicketsSection />
-                        <div className="d-flex justify-content-center pt-3">
-                            <TicketsAvailabilityCard />
-                            <TicketsSoldCard />
+            <Navbar />
+            <div className={`event-status ${eventStatus.toLowerCase()}`}>
+                {eventStatus}
+                {eventStatus === "Activo" && (
+                    <span className="blinking-dot"></span>
+                )}
+            </div>
+            <div className="container">
+                <div className="row mt-4 bg-col">
+                    <div className="col-md-4 d-flex flex-column align-items-center pt-3">
+                        <div className="containers h-100">
+                            <PrizeCard>
+                                {eventStatus === "Activo" && <PurchaseInfo />}
+                                {eventStatus &&
+                                    eventStatus === "Finalizado" && (
+                                        <div className="event-finished-message">
+                                            <h3 className="event-finished-message">
+                                                ¡Gracias por participar!
+                                            </h3>
+                                            <p>
+                                                El evento ha finalizado. Estén
+                                                atentos para futuros eventos.
+                                            </p>
+                                        </div>
+                                    )}
+                            </PrizeCard>
                         </div>
-                        <p className="prize-detail">
-                            El sistema asigna aleatoriamente la Entrada despues
-                            de realizar el pago
-                        </p>
                     </div>
-                    <div className="col-md-1"></div>
-                    <div className="col-md-5 d-flex flex-column align-items-center bg-col pt-3">
-                        <h4 className="title-style">
-                            <FontAwesomeIcon icon={faUsers} className="icon" />
-                            Participantes
-                        </h4>
-                        <ParticipantsTable />
-                        {eventStatus && eventStatus === "Finalizado" && (
-                        <div className="event-finished-message">
-                            <h3 className="event-finished-message">¡Gracias por participar!</h3>
-                            <p>El evento ha finalizado. Estén atentos para futuros eventos.</p>
+                    <div className="col-md-4 d-flex flex-column align-items-center pt-3">
+                        <div className="containers h-100">
+                            <TicketsSection />
+                            <div className="d-flex justify-content-center pt-3">
+                                <TicketsAvailabilityCard />
+                                <TicketsSoldCard />
+                            </div>
+                            <p className="prize-detail">
+                                El sistema asigna aleatoriamente la Entrada
+                                despues de realizar el pago
+                            </p>
                         </div>
-                    )}
-                    {/* Renderiza el componente PurchaseInfo solo si el estado del evento es 'Activo' */}
-                    {eventStatus === "Activo" && <PurchaseInfo />}
+                    </div>
+                    <div className="col-md-4 d-flex flex-column align-items-center pt-3">
+                        <div className="containers h-100">
+                            <ParticipantsTable />
+                        </div>
                     </div>
                 </div>
             </div>

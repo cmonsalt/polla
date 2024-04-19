@@ -2,11 +2,11 @@ html,
 body {
     margin: 0;
     padding: 0;
-    min-height: 100%; /* Cambiado de 'height' a 'min-height' */
+    min-height: 100%;
     box-sizing: border-box;
 }
 body {
-    padding-top: 40px;
+    padding-top: 0px;
     display: flex;
     flex-direction: column;
     background-image: url("/images/fondo.webp"); /* Asegúrate de que esta sea la ruta correcta a tu imagen */
@@ -16,11 +16,15 @@ body {
     background-repeat: no-repeat; /* La imagen no se repite */
 }
 
+.logo{
+    height: 70px; 
+    width: auto;
+}
+
 .modal-body {
     overflow-y: auto;
     max-height: 70vh;
 }
-
 
 .grid-container {
     max-height: 230px; /* Ajusta la altura máxima si es necesario */
@@ -30,6 +34,11 @@ body {
     justify-content: start; /* Alinea los elementos al inicio */
     gap: 5px; /* Reduce el espacio entre los elementos para hacerlo más compacto */
     padding: 0.5rem; /* Agrega algo de padding dentro del contenedor */
+}
+.navbar{
+    padding-left: 1rem; 
+    padding-right: 1rem; 
+    background-color: rgba(0, 0, 0, 0.2); 
 }
 
 .grid-container div {
@@ -72,6 +81,7 @@ body {
     background-color: #0275d8; 
   }
    */
+
 .fixed-size-card {
     height: auto; /* Altura fija */
     width: auto; /* Ancho fijo */
@@ -92,7 +102,7 @@ body {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Opcional: añade una sombra para un mayor énfasis */
 }
 
-.bg-col{
+.bg-col {
   background-color: rgba(255, 255, 255, 0.7); 
 }
 
@@ -182,13 +192,9 @@ body {
   }
   
   
-
 .nav-link-enhanced {
     color: #ffffff !important; /* Asegura que el color sea blanco o cualquier color más claro que el fondo */
-}
-
-.nav-link-enhanced {
-    color: #ffffff !important; /* Asegura que el color sea blanco o cualquier color más claro que el fondo */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
     transition: opacity 0.5s ease; /* Añade una transición suave para la opacidad */
 }
 
@@ -204,11 +210,12 @@ body {
     display: block; /* Asegura que se muestre en una nueva línea */
     text-align: center;
     margin-top: 4px; /* Espacio sobre el estado */
+    margin-left: 4px;
+    max-width: 120px;
   }
   
   .event-status.finalizado {
     background-color: rgba(220, 53, 69, 0.8);
-
   }
   .blinking-dot {
     display: inline-block;
@@ -226,17 +233,12 @@ body {
   }
   
 
-.price-info {
-    color: #28a745;
-    text-align: left !important;
-}
-
 .icon {
     margin-right: 6px;
 }
-.prize-info-container {
+.containers {
     padding: 1.5rem; /* Menos padding para compactar */
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.5);
     border: 1px solid #ddd;
     border-radius: 8px;
     margin: 0.5rem 0; /* Menos margen para reducir espacio */
@@ -293,4 +295,45 @@ footer a.text-white:hover {
 /* footer {
     background-color: #0275d8;
 } */
+
+/* Estilos para móviles */
+@media (max-width: 768px) {
+    .logo{
+        height: 80px; 
+    }
+    .navbar-toggler {
+        margin-left: auto; 
+    }
+
+    .navbar-brand {
+        flex-grow: 1; 
+        text-align: center;
+    }
+
+    .navbar-brand img.logo {
+        margin: auto; 
+    }
+
+    .navbar-collapse {
+        text-align: center;
+    }
+
+    .nav-link {
+        padding: 0.5rem 1rem; 
+    }
+
+    .event-status {
+        max-width: 100%;
+        margin-left: 0px;
+        font-size: 1.3rem; 
+      }
+
+      .blinking-dot {
+        width: 13px;
+        height: 13px;
+      }
+      .prize-detail {
+        font-size: 1.1rem; 
+    }
+}
 

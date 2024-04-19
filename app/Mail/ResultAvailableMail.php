@@ -18,7 +18,7 @@ class ResultAvailableMail extends Mailable
     protected $id;
 
 
-    public function __construct($marcador,$name,$last_name,$id)
+    public function __construct($marcador, $name, $last_name, $id)
     {
         $this->marcador = $marcador;
         $this->name = $name;

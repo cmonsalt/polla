@@ -19,15 +19,15 @@ const PurchaseInfo = () => {
 
     return (
         <div>
-            <button className="btn btn-primary mt-4 cta-button" onClick={handleOpenModal}>
+            <button className="btn btn-primary cta-button" onClick={handleOpenModal}>
             <FontAwesomeIcon icon={faTicket} className="icon" />Comprar Entrada
             </button>
             {showModal && (
                 <EntryFormModal onClose={handleCloseModal} />
             )}
-            <div className="price-info mt-2">
-                Precio Por Entrada: <strong>17.000 COP</strong>
-            </div>
+            {/* <div className="price-info mt-2">
+                Precio Por Marcador: <strong>17.000 COP</strong>
+            </div> */}
         </div>
     );
 }
