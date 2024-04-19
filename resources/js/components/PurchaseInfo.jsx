@@ -13,23 +13,25 @@ const PurchaseInfo = () => {
     const handleCloseModal = () => {
         setShowModal(false);
     };
-    window.addEventListener('popstate', () => {
+    window.addEventListener("popstate", () => {
         setShowModal(false);
     });
 
     return (
         <div>
-            <button className="btn btn-primary cta-button" onClick={handleOpenModal}>
-            <FontAwesomeIcon icon={faTicket} className="icon" />Comprar Entrada
+            <button
+                className="btn btn-primary cta-button"
+                onClick={handleOpenModal}
+            >
+                <FontAwesomeIcon icon={faTicket} className="icon" />
+                Comprar Marcador
             </button>
-            {showModal && (
-                <EntryFormModal onClose={handleCloseModal} />
-            )}
-            {/* <div className="price-info mt-2">
-                Precio Por Marcador: <strong>17.000 COP</strong>
-            </div> */}
+            {showModal && <EntryFormModal onClose={handleCloseModal} />}
+            <div className="price-info mt-2">
+                Precio Por Marcador: <strong>$20.000 COP</strong>
+            </div>
         </div>
     );
-}
+};
 
 export default PurchaseInfo;

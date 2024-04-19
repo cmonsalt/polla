@@ -9,7 +9,8 @@ import ParticipantsTable from "./components/ParticipantsTable.jsx";
 import PurchaseInfo from "./components/PurchaseInfo.jsx";
 import Footer from "./components/Footer.jsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faFacebookF, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+
 
 window.Navbar = Navbar;
 export default function App() {
@@ -52,7 +53,7 @@ export default function App() {
                 )}
             </div>
             <div className="container">
-                <div className="row mt-4 bg-col">
+                <div className="row bg-row">
                     <div className="col-md-4 d-flex flex-column align-items-center pt-3">
                         <div className="containers h-100">
                             <PrizeCard>
@@ -70,6 +71,32 @@ export default function App() {
                                         </div>
                                     )}
                             </PrizeCard>
+                            <div className="social-icons">
+                            <a
+                                href="https://www.instagram.com/tucuenta"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="instagram-icon"
+                            >
+                                <FontAwesomeIcon icon={faInstagram} size="2x" />
+                            </a>
+                            <a
+                                href="https://www.facebook.com/tucuenta"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="facebook-icon"
+                            >
+                                <FontAwesomeIcon icon={faFacebookF} size="2x" />
+                            </a>
+                            <a
+                                href="https://wa.me/tunumero"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="whatsapp-icon"
+                            >
+                                <FontAwesomeIcon icon={faWhatsapp} size="2x" />
+                            </a>
+                        </div>
                         </div>
                     </div>
                     <div className="col-md-4 d-flex flex-column align-items-center pt-3">
@@ -80,7 +107,7 @@ export default function App() {
                                 <TicketsSoldCard />
                             </div>
                             <p className="prize-detail">
-                                El sistema asigna aleatoriamente la Entrada
+                                *El sistema asigna aleatoriamente los marcadores
                                 despues de realizar el pago
                             </p>
                         </div>

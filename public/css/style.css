@@ -16,8 +16,8 @@ body {
     background-repeat: no-repeat; /* La imagen no se repite */
 }
 
-.logo{
-    height: 70px; 
+.logo {
+    height: 70px;
     width: auto;
 }
 
@@ -35,17 +35,17 @@ body {
     gap: 5px; /* Reduce el espacio entre los elementos para hacerlo más compacto */
     padding: 0.5rem; /* Agrega algo de padding dentro del contenedor */
 }
-.navbar{
-    padding-left: 1rem; 
-    padding-right: 1rem; 
-    background-color: rgba(0, 0, 0, 0.2); 
+.navbar {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .grid-container div {
     width: 40px; /* Reduce el tamaño de los círculos */
     height: 40px; /* Reduce el tamaño de los círculos */
     border-radius: 50%; /* Mantiene la forma circular */
-    background-color: #0275d8; /* Mantiene el color de fondo azul */
+    background-color: #17a2b8; /* Mantiene el color de fondo azul */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,7 +58,6 @@ body {
     background-color: #6c757d; /* Mantiene el color de fondo gris para círculos inactivos */
 }
 
-
 /* Añade estilos para las columnas con bordes */
 .border {
     border: 1px solid #ddd; /* Añade un borde sutil */
@@ -66,16 +65,13 @@ body {
     padding: 15px; /* Añade algo de espacio dentro de las columnas */
 }
 
-
 .info-sold {
-  color: #6c757d;
+    color: #6c757d;
 }
-
 
 .info-available {
-    color: #0275d8;
+    color: #17a2b8;
 }
-
 
 /* .custom-navbar-color {
     background-color: #0275d8; 
@@ -102,27 +98,32 @@ body {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Opcional: añade una sombra para un mayor énfasis */
 }
 
-.bg-col {
+/* .bg-row {
   background-color: rgba(255, 255, 255, 0.7); 
-}
+} */
 
 .table-responsive {
     border-radius: 8px;
     overflow-y: auto;
     box-shadow: 0 2px 4px rgba(171, 12, 12, 0.1);
-    max-height: 260px;
+    max-height: 350px;
 }
 
 .my-table {
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.8); /* Considera reducir la opacidad para mayor contraste */
+    background-color: rgba(
+        255,
+        255,
+        255,
+        0.8
+    ); /* Considera reducir la opacidad para mayor contraste */
 }
 
 .my-table thead th {
     background-color: rgba(0, 123, 255, 0.8);
     color: white;
     padding: 8px; /* Reducción del padding */
-    font-size: 0.80em; /* Ligeramente más pequeño */
+    font-size: 0.8em; /* Ligeramente más pequeño */
 }
 
 .my-table tbody tr {
@@ -133,7 +134,8 @@ body {
     background-color: rgba(255, 255, 255, 0.9);
 } */
 
-.my-table td, .my-table th {
+.my-table td,
+.my-table th {
     padding: 7px; /* Reducción del padding para hacer las celdas más compactas */
     font-size: 0.7em; /* Tamaño de fuente reducido para ahorrar espacio */
     text-align: center;
@@ -144,14 +146,10 @@ body {
     color: #17a2b8;
     font-size: 1.2em; /* Ajuste del tamaño de fuente del título */
 }
-.event-finished-message h3 {
-    color: #DC3545; 
-    font-size: 2em;
-}
 
 /* Estilos para las filas de la tabla */
 .table-row-odd {
-    background-color: #F8F9FA;  /* Color para filas impares */
+    background-color: #f8f9fa; /* Color para filas impares */
 }
 
 .table-row-even {
@@ -167,31 +165,28 @@ body {
 .my-table thead th {
     position: sticky;
     top: 0;
-    background-color: #5F9EA0; /* O el color de fondo de tu encabezado */
-    color: #FFFFFF;
+    background-color: #5f9ea0; /* O el color de fondo de tu encabezado */
+    color: #ffffff;
     z-index: 1; /* Asegura que el encabezado se sobreponga al contenido del cuerpo */
 }
 
-
 .event-finished-message {
     text-align: center; /* Alinea el texto al centro */
-    padding: 10px; /* Menos espacio interior para compactar */
     background: none; /* Sin fondo para mantener el diseño limpio */
-    margin-top: 10px; /* Menos margen superior para mantenerlo cerca del contenido anterior */
     font-size: 0.9rem; /* Un tamaño de fuente más pequeño */
     color: #343a40; /* Un color oscuro que asumo es parte de tu paleta */
-  }
-  
-  .event-finished-message h3 {
-    margin-bottom: 5px; /* Menos margen inferior para compactar */
-    font-weight: normal; /* Peso de la fuente normal para no ser demasiado dominante */
-  }
-  
-  .event-finished-message p {
+}
+
+.event-finished-message h3 {
+    color: #dc3545;
+    font-size: 2em;
+    font-weight: normal;
+}
+
+.event-finished-message p {
     margin-bottom: 0; /* Sin margen inferior para evitar espacio extra */
-  }
-  
-  
+}
+
 .nav-link-enhanced {
     color: #ffffff !important; /* Asegura que el color sea blanco o cualquier color más claro que el fondo */
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
@@ -212,33 +207,37 @@ body {
     margin-top: 4px; /* Espacio sobre el estado */
     margin-left: 4px;
     max-width: 120px;
-  }
-  
-  .event-status.finalizado {
+}
+
+.event-status.finalizado {
     background-color: rgba(220, 53, 69, 0.8);
-  }
-  .blinking-dot {
+}
+.blinking-dot {
     display: inline-block;
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #00FF00;
+    background-color: #00ff00;
     margin-left: 5px;
-    animation: blink-animation 1.5s infinite; 
-  }
-  
-  @keyframes blink-animation {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-  
+    animation: blink-animation 1.5s infinite;
+}
+
+@keyframes blink-animation {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
 
 .icon {
     margin-right: 6px;
 }
 .containers {
     padding: 1.5rem; /* Menos padding para compactar */
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid #ddd;
     border-radius: 8px;
     margin: 0.5rem 0; /* Menos margen para reducir espacio */
@@ -267,25 +266,80 @@ body {
 .prize-detail {
     font-size: 0.9rem; /* Detalles más pequeños */
     margin-top: 0.5rem;
-    color: #6c757d;
+    color: #495057;
 }
+
+.price-info {
+    font-weight: 400;
+    margin-top: 10px; /* Espacio por encima del precio para separarlo del botón */
+}
+
+.price-info strong {
+    font-weight: 700; /* Peso de fuente más fuerte para el precio */
+    color: #17a2b8; /* Color que combina con el botón de compra */
+}
+
+.no-participants-alert {
+    color: #155724; /* Un verde oscuro para el texto */
+    background-color: #d4edda; /* Un verde claro para el fondo */
+    border-color: #c3e6cb; /* Un verde intermedio para el borde */
+    padding: 1rem; /* Un relleno generoso para la alerta */
+    border-radius: .25rem; /* Bordes redondeados */
+    font-weight: 400; /* Hacer el texto en negritas */
+    text-align: center; /* Centrar el texto */
+    margin-top: 2rem; /* Agregar espacio en la parte superior */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Una ligera sombra para dar profundidad */
+}
+
+
 .cta-button {
-    background-color: #17a2b8; /* Color llamativo para el fondo */
-    color: #ffffff; /* Contraste con el color del texto */
-    padding: 10px 20px; /* Espaciado interno para hacerlo grande y fácil de clickear */
-    font-size: 1.20rem; /* Tamaño de la fuente grande y legible */
-    border: none; /* Sin borde para un diseño moderno */
-    border-radius: 5px; /* Bordes redondeados suaves */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para profundidad */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Transiciones suaves para efectos interactivos */
+    background-color: #17a2b8;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.cta-button:hover, .cta-button:focus {
-    background-color: #159ab6; /* Un tono ligeramente más oscuro al pasar el cursor o enfocar */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Sombra más prominente al pasar el cursor */
-    cursor: pointer; /* Cambiar el cursor para indicar la interactividad */
+.cta-button:hover,
+.cta-button:focus {
+    background-color: #159ab6;
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño del botón */
+    cursor: pointer;
+}
+  
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espacio entre iconos */
+    padding-top: 3rem; /* Espacio por encima de los iconos */
 }
 
+.social-icons a {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-icons a:hover,
+.social-icons a:focus {
+    transform: scale(1.1); /* Aumenta el tamaño ligeramente */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.instagram-icon .fa-instagram {
+    color: #c13584; /* Color de Instagram */
+}
+
+.facebook-icon .fa-facebook-f {
+    color: #3b5998; /* Color de Facebook */
+}
+
+.whatsapp-icon .fa-whatsapp {
+    color: #25d366; /* Color de WhatsApp */
+}
 
 footer a.text-white:hover {
     text-decoration: none;
@@ -298,20 +352,20 @@ footer a.text-white:hover {
 
 /* Estilos para móviles */
 @media (max-width: 768px) {
-    .logo{
-        height: 80px; 
+    .logo {
+        height: 80px;
     }
     .navbar-toggler {
-        margin-left: auto; 
+        margin-left: auto;
     }
 
     .navbar-brand {
-        flex-grow: 1; 
+        flex-grow: 1;
         text-align: center;
     }
 
     .navbar-brand img.logo {
-        margin: auto; 
+        margin: auto;
     }
 
     .navbar-collapse {
@@ -319,21 +373,21 @@ footer a.text-white:hover {
     }
 
     .nav-link {
-        padding: 0.5rem 1rem; 
+        padding: 0.5rem 1rem;
     }
 
     .event-status {
         max-width: 100%;
         margin-left: 0px;
-        font-size: 1.3rem; 
-      }
+        font-size: 1.3rem;
+    }
 
-      .blinking-dot {
+    .blinking-dot {
         width: 13px;
         height: 13px;
-      }
-      .prize-detail {
-        font-size: 1.1rem; 
+    }
+    .prize-detail {
+        font-size: 1.1rem;
     }
 }
 

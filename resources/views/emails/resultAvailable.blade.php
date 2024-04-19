@@ -33,7 +33,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background-color: #0275d8;
+            background-color: #17a2b8;
             color: white;
             line-height: 40px; 
             border: 1px solid #fff;

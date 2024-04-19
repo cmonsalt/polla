@@ -263,6 +263,7 @@ const EntryFormModal = ({ onClose }) => {
                                             value={formData.name}
                                             onChange={handleChange}
                                             className="form-control"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -278,6 +279,7 @@ const EntryFormModal = ({ onClose }) => {
                                             value={formData.last_name}
                                             onChange={handleChange}
                                             className="form-control"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -293,6 +295,7 @@ const EntryFormModal = ({ onClose }) => {
                                             value={formData.phone}
                                             onChange={handleChange}
                                             className="form-control"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -311,6 +314,7 @@ const EntryFormModal = ({ onClose }) => {
                                             value={formData.email}
                                             onChange={handleChange}
                                             className="form-control"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -326,6 +330,7 @@ const EntryFormModal = ({ onClose }) => {
                                             value={formData.confirm_email}
                                             onChange={handleChange}
                                             className="form-control"
+                                            required
                                         />
                                     </div>
                                 </div>
@@ -344,6 +349,7 @@ const EntryFormModal = ({ onClose }) => {
                                         }
                                         onChange={handleChange}
                                         className="form-check-input"
+                                        required
                                     />
                                     <label
                                         className="form-check-label d-flex align-items-center"
@@ -385,6 +391,7 @@ const EntryFormModal = ({ onClose }) => {
                                 <ReCAPTCHA
                                     sitekey="6LfW2KkpAAAAAKKagjTC-G14JJ7fxCpP3T2kPgYM"
                                     onChange={handleCaptchaVerify}
+                                    required
                                 />
                             </div>
 
