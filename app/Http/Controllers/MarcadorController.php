@@ -8,7 +8,7 @@ class MarcadorController extends Controller
 {
     public function index()
     {
-        $marcadores = Marcador::get(['marcador','status']);
+        $marcadores = Marcador::get(['marcador','status', 'peso']);
         return response()->json($marcadores);
     }
 }

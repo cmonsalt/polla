@@ -55,7 +55,7 @@ export default function App() {
             <div className="container">
                 <div className="row bg-row">
                     <div className="col-md-4 d-flex flex-column align-items-center pt-3">
-                        <div className="containers h-100">
+                        <div className="containers h-100 w-100">
                             <PrizeCard>
                                 {eventStatus === "Activo" && <PurchaseInfo />}
                                 {eventStatus &&
@@ -100,7 +100,7 @@ export default function App() {
                         </div>
                     </div>
                     <div className="col-md-4 d-flex flex-column align-items-center pt-3">
-                        <div className="containers h-100">
+                        <div className="containers h-100 w-100">
                             <TicketsSection />
                             <div className="d-flex justify-content-center pt-3">
                                 <TicketsAvailabilityCard />
@@ -113,7 +113,7 @@ export default function App() {
                         </div>
                     </div>
                     <div className="col-md-4 d-flex flex-column align-items-center pt-3">
-                        <div className="containers h-100">
+                        <div className="containers h-100 w-100">
                             <ParticipantsTable />
                         </div>
                     </div>

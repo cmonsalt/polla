@@ -32,7 +32,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: start; /* Alinea los elementos al inicio */
-    gap: 5px; /* Reduce el espacio entre los elementos para hacerlo más compacto */
+    gap: 10px; /* Reduce el espacio entre los elementos para hacerlo más compacto */
     padding: 0.5rem; /* Agrega algo de padding dentro del contenedor */
 }
 .navbar {
@@ -389,5 +389,72 @@ footer a.text-white:hover {
     .prize-detail {
         font-size: 1.1rem;
     }
+}
+
+/* Estilos para marcadores de peso Alto */
+.alto::before {
+    content: '⭐';
+    font-size: 8px;
+    color: #fff;
+    background-color: #DAA520; /* Color para marcadores de peso Alto */
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 5px;
+    border-radius: 0 0 5px 5px;
+}
+
+.alto {
+    position: relative;
+    border: 1px solid #DAA520; /* Color del borde para marcadores de peso Alto */
+}
+
+/* Estilos para marcadores de peso Medio */
+.medio::before {
+    content: '⭐';
+    font-size: 8px;
+    color: #fff;
+    background-color: #FF8C00; /* Color para marcadores de peso Medio */
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 5px;
+    border-radius: 0 0 5px 5px;
+}
+
+.medio {
+    position: relative;
+    border: 1px solid #FF8C00; /* Color del borde para marcadores de peso Medio */
+}
+
+/* Estilos para marcadores de peso Bajo */
+.bajo::before {
+    content: '⭐';
+    font-size: 8px;
+    color: #fff;
+    background-color: #CD5C5C; /* Color para marcadores de peso Bajo */
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 5px;
+    border-radius: 0 0 5px 5px;
+}
+
+.bajo {
+    position: relative;
+    border: 1px solid #CD5C5C; /* Color del borde para marcadores de peso Bajo */
+}
+
+
+.circle {
+    transition: transform 0.3s ease;
+}
+
+.circle:hover {
+    transform: scale(1.1);
+    z-index: 10;
 }
 

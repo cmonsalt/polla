@@ -9,7 +9,7 @@ import {
 
 const ParticipantsTable = () => {
     const [participantes, setParticipantes] = useState([]);
-    const [isLoading, setIsLoading] = useState(true); 
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsLoading(true);
@@ -24,16 +24,20 @@ const ParticipantsTable = () => {
                 setParticipantes(data);
                 setIsLoading(false);
             })
-            .catch((error) =>
-            setIsLoading(false)
+            .catch(
+                (error) => setIsLoading(false)
                 // console.error("Error al obtener los participantes:", error)
             );
     }, []);
 
     if (isLoading) {
         return (
-            <div className="spinner-border text-primary" role="status">
-                <span className="sr-only">Cargando...</span>
+            <div
+                className="d-flex justify-content-center"
+            >
+                <div className="spinner-border text-primary" role="status">
+                    <span className="visually-hidden"></span>
+                </div>
             </div>
         );
     }
@@ -94,7 +98,9 @@ const ParticipantsTable = () => {
                 </div>
             ) : (
                 <div className="no-participants-alert" role="alert">
-                     ¡Sé el primero en participar! Todavía estamos esperando a que los valientes den el paso. Compra tu marcador y reclama tu lugar en la competencia.
+                    ¡Sé el primero en participar! Todavía estamos esperando a
+                    que los valientes den el paso. Compra tu marcador y reclama
+                    tu lugar en la competencia.
                 </div>
             )}
         </div>
