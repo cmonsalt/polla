@@ -15,7 +15,9 @@ function TicketsSection() {
         fetch("/api/marcadores")
             .then((response) => response.json())
             .then((data) => setMarcadores(data))
-            .catch((error) => console.error("Error al cargar los marcadores:", error));
+            .catch((error) =>
+                console.error("Error al cargar los marcadores:", error)
+            );
     }, []);
 
     const getMarcadorWeightClass = (marcador) => {
@@ -56,19 +58,22 @@ function TicketsSection() {
                         className="tooltipg"
                         style={{
                             position: "fixed",
-                            top: `${tooltip.y}px`,
-                            left: `${tooltip.x}px`,
+                            top: "20%", // Centrar verticalmente
+                            left: "50%", // Centrar horizontalmente
+                            transform: "translate(-50%, -50%)", // Ajustar el desplazamiento para centrar el elemento
                             padding: "10px 20px",
                             backgroundColor: "#333333",
                             color: "white",
                             borderRadius: "5px",
-                            zIndex: 9999,
+                            zIndex: 2,
                             display: "block",
-                            minWidth: "500px",
-                            maxWidth: "500px",
+                            minWidth: "40%", // Usar un porcentaje para que sea responsivo
+                            maxWidth: "40%", 
                             height: "auto",
                             whiteSpace: "normal",
                             overflowWrap: "break-word",
+                            boxSizing: "border-box", // Asegura que el padding esté incluido en el ancho
+                            fontSize: "0.9rem",
                         }}
                         dangerouslySetInnerHTML={{ __html: tooltip.content }}
                     />
@@ -76,8 +81,12 @@ function TicketsSection() {
                 {marcadores.map((marcador, index) => (
                     <div
                         key={index}
-                        className={`circle ${!marcador.status ? "gray" : ""} ${getMarcadorWeightClass(marcador)}`}
-                        onMouseEnter={(e) => showTooltip(e, getTooltipContent(marcador))}
+                        className={`circle ${
+                            !marcador.status ? "gray" : ""
+                        } ${getMarcadorWeightClass(marcador)}`}
+                        onMouseEnter={(e) =>
+                            showTooltip(e, getTooltipContent(marcador))
+                        }
                         onMouseLeave={hideTooltip}
                     >
                         {marcador.marcador}
@@ -89,15 +98,21 @@ function TicketsSection() {
 }
 
 function getTooltipContent(marcador) {
+    const statusText =
+        marcador.status === 1 ? "✅ Listo para ser asignado" : "❌ Ya asignado";
+
     switch (marcador.peso) {
         case "Alto":
-            return `<span class="alto"></span> <strong>¡Gran oportunidad!</strong> Este es uno de los marcadores más comunes en el fútbol.<br/>Si se te asigna, estarás a un paso de ganar el premio mayor. ¡Suerte! <br>${marcador.status === 1 ? "✅ Disponible Para Entregar" : "❌ Entregado"}`;
+            return `📈 <span className="alto">Probabilidad Alta De Ganar</span> - <strong>¡${marcador.marcador} Muy codiciado!</strong> Este marcador es común en partidos de fútbol. <br/>Si el sistema te lo asigna, posees una gran oportunidad de ganar el PREMIO CAMPEON. ${statusText}`;
+
         case "Medio":
-            return `🌟 <strong>Este resultado no es muy común,</strong> pero si coincide con el segundo lugar determinado por la organización, ganarás un cupón para participar gratis en el próximo evento.Estado: ${marcador.status === 1 ? "✅ Disponible Para Entregar" : "❌ Entregado"}`;
+            return `📊 <span className="medio">Probabilidad Media De Ganar</span> - <strong>¡${marcador.marcador} Suficientemente habitual!</strong> Aunque este marcador ocurre con menos frecuencia, tus posibilidades de ganar el PREMIO CAMPEON son todavía significativas. </br> ${statusText}`;
+
         case "Bajo":
-            return `🌟 <strong>Poco probable, pero no imposible.</strong> Si este resultado coincide con el segundo lugar determinado por la organización, también ganarás un cupón para el próximo evento.Estado: ${marcador.status === 1 ? "✅ Disponible Para Entregar" : "❌ Entregado"}`;
+            return `📉 <span className="bajo">Probabilidad Baja De Ganar</span> - <strong>¡${marcador.marcador} Infrecuente!</strong> Aunque este marcador se da raramente, si coincide con el resultado establecido por la organizacion para el SUBCAMPEÓN, serás premiado con un cupón para participar en el próximo evento sin costo. </br> ${statusText}`;
+
         default:
-            return `Marcador disponible. Si tu compra es exitosa, se te asignará uno al azar. ¡Que la suerte esté de tu lado!</div><div>Estado: ${marcador.status === 1 ? "✅ Disponible Para Entregar" : "❌ Entregado"}</div>`;
+            return `<span className="default">Categoría no especificada</span> - Cualquier marcador puede ser el ganador. <br/>Tras tu compra, se te asignará uno de manera aleatoria. ¡La fortuna juega un papel crucial! ${statusText}`;
     }
 }
 

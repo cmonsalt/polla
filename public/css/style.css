@@ -137,7 +137,7 @@ body {
 .my-table td,
 .my-table th {
     padding: 7px; /* Reducción del padding para hacer las celdas más compactas */
-    font-size: 0.7em; /* Tamaño de fuente reducido para ahorrar espacio */
+    font-size: 0.65em; /* Tamaño de fuente reducido para ahorrar espacio */
     text-align: center;
 }
 
@@ -245,21 +245,21 @@ body {
 }
 
 .trophy-icon {
-    font-size: 2.5rem; /* Ícono más pequeño */
+    font-size: 1.75rem; /* Ícono más pequeño */
     color: #ffd700;
     margin-bottom: 0.75rem; /* Menos espacio debajo del ícono */
 }
 
 .prize-title {
-    font-size: 1.5rem; /* Título más pequeño */
+    font-size: 1.33rem; /* Título más pequeño */
     color: #333;
     margin-bottom: 0.25rem; /* Menos espacio entre el título y la cantidad */
 }
 
 .prize-amount {
-    font-size: 1.25rem; /* Texto de cantidad más pequeño */
+    font-size: 0.5rem; /* Texto de cantidad más pequeño */
     font-weight: bold;
-    color: #27a745;
+    color: #2e8b57;
     margin-bottom: 0.75rem; /* Menos espacio entre la cantidad y los detalles */
 }
 
@@ -271,7 +271,11 @@ body {
 
 .price-info {
     font-weight: 400;
-    margin-top: 10px; /* Espacio por encima del precio para separarlo del botón */
+    font-size: 0.95rem;
+}
+
+.fa-2x {
+    font-size: 1.75em;
 }
 
 .price-info strong {
@@ -284,13 +288,12 @@ body {
     background-color: #d4edda; /* Un verde claro para el fondo */
     border-color: #c3e6cb; /* Un verde intermedio para el borde */
     padding: 1rem; /* Un relleno generoso para la alerta */
-    border-radius: .25rem; /* Bordes redondeados */
+    border-radius: 0.25rem; /* Bordes redondeados */
     font-weight: 400; /* Hacer el texto en negritas */
     text-align: center; /* Centrar el texto */
     margin-top: 2rem; /* Agregar espacio en la parte superior */
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Una ligera sombra para dar profundidad */
 }
-
 
 .cta-button {
     background-color: #17a2b8;
@@ -309,14 +312,13 @@ body {
     transform: scale(1.05); /* Aumenta ligeramente el tamaño del botón */
     cursor: pointer;
 }
-  
 
 .social-icons {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px; /* Espacio entre iconos */
-    padding-top: 3rem; /* Espacio por encima de los iconos */
+    padding-top: 20px; /* Espacio por encima de los iconos */
 }
 
 .social-icons a {
@@ -340,6 +342,86 @@ body {
 .whatsapp-icon .fa-whatsapp {
     color: #25d366; /* Color de WhatsApp */
 }
+.alto::before {
+    content: "📈";
+    font-size: 15px;
+    color: #fff;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 5px;
+    border-radius: 0 0 5px 5px;
+}
+
+.alto {
+    position: relative;
+    border: 1px solid #daa520; /* Color del borde para marcadores de peso Alto */
+}
+
+/* Estilos para marcadores de peso Medio */
+.medio::before {
+    content: "📊";
+    font-size: 15px;
+    color: #fff;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 5px;
+    border-radius: 0 0 5px 5px;
+}
+
+.medio {
+    position: relative;
+    border: 1px solid #333; /* Color del borde para marcadores de peso Medio */
+}
+
+/* Estilos para marcadores de peso Bajo */
+.bajo::before {
+    content: "📉";
+    font-size: 15px;
+    color: #fff;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 5px;
+    border-radius: 0 0 5px 5px;
+}
+
+.bajo {
+    position: relative;
+    border: 1px solid #333; /* Color del borde para marcadores de peso Bajo */
+}
+
+.circle {
+    transition: transform 0.3s ease;
+}
+
+.circle:hover {
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+.lead {
+    font-size: 1.1rem; /* Aumentar el tamaño de fuente para que sea consistente con el cambio en .text-primary */
+    font-weight: 600; /* Hacer el texto más grueso para mejorar la legibilidad */
+    /* Otras propiedades */
+}
+.text-primary,
+.text-secondary {
+    font-size: 1.3rem; /* Aumento para subtítulos */
+    /* Otras propiedades */
+}
+
+.text-campeon,
+.text-subcampeon {
+    font-size: 1.3rem;
+    color: #004085; /* Azul oscuro para el campeón */
+}
+
+
 
 footer a.text-white:hover {
     text-decoration: none;
@@ -386,75 +468,18 @@ footer a.text-white:hover {
         width: 13px;
         height: 13px;
     }
-    .prize-detail {
-        font-size: 1.1rem;
+    .tooltipg {
+        top: 50%;
+        min-width: 70%;
+        max-width: 70%;
     }
+    
+.tooltipg{
+    top: 50% !important;
+    left: 50% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+
 }
 
-/* Estilos para marcadores de peso Alto */
-.alto::before {
-    content: '⭐';
-    font-size: 8px;
-    color: #fff;
-    background-color: #DAA520; /* Color para marcadores de peso Alto */
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 2px 5px;
-    border-radius: 0 0 5px 5px;
 }
-
-.alto {
-    position: relative;
-    border: 1px solid #DAA520; /* Color del borde para marcadores de peso Alto */
-}
-
-/* Estilos para marcadores de peso Medio */
-.medio::before {
-    content: '⭐';
-    font-size: 8px;
-    color: #fff;
-    background-color: #FF8C00; /* Color para marcadores de peso Medio */
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 2px 5px;
-    border-radius: 0 0 5px 5px;
-}
-
-.medio {
-    position: relative;
-    border: 1px solid #FF8C00; /* Color del borde para marcadores de peso Medio */
-}
-
-/* Estilos para marcadores de peso Bajo */
-.bajo::before {
-    content: '⭐';
-    font-size: 8px;
-    color: #fff;
-    background-color: #CD5C5C; /* Color para marcadores de peso Bajo */
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 2px 5px;
-    border-radius: 0 0 5px 5px;
-}
-
-.bajo {
-    position: relative;
-    border: 1px solid #CD5C5C; /* Color del borde para marcadores de peso Bajo */
-}
-
-
-.circle {
-    transition: transform 0.3s ease;
-}
-
-.circle:hover {
-    transform: scale(1.1);
-    z-index: 10;
-}
-
