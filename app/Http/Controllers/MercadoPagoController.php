@@ -49,7 +49,6 @@ class MercadoPagoController extends Controller
        
         $preference->external_reference = $id;
 
-        // Asegúrate de que estas URLs sean accesibles y manejen la lógica post-pago
         $preference->back_urls = array(
             "success" => url('/success'),
             "failure" => url('/failure'),

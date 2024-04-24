@@ -16,24 +16,29 @@ class TransactionService
     }
 
     public function updateTransactionStatus($id, $paymentId, $status)
-    {
-        DB::transaction(function () use ($id, $paymentId, $status) {
-            $transaction = Transaction::where('id', $id)->first();
+{
+    DB::transaction(function () use ($id, $paymentId, $status) {
+        $transaction = Transaction::where('id', $id)->first();
 
-            if ($transaction) {
-                $transaction->reference = $paymentId;
-                $transaction->status = $status;
+        // Verifica si la transacción ya ha sido procesada con el mismo estado y referencia de pago.
+        if ($transaction && $transaction->status !== $status && $transaction->reference !== $paymentId) {
+            $transaction->reference = $paymentId;
+            $transaction->status = $status;
 
-                if ($status === 'Aprobado') {
-                    $email = $transaction->email;
-                    $name = $transaction->name;
-                    $last_name = $transaction->last_name;
-                    $marcador = $this->markerService->getMarker($email, $name, $last_name, $id);
-                    $transaction->marcador = $marcador;
-                }
-                $transaction->save();
+            if ($status === 'Aprobado') {
+                // Asume que 'getMarker' es idempotente o tiene su propia lógica para evitar duplicación.
+                $email = $transaction->email;
+                $name = $transaction->name;
+                $last_name = $transaction->last_name;
+                $marcador = $this->markerService->getMarker($email, $name, $last_name, $id);
+                $transaction->marcador = $marcador;
+
+                // Aquí deberías incluir también el envío del email y cualquier otra lógica relacionada
             }
-        });
-    }
+            $transaction->save();
+        }
+    });
+}
+
 }
 

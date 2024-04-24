@@ -2,14 +2,14 @@
 
 @section('content')
 <div id="react-navbar-container"></div>
-<div class="container h-100 d-flex flex-column justify-content-center">
+<div class="container d-flex flex-column justify-content-center">
     <div class="row">
-        <div class="col-md-8 col-lg-6 mx-auto prize-info-container">
+        <div class="mx-auto containers">
             <div class="text-center">
                 <h1 class="display-4 text-success">¡Gracias por tu compra!</h1>
-                <p class="lead">Tu pago se ha procesado correctamente.</p>
+                <p class="leadWarning">Tu pago se ha procesado correctamente.</p>
             </div>
-            <table class="table table-bordered my-4">
+            <table class="table table-bordered table-bordered-black my-4">
                 <tbody>
 
                     <tr>
@@ -23,8 +23,7 @@
                     <tr>
                         <th>Método de Pago:</th>
                         <td>
-                            <img src="/images/pse.png" alt="Logo PSE"
-                                style="height: 50px; width: auto; margin-right: 20px;" />
+                        <p>PSE</p>
                         </td>
                     </tr>
                     <tr>
@@ -38,7 +37,7 @@
                 </tbody>
             </table>
             <div class="text-center">
-                <a href="/" class="btn btn-primary">Volver al Inicio</a>
+                <a href="/" class="btn btn-primary cta-button">Volver al Inicio</a>
             </div>
         </div>
     </div>

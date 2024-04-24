@@ -106,7 +106,7 @@ body {
     border-radius: 8px;
     overflow-y: auto;
     box-shadow: 0 2px 4px rgba(171, 12, 12, 0.1);
-    max-height: 350px;
+    max-height: 360px;
 }
 
 .my-table {
@@ -168,6 +168,11 @@ body {
     background-color: #5f9ea0; /* O el color de fondo de tu encabezado */
     color: #ffffff;
     z-index: 1; /* Asegura que el encabezado se sobreponga al contenido del cuerpo */
+}
+
+.table-bordered-black td,
+.table-bordered-black th {
+    border-color: #333 !important;
 }
 
 .event-finished-message {
@@ -407,6 +412,12 @@ body {
 .lead {
     font-size: 1.1rem; /* Aumentar el tamaño de fuente para que sea consistente con el cambio en .text-primary */
     font-weight: 600; /* Hacer el texto más grueso para mejorar la legibilidad */
+    /* Otras propiedades */
+}
+
+.leadWarning {
+    font-size: 1.1rem; 
+    font-weight: 300; /* Hacer el texto más grueso para mejorar la legibilidad */
     /* Otras propiedades */
 }
 .text-primary,

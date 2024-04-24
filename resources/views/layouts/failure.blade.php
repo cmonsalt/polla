@@ -4,12 +4,12 @@
 <div id="react-navbar-container"></div>
 <div class="container h-100 d-flex flex-column justify-content-center prize-info-container">
     <div class="row">
-        <div class="col-md-8 col-lg-6 mx-auto">
+        <div class="mx-auto containers">
             <div class="text-center">
                 <h1 class="display-4 text-danger">¡Ha ocurrido un error!</h1>
-                <p class="lead">Tu pago no ha sido procesado correctamente. Por favor, inténtalo de nuevo más tarde.</p>
+                <p class="leadWarning">Tu pago no ha sido procesado correctamente. Por favor, inténtalo de nuevo más tarde.</p>
             </div>
-            <table class="table table-bordered my-4">
+            <table class="table table-bordered table-bordered-black my-4">
                 <tbody>
 
                     <tr>
@@ -23,8 +23,7 @@
                     <tr>
                         <th>Método de Pago:</th>
                         <td>
-                            <img src="/images/pse.png" alt="Logo PSE"
-                                style="height: 50px; width: auto; margin-right: 20px;" />
+                            <p>PSE</p>
                         </td>
                     </tr>
                     <tr>
@@ -38,7 +37,7 @@
                 </tbody>
             </table>
             <div class="text-center">
-                <a href="{{ url('/') }}" class="btn btn-primary">Volver al inicio</a>
+                <a href="{{ url('/') }}" class="btn btn-primary cta-button">Volver al inicio</a>
             </div>
         </div>
     </div>
