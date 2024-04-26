@@ -8,6 +8,8 @@ import TicketsSection from "./components/TicketsSection.jsx";
 import ParticipantsTable from "./components/ParticipantsTable.jsx";
 import PurchaseInfo from "./components/PurchaseInfo.jsx";
 import Footer from "./components/Footer.jsx";
+import SorteoExplicacionModal from "./components/SorteoExplicacionModal";
+import TerminosYCondicionesModal from "./components/TerminosYCondicionesModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faFacebookF,
@@ -19,6 +21,20 @@ window.Navbar = Navbar;
 export default function App() {
     const [eventStatus, setEventStatus] = useState("null");
     const [isLoading, setIsLoading] = useState(true);
+
+    const [isSorteoModalOpen, setIsSorteoModalOpen] = useState(false);
+    const [isTyCModalOpen, setIsTyCModalOpen] = useState(false);
+
+    const openSorteoModal = () => setIsSorteoModalOpen(true);
+    const closeSorteoModal = () => setIsSorteoModalOpen(false);
+
+    const openTyCModal = () => setIsTyCModalOpen(true);
+    const closeTyCModal = () => setIsTyCModalOpen(false);
+
+    // const handleCloseModal = () => {
+    //     console.log("Closing modal"); // Añade un log para confirmar que se invoca esta función
+    //     setIsModalOpen(false);
+    // };
 
     useEffect(() => {
         fetch("/api/estado-evento")
@@ -48,17 +64,31 @@ export default function App() {
 
     return (
         <div className="App">
-            <Navbar />
-            <div className={`event-status ${eventStatus.toLowerCase()}`}>
-                {eventStatus}
-                {eventStatus === "Activo" && (
-                    <span className="blinking-dot"></span>
-                )}
-            </div>
+            <Navbar
+                onOpenSorteoModal={openSorteoModal}
+                onOpenTyCModal={openTyCModal}
+            />
+            <SorteoExplicacionModal
+                isOpen={isSorteoModalOpen}
+                onClose={closeSorteoModal}
+            />
+            <TerminosYCondicionesModal
+                isOpen={isTyCModalOpen}
+                onClose={closeTyCModal}
+            />
+
             <div className="container">
                 <div className="row bg-row">
                     <div className="col-md-4 d-flex flex-column align-items-center pt-3">
                         <div className="containers h-100 w-100">
+                            <div
+                                className={`event-status ${eventStatus.toLowerCase()} flex-container`}
+                            >
+                                <span>Evento #1 {eventStatus}</span>
+                                {eventStatus === "Activo" && (
+                                    <span className="blinking-dot"></span>
+                                )}
+                            </div>
                             <PrizeCard>
                                 {eventStatus === "Activo" && <PurchaseInfo />}
                                 {eventStatus &&

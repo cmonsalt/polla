@@ -202,7 +202,7 @@ body {
     opacity: 0.75; /* Hace el enlace un poco opaco al pasar el mouse */
 }
 .event-status {
-    font-size: 0.75rem; /* Tamaño de fuente pequeño */
+    font-size: 1.3rem; /* Tamaño de fuente pequeño */
     color: #fff; /* Color de texto que contraste con tu barra de navegación */
     background-color: rgba(40, 167, 69, 0.8);
     padding: 2px 4px; /* Un poco de relleno alrededor del texto */
@@ -210,8 +210,12 @@ body {
     display: block; /* Asegura que se muestre en una nueva línea */
     text-align: center;
     margin-top: 4px; /* Espacio sobre el estado */
-    margin-left: 4px;
-    max-width: 120px;
+}
+
+.event-status span {
+    font-size: 1rem; /* Ajusta esto según el diseño */
+    font-weight: 600; /* Para darle énfasis */
+    letter-spacing: 0.05em; /* Espaciado entre letras para mejor legibilidad */
 }
 
 .event-status.finalizado {
@@ -219,8 +223,8 @@ body {
 }
 .blinking-dot {
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background-color: #00ff00;
     margin-left: 5px;
@@ -416,7 +420,7 @@ body {
 }
 
 .leadWarning {
-    font-size: 1.1rem; 
+    font-size: 1.1rem;
     font-weight: 300; /* Hacer el texto más grueso para mejorar la legibilidad */
     /* Otras propiedades */
 }
@@ -432,7 +436,25 @@ body {
     color: #004085; /* Azul oscuro para el campeón */
 }
 
+.flex-container {
+    margin-bottom: 20px;
+}
 
+.info-section-title {
+    color: #004085;
+}
+
+.step-header {
+    color: #155724;
+}
+
+.img-rounded-top {
+    width: 95%;
+    height: auto;
+    margin-bottom: 20px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
 
 footer a.text-white:hover {
     text-decoration: none;
@@ -484,13 +506,11 @@ footer a.text-white:hover {
         min-width: 70%;
         max-width: 70%;
     }
-    
-.tooltipg{
-    top: 50% !important;
-    left: 50% !important;
-    min-width: 100% !important;
-    max-width: 100% !important;
 
-}
-
+    .tooltipg {
+        top: 50% !important;
+        left: 50% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+    }
 }

@@ -44,6 +44,7 @@
 </head>
 <body>
     <table align="center" border="0" cellpadding="0" cellspacing="0" class="email-table">
+        <tr><img src="http://localhost:8000/images/logo.png" alt="logo"></tr>
         <tr>
             <td>
                 <p class="email-content">Hola, <strong>{{ $name }} {{ $last_name }}<strong> </p>

@@ -410,7 +410,7 @@ const EntryFormModal = ({ onClose }) => {
                             )}
                             <button
                                 type="submit"
-                                className="btn btn-primary mt-3"
+                                className="btn btn-primary mt-3 cta-button"
                                 disabled={isSubmitting}
                             >
                                 {formData.paymentMethod === "gateway"

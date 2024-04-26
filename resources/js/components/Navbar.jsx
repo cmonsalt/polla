@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Navbar() {
+export default function Navbar({ onOpenSorteoModal, onOpenTyCModal }) {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark">
             <a className="navbar-brand" href="#">
@@ -25,12 +25,10 @@ export default function Navbar() {
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link nav-link-enhanced" href="#">
-                            Funcionamiento
-                        </a>
+                    <a className="nav-link nav-link-enhanced" href="#" onClick={onOpenSorteoModal}>¿Cómo funciona el sorteo?</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link nav-link-enhanced" href="#">
+                        <a className="nav-link nav-link-enhanced"  href="#" onClick={onOpenTyCModal}>
                             Términos y Condiciones
                         </a>
                     </li>

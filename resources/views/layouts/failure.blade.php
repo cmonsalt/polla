@@ -37,7 +37,7 @@
                 </tbody>
             </table>
             <div class="text-center">
-                <a href="{{ url('/') }}" class="btn btn-primary cta-button">Volver al inicio</a>
+                <a href="{{ url('/') }}" class="btn btn-primary cta-button">Volver al Inicio</a>
             </div>
         </div>
     </div>
