@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTicket } from "@fortawesome/free-solid-svg-icons";
 
 export default function TicketsAvailabilityCard() {
-    const [entradasDisponibles, setEntradasDisponibles] = useState(0);
+    const [entradasDisponibles, setEntradasDisponibles] = useState("Cargando...");
 
     useEffect(() => {
         // Realiza la petición al servidor para obtener las entradas disponibles

@@ -38,6 +38,18 @@ export default function PrizeInfo({ children }) {
                     </a>
                     .
                 </p>
+                <p className="prize-detail">
+                    Los marcadores se asignan de forma aleatoria una vez
+                    completado el pago.{" "}
+                    <a
+                        href="#"
+                        className="terms-link"
+                        // onClick={openSorteoModal}
+                    >
+                        Términos y Condiciones
+                    </a>
+                    .
+                </p>
             </div>
 
             <div className="d-flex justify-content-center">{children}</div>

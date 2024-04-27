@@ -31,7 +31,8 @@ body {
     overflow-y: auto; /* Permite desplazamiento vertical si el contenido excede el max-height */
     display: flex;
     flex-wrap: wrap;
-    justify-content: start; /* Alinea los elementos al inicio */
+    justify-content: center; /* Alinea los elementos al inicio */
+    align-items: center;
     gap: 10px; /* Reduce el espacio entre los elementos para hacerlo más compacto */
     padding: 0.5rem; /* Agrega algo de padding dentro del contenedor */
 }
@@ -251,6 +252,7 @@ body {
     border-radius: 8px;
     margin: 0.5rem 0; /* Menos margen para reducir espacio */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .trophy-icon {

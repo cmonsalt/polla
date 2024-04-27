@@ -90,7 +90,7 @@ export default function App() {
                                 )}
                             </div>
                             <PrizeCard>
-                                {eventStatus === "Activo" && <PurchaseInfo />}
+                                {/* {eventStatus === "Activo" && <PurchaseInfo />}
                                 {eventStatus &&
                                     eventStatus === "Finalizado" && (
                                         <div className="event-finished-message">
@@ -102,7 +102,7 @@ export default function App() {
                                                 atentos para futuros eventos.
                                             </p>
                                         </div>
-                                    )}
+                                    )} */}
                             </PrizeCard>
                             <div className="social-icons">
                                 <a
@@ -148,17 +148,18 @@ export default function App() {
                                 <TicketsAvailabilityCard />
                                 <TicketsSoldCard />
                             </div>
-                            <p className="prize-detail">
-                                Los marcadores se asignan de forma aleatoria una
-                                vez completado el pago.{" "}
-                                <a
-                                    href="/terminos-y-condiciones"
-                                    className="terms-link"
-                                >
-                                    Términos y Condiciones
-                                </a>
-                                .
-                            </p>
+                            {eventStatus === "Activo" && <PurchaseInfo />}
+                            {eventStatus && eventStatus === "Finalizado" && (
+                                <div className="event-finished-message">
+                                    <h3 className="event-finished-message">
+                                        ¡Gracias por participar!
+                                    </h3>
+                                    <p>
+                                        El evento ha finalizado. Estén atentos
+                                        para futuros eventos.
+                                    </p>
+                                </div>
+                            )}
                         </div>
                     </div>
                     <div className="col-md-4 d-flex flex-column align-items-center pt-3">
