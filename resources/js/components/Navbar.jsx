@@ -1,9 +1,15 @@
 import React from "react";
 
-export default function Navbar({ onOpenSorteoModal, onOpenTyCModal }) {
+export default function Navbar({
+    onOpenSorteoModal,
+    onOpenTyCModal,
+    onOpenPremiosModal,
+    onOpenPreguntasFrecuentesModal,
+    onOpenContactoModal,
+}) {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark">
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" href="/">
                 <img className="logo" src="/images/logo.png" alt="logo" />
             </a>
             <button
@@ -20,20 +26,52 @@ export default function Navbar({ onOpenSorteoModal, onOpenTyCModal }) {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ml-auto">
                     <li className="nav-item">
-                        <a className="nav-link nav-link-enhanced" href="#">
+                        <a className="nav-link nav-link-enhanced" href="/">
                             Inicio
                         </a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link nav-link-enhanced" href="#" onClick={onOpenSorteoModal}>¿Cómo funciona el sorteo?</a>
+                        <a
+                            className="nav-link nav-link-enhanced"
+                            href="#"
+                            onClick={onOpenSorteoModal}
+                        >
+                            ¿Cómo funciona el sorteo?
+                        </a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link nav-link-enhanced"  href="#" onClick={onOpenTyCModal}>
+                        <a
+                            className="nav-link nav-link-enhanced"
+                            href="#"
+                            onClick={onOpenTyCModal}
+                        >
                             Términos y Condiciones
                         </a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link nav-link-enhanced" href="#">
+                        <a
+                            className="nav-link nav-link-enhanced"
+                            href="#"
+                            onClick={onOpenPremiosModal}
+                        >
+                            Premios
+                        </a>
+                    </li>
+                    <li className="nav-item">
+                        <a
+                            className="nav-link nav-link-enhanced"
+                            href="#"
+                            onClick={onOpenPreguntasFrecuentesModal}
+                        >
+                            Preguntas Frecuentes
+                        </a>
+                    </li>
+                    <li className="nav-item">
+                        <a
+                            className="nav-link nav-link-enhanced"
+                            href="#"
+                            onClick={onOpenContactoModal}
+                        >
                             Contacto
                         </a>
                     </li>

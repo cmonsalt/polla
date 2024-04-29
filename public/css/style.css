@@ -252,14 +252,8 @@ body {
     border-radius: 8px;
     margin: 0.5rem 0; /* Menos margen para reducir espacio */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
 }
 
-.trophy-icon {
-    font-size: 1.75rem; /* Ícono más pequeño */
-    color: #ffd700;
-    margin-bottom: 0.75rem; /* Menos espacio debajo del ícono */
-}
 
 .prize-title {
     font-size: 1.33rem; /* Título más pequeño */

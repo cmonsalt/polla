@@ -134,7 +134,7 @@ const EntryFormModal = ({ onClose }) => {
 
     const openMercadoPagoCheckout = (preferenceId) => {
         const mp = new window.MercadoPago(
-            "TEST-ee6a13a8-0e8a-47c4-a052-3e04d42a7175",
+            "APP_USR-a5f0419e-40f8-465e-96f8-e5d2158c55d2",
             {
                 locale: "es-CO",
             }

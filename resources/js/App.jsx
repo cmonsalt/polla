@@ -10,12 +10,10 @@ import PurchaseInfo from "./components/PurchaseInfo.jsx";
 import Footer from "./components/Footer.jsx";
 import SorteoExplicacionModal from "./components/SorteoExplicacionModal";
 import TerminosYCondicionesModal from "./components/TerminosYCondicionesModal";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faFacebookF,
-    faInstagram,
-    faWhatsapp,
-} from "@fortawesome/free-brands-svg-icons";
+import PremiosModal from "./components/PremiosModal";
+import PreguntasFrecuentesModal from "./components/PreguntasFrecuentesModal";
+import ContactoModal from "./components/ContactoModal";
+import SocialIcons from "./components/SocialIcons";
 
 window.Navbar = Navbar;
 export default function App() {
@@ -24,12 +22,27 @@ export default function App() {
 
     const [isSorteoModalOpen, setIsSorteoModalOpen] = useState(false);
     const [isTyCModalOpen, setIsTyCModalOpen] = useState(false);
+    const [IsPremiosModalOpen, setIsPremiosModalOpen] = useState(false);
+    const [IsPreguntasFrecuentesModalOpen, setIsPreguntasFrecuentesModalOpen] =
+        useState(false);
+    const [IsContactoModalOpen, setIsContactoModalOpen] = useState(false);
 
     const openSorteoModal = () => setIsSorteoModalOpen(true);
     const closeSorteoModal = () => setIsSorteoModalOpen(false);
 
     const openTyCModal = () => setIsTyCModalOpen(true);
     const closeTyCModal = () => setIsTyCModalOpen(false);
+
+    const openPremiosModal = () => setIsPremiosModalOpen(true);
+    const closePremiosModal = () => setIsPremiosModalOpen(false);
+
+    const openPreguntasFrecuentesModal = () =>
+        setIsPreguntasFrecuentesModalOpen(true);
+    const closePreguntasFrecuentesModal = () =>
+        setIsPreguntasFrecuentesModalOpen(false);
+
+    const openContactoModal = () => setIsContactoModalOpen(true);
+    const closeContactoModal = () => setIsContactoModalOpen(false);
 
     // const handleCloseModal = () => {
     //     console.log("Closing modal"); // Añade un log para confirmar que se invoca esta función
@@ -67,6 +80,9 @@ export default function App() {
             <Navbar
                 onOpenSorteoModal={openSorteoModal}
                 onOpenTyCModal={openTyCModal}
+                onOpenPremiosModal={openPremiosModal}
+                onOpenPreguntasFrecuentesModal={openPreguntasFrecuentesModal}
+                onOpenContactoModal={openContactoModal}
             />
             <SorteoExplicacionModal
                 isOpen={isSorteoModalOpen}
@@ -75,6 +91,20 @@ export default function App() {
             <TerminosYCondicionesModal
                 isOpen={isTyCModalOpen}
                 onClose={closeTyCModal}
+            />
+
+            <PremiosModal
+                isOpen={IsPremiosModalOpen}
+                onClose={closePremiosModal}
+            />
+            <PreguntasFrecuentesModal
+                isOpen={IsPreguntasFrecuentesModalOpen}
+                onClose={closePreguntasFrecuentesModal}
+            />
+
+            <ContactoModal
+                isOpen={IsContactoModalOpen}
+                onClose={closeContactoModal}
             />
 
             <div className="container">
@@ -89,8 +119,20 @@ export default function App() {
                                     <span className="blinking-dot"></span>
                                 )}
                             </div>
-                            <PrizeCard>
-                                {/* {eventStatus === "Activo" && <PurchaseInfo />}
+
+                            <PrizeCard onOpenTyCModal={openTyCModal} />
+                            <SocialIcons />
+                        </div>
+                    </div>
+                    <div className="col-md-4 d-flex flex-column align-items-center pt-3">
+                        <div className="containers h-100 w-100">
+                            <div className="d-flex flex-column justify-content-center align-items-center">
+                                <TicketsSection />
+                                <div className="d-flex justify-content-center pt-3">
+                                    <TicketsAvailabilityCard />
+                                    <TicketsSoldCard />
+                                </div>
+                                {eventStatus === "Activo" && <PurchaseInfo />}
                                 {eventStatus &&
                                     eventStatus === "Finalizado" && (
                                         <div className="event-finished-message">
@@ -102,64 +144,8 @@ export default function App() {
                                                 atentos para futuros eventos.
                                             </p>
                                         </div>
-                                    )} */}
-                            </PrizeCard>
-                            <div className="social-icons">
-                                <a
-                                    href="https://www.instagram.com/tucuenta"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="instagram-icon"
-                                >
-                                    <FontAwesomeIcon
-                                        icon={faInstagram}
-                                        size="2x"
-                                    />
-                                </a>
-                                <a
-                                    href="https://www.facebook.com/tucuenta"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="facebook-icon"
-                                >
-                                    <FontAwesomeIcon
-                                        icon={faFacebookF}
-                                        size="2x"
-                                    />
-                                </a>
-                                <a
-                                    href="https://wa.me/tunumero"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="whatsapp-icon"
-                                >
-                                    <FontAwesomeIcon
-                                        icon={faWhatsapp}
-                                        size="2x"
-                                    />
-                                </a>
+                                    )}
                             </div>
-                        </div>
-                    </div>
-                    <div className="col-md-4 d-flex flex-column align-items-center pt-3">
-                        <div className="containers h-100 w-100">
-                            <TicketsSection />
-                            <div className="d-flex justify-content-center pt-3">
-                                <TicketsAvailabilityCard />
-                                <TicketsSoldCard />
-                            </div>
-                            {eventStatus === "Activo" && <PurchaseInfo />}
-                            {eventStatus && eventStatus === "Finalizado" && (
-                                <div className="event-finished-message">
-                                    <h3 className="event-finished-message">
-                                        ¡Gracias por participar!
-                                    </h3>
-                                    <p>
-                                        El evento ha finalizado. Estén atentos
-                                        para futuros eventos.
-                                    </p>
-                                </div>
-                            )}
                         </div>
                     </div>
                     <div className="col-md-4 d-flex flex-column align-items-center pt-3">
