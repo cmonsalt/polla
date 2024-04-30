@@ -5,7 +5,7 @@ export default function PrizeInfo({ onOpenTyCModal }) {
         <div>
             <div className="text-center prize-header">
                 <div className="d-flex align-items-center justify-content-center">
-                    <h3 className="text-campeon mb-0">🏆 PREMIO CAMPEON:</h3>
+                    <h3 className="text-campeon">🏆 PREMIO CAMPEON:</h3>
                 </div>
                 <div className="prize-amount mb-2">
                     <p className="lead">
@@ -22,9 +22,9 @@ export default function PrizeInfo({ onOpenTyCModal }) {
                     <p className="lead">
                         <strong>9 cupones</strong> próximo sorteo para los
                         marcadores: <strong>1-7</strong>, <strong>8-1</strong>,{" "}
-                        <strong>2-5</strong>, <strong>1-5</strong>,{" "}
+                        <strong>8-1</strong>, <strong>1-5</strong>,{" "}
                         <strong>7-2</strong>, <strong>5-3</strong>,{" "}
-                        <strong>3-1</strong>, <strong>7-0</strong>, y{" "}
+                        <strong>8-0</strong>, <strong>7-0</strong>, y{" "}
                         <strong>6-1</strong>.
                     </p>
                 </div>

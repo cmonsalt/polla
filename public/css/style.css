@@ -9,11 +9,11 @@ body {
     padding-top: 0px;
     display: flex;
     flex-direction: column;
-    background-image: url("/images/fondo.webp"); /* Asegúrate de que esta sea la ruta correcta a tu imagen */
-    background-size: cover; /* La imagen de fondo cubre toda la página, ajustándose según sea necesario */
-    background-position: center center; /* Centra la imagen de fondo horizontal y verticalmente */
-    background-attachment: fixed; /* La imagen de fondo es fija en la ventana gráfica */
-    background-repeat: no-repeat; /* La imagen no se repite */
+    background-image: url("/images/fondo.webp"); 
+    background-size: cover;
+    background-position: center center; 
+    background-attachment: fixed; 
+    background-repeat: no-repeat; 
 }
 
 .logo {
@@ -27,32 +27,36 @@ body {
 }
 
 .grid-container {
-    max-height: 230px; /* Ajusta la altura máxima si es necesario */
-    overflow-y: auto; /* Permite desplazamiento vertical si el contenido excede el max-height */
+    max-height: 230px; 
+    overflow-y: auto; 
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Alinea los elementos al inicio */
+    justify-content: center; 
     align-items: center;
-    gap: 10px; /* Reduce el espacio entre los elementos para hacerlo más compacto */
-    padding: 0.5rem; /* Agrega algo de padding dentro del contenedor */
+    gap: 10px; 
+    padding: 0.5rem;
 }
 .navbar {
     padding-left: 1rem;
     padding-right: 1rem;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+}
+.nav-link-enhanced:hover {
+    text-decoration: underline; 
 }
 
 .grid-container div {
-    width: 40px; /* Reduce el tamaño de los círculos */
-    height: 40px; /* Reduce el tamaño de los círculos */
-    border-radius: 50%; /* Mantiene la forma circular */
-    background-color: #17a2b8; /* Mantiene el color de fondo azul */
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    background-color: #17a2b8; 
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 0.75rem; /* Disminuye el tamaño de la fuente para que se ajuste al círculo más pequeño */
-    border: 1px solid #fff; /* Borde más delgado para los círculos */
+    font-size: 0.75rem; 
+    border: 1px solid #fff; 
 }
 
 .circle.gray {
@@ -85,7 +89,7 @@ body {
 }
 
 .info-title {
-    font-size: 16px; /* O cualquier tamaño que prefieras */
+    font-size: 16px;
 }
 
 .info-text {
@@ -298,6 +302,14 @@ body {
     margin-top: 2rem; /* Agregar espacio en la parte superior */
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Una ligera sombra para dar profundidad */
 }
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
 
 .cta-button {
     background-color: #17a2b8;
@@ -309,12 +321,13 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, background-color 0.3s ease;
     margin-top: 15px;
+    animation: pulse 3s infinite ease-in-out;
 }
 
 .cta-button:hover,
 .cta-button:focus {
     background-color: #159ab6;
-    transform: scale(1.05); /* Aumenta ligeramente el tamaño del botón */
+    transform: scale(1.05); 
     cursor: pointer;
 }
 
@@ -462,9 +475,9 @@ footer a.text-white:hover {
     color: #ccc; /* Cambia el color al pasar el mouse */
 }
 
-/* footer {
-    background-color: #0275d8;
-} */
+footer {
+    background-color: rgba(0, 0, 0, 0.2);
+}
 
 /* Estilos para móviles */
 @media (max-width: 768px) {
@@ -482,6 +495,7 @@ footer a.text-white:hover {
 
     .navbar-brand img.logo {
         margin: auto;
+        margin-left: 50px;
     }
 
     .navbar-collapse {
@@ -491,82 +505,62 @@ footer a.text-white:hover {
     .nav-link {
         padding: 0.5rem 1rem;
     }
-
-    .event-status {
-        max-width: 100%;
-        margin-left: 0px;
-        font-size: 1.3rem;
+    .navbar {
+        font-size: 20px;
     }
-
+    
     .blinking-dot {
         width: 13px;
         height: 13px;
     }
-   
-    .tooltipg { 
+
+    .tooltipg {
         top: 50% !important;
         left: 50% !important;
         min-width: 100% !important;
         max-width: 100% !important;
-    } 
- 
-    /* .tooltipg {
-        position: "fixed";
-        top: "20%";
-        left: "50%";
-        transform: "translate(-50%, -50%)";
-        padding: "10px 20px";
-        background-color: "#333333";
-        color: "white";
-        border-radius: "5px";
-        display: "block";
-        min-width: "40%";
-        max-width: "40%";
-        height: "auto";
-        white-space: "normal";
-        overflow-wrap: "break-word";
-        box-sizing: "border-box";
-        font-size: "0.9rem";
-         top: 50% !important;
-        left: 50% !important;
-        min-width: 100% !important;
-        max-width: 100% !important;
-    }  */
+    }
 
     .lead {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     .text-campeon,
     .text-subcampeon {
-        font-size: 1.75rem;
+        font-size: 1.55rem;
+    }
+    .event-status {
+        max-width: 100%;
+        margin-left: 0px;
+        font-size: 1.2rem;
     }
 
+
     .prize-detail {
-        font-size: 1.4rem;
+        font-size: 1.1rem;
     }
     .event-status span {
-        font-size: 1.75rem;
+        font-size: 1.55rem;
     }
     .grid-container {
-        /* gap: 15px; */
+        gap: 14px;
         max-height: 310px;
     }
 
     .grid-container div {
-        width: 66px;
-        height: 66px;
-        font-size: 1.4rem;
+        width: 60px;
+        height: 60px;
+        font-size: 1.15rem;
     }
     .alto::before {
-        font-size: 25px;
+        font-size: 22px;
         top: -20px;
     }
     .medio::before {
-        font-size: 25px;
+        font-size: 22px;
         top: -20px;
     }
     .bajo::before {
-        font-size: 25px;
+        font-size: 22px;
         top: -20px;
     }
     .title-style {
@@ -577,6 +571,27 @@ footer a.text-white:hover {
         gap: 35px; /* Espacio entre iconos */
     }
     .social-icons a {
-        font-size: 30px;
+        font-size: 24px;
     }
+    .info-title {
+        font-size: 20px;
+    }
+    .highlight {
+        font-size: 1.5rem;
+    }
+    .cta-button {
+        font-size: 1.7rem;
+    }
+    .price-info {
+        font-size: 1.1rem;
+    }
+    .my-table thead th {
+        font-size: 0.95em;
+    }
+    .my-table td, .my-table th{
+        font-size: 0.8em;
+    }
+    /* .navbar {
+        background-color: rgba(0, 0, 0, 0.4);
+    } */
 }

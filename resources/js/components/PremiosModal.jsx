@@ -46,14 +46,14 @@ function PremiosModal({ isOpen, onClose }) {
                             </strong>
                             <p>
                                 Cada sorteo ofrece la posibilidad de ganar un
-                                premio mayor sustancial. Por ejemplo: $1,200,000
-                                más 1 cupón para participar en el próximo
-                                evento. Este premio se otorga al poseedor del
+                                premio mayor sustancial. El poseedor del
                                 marcador que coincida con el resultado final del
-                                partido de fútbol seleccionado. La emoción no
-                                termina hasta el pitido final, ¡donde solo unos
-                                pocos marcadores tienen la clave para el
-                                triunfo!
+                                partido de fútbol seleccionado ganará 20 veces
+                                lo apostado, es decir, $400,000. Este premio se
+                                entrega como reconocimiento al marcador campeón
+                                y la emoción no termina hasta el pitido final,
+                                donde solo unos pocos marcadores tienen la clave
+                                para el triunfo!
                             </p>
                         </div>
                         <div style={{ marginBottom: "20px" }}>
@@ -61,18 +61,22 @@ function PremiosModal({ isOpen, onClose }) {
                                 🥈 Premio Subcampeón: El Segundo en el Podio
                             </strong>
                             <p>
-                                Además del premio campeón, hay premios
-                                secundarios que mantienen la competición viva.
-                                Por ejemplo, si el resultado de tu marcador se
-                                alinea con el resultado especial designado para
-                                el subcampeón, ganarás un cupón para tu próxima
-                                entrada, manteniendo viva la chispa de la
-                                competencia.
+                                Además del premio campeón, nuestro sorteo ofrece
+                                9 premios de consolación, especialmente
+                                diseñados para aquellos marcadores con menor
+                                probabilidad de coincidir con el resultado final
+                                del partido. Cada uno de estos premios consiste
+                                en un cupón para participar en el próximo
+                                sorteo. Esta es una excelente oportunidad para
+                                mantener viva la emoción y dar una segunda
+                                oportunidad de ganar a los marcadores menos
+                                favorecidos por el azar.
                             </p>
                         </div>
                         <div style={{ marginBottom: "20px" }}>
                             <strong className="step-header">
-                                🌟 Innovación en Cada Sorteo: Renovación Constante
+                                🌟 Innovación en Cada Sorteo: Renovación
+                                Constante
                             </strong>
                             <p>
                                 Nos esforzamos por mantener las cosas frescas e
@@ -85,7 +89,8 @@ function PremiosModal({ isOpen, onClose }) {
                         </div>
                         <div style={{ marginBottom: "20px" }}>
                             <strong className="step-header">
-                                📜 Reclamación de Premios: Simplicidad y Claridad
+                                📜 Reclamación de Premios: Simplicidad y
+                                Claridad
                             </strong>
                             <p>
                                 Ganar es solo la mitad del viaje. La reclamación

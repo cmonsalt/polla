@@ -61,7 +61,7 @@ function PreguntasFrecuentesModal({ isOpen, onClose }) {
                                 partido de fútbol seleccionado. Si tu marcador
                                 coincide con el resultado final, ¡podrías ser el
                                 ganador del premio campeón! También ofrecemos
-                                premios secundarios si tu marcador coincide con
+                                premios de consolación si tu marcador coincide con
                                 resultados específicos designados antes del
                                 sorteo.
                             </p>
@@ -84,7 +84,7 @@ function PreguntasFrecuentesModal({ isOpen, onClose }) {
                             </strong>
                             <p>
                                 Ofrecemos diversos premios, incluyendo un premio
-                                mayor sustancial y varios premios secundarios en
+                                campeon sustancial y varios premios de sonsolación en
                                 cada sorteo. Los detalles específicos de los
                                 premios se anuncian antes de cada evento en
                                 nuestras redes sociales.

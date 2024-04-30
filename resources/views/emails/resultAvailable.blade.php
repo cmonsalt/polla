@@ -30,18 +30,16 @@
             text-align: center;
         }
         .marcador-circle {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background-color: #17a2b8;
             color: white;
-            line-height: 40px; 
+            font-size: 01.2rem;
             border: 1px solid #fff;
-            margin: 0 auto; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: block;
             text-align: center;
+            line-height: 60px; 
         }
     </style>
 </head>
@@ -49,11 +47,11 @@
     <table align="center" border="0" cellpadding="0" cellspacing="0" class="email-table">
         <tr><img src="http://localhost:8000/images/logo.png" alt="logo"></tr>
         <tr>
-            <td>
+            <td align="center" > 
                 <p class="email-content">Hola, <strong>{{ $name }} {{ $last_name }}<strong> </p>
                 <h1 class="text-exit">¡Gracias por tu Compra!</h1>
                 <p class="email-content">Tu número de pedido es: <strong>{{ $id }}</strong></p>
-                <p class="email-content">Estarás participando con el marcador:</p>
+                <p class="email-content">Estarás participando con el marcador:</p>              
                 <div class="marcador-circle">{{ $marcador }}</div>
                
             </td>

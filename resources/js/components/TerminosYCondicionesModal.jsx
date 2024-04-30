@@ -61,7 +61,9 @@ function TerminosCondicionesModal({ isOpen, onClose }) {
                                 del inicio del evento. Cada entrada comprada te
                                 da derecho a un marcador, que se asignará
                                 automáticamente mediante un sistema de sorteo al
-                                azar.
+                                azar. Ten en cuenta que solo estarán disponibles
+                                50 marcadores por evento, aumentando así tus
+                                posibilidades de ganar
                             </p>
                         </div>
                         <div style={{ marginBottom: "20px" }}>
@@ -150,7 +152,8 @@ function TerminosCondicionesModal({ isOpen, onClose }) {
                             <p>
                                 Para preguntas o inquietudes relacionadas con
                                 los términos y condiciones, por favor
-                                contáctanos a través de nuestra linea de soporte.
+                                contáctanos a través de nuestra linea de
+                                soporte.
                             </p>
                         </div>
                     </div>

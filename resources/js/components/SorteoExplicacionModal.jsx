@@ -27,25 +27,33 @@ function SorteoExplicacionModal({ isOpen, onClose }) {
                 }}
             >
                 <div className="modal-header w-100">
-                    <h2 className="modal-title info-section-title">¿Cómo Funciona?</h2>
+                    <h2 className="modal-title info-section-title">
+                        ¿Cómo Funciona?
+                    </h2>
                     <button type="button" className="close" onClick={onClose}>
                         &times;
                     </button>
                 </div>
 
-                <div className="modal-body d-flex flex-column flex-md-row" style={{ width: "100%" }}>
+                <div
+                    className="modal-body d-flex flex-column flex-md-row"
+                    style={{ width: "100%" }}
+                >
                     <div className="col-md-8">
                         <div style={{ marginBottom: "20px", color: "#333" }}>
                             <strong className="step-header">
                                 Paso 1: Recibe Tu Marcador 🎯
                             </strong>
                             <p>
-                                Al comprar tu entrada, el azar determinará tu
+                                Al comprar tu marcador, el azar determinará tu
                                 marcador. No todos los marcadores tienen la
-                                misma probabilidad de ganar, pero la suerte
-                                puede favorecerte con uno de los más codiciados.
-                                ¡La fortuna decide quién se lleva el gran
-                                premio!
+                                misma probabilidad de ganar. Aunque algunos son
+                                más codiciados por sus altas probabilidades,
+                                también tienes la oportunidad de ser favorecido
+                                con uno de los cupones del premio de consolación.
+                                ¡La fortuna decide quién se lleva el gran premio
+                                y quién podría continuar participando con un
+                                bono para el próximo sorteo!
                             </p>
                         </div>
                         <div style={{ marginBottom: "20px" }}>
@@ -81,9 +89,10 @@ function SorteoExplicacionModal({ isOpen, onClose }) {
                             <p>
                                 Si tu marcador coincide con el resultado final
                                 del partido, ¡podrías ser el ganador del premio
-                                mayor! Además, hay premios secundarios para
-                                otros resultados específicos, asegurando que
-                                siempre haya más de una forma de ganar.
+                                campeón! Además, otorgamos 9 premios de
+                                consolación, que consisten en cupones para
+                                participar en el próximo sorteo, ampliando tus
+                                oportunidades de ganar.
                             </p>
                         </div>
                         <div style={{ marginBottom: "20px" }}>

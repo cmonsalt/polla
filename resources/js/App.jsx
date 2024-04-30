@@ -13,7 +13,9 @@ import TerminosYCondicionesModal from "./components/TerminosYCondicionesModal";
 import PremiosModal from "./components/PremiosModal";
 import PreguntasFrecuentesModal from "./components/PreguntasFrecuentesModal";
 import ContactoModal from "./components/ContactoModal";
+import PoliticaModal from "./components/PoliticaModal";
 import SocialIcons from "./components/SocialIcons";
+
 
 window.Navbar = Navbar;
 export default function App() {
@@ -26,6 +28,7 @@ export default function App() {
     const [IsPreguntasFrecuentesModalOpen, setIsPreguntasFrecuentesModalOpen] =
         useState(false);
     const [IsContactoModalOpen, setIsContactoModalOpen] = useState(false);
+    const [IsPoliticaModalOpen, setIsPoliticaModalOpen] = useState(false);
 
     const openSorteoModal = () => setIsSorteoModalOpen(true);
     const closeSorteoModal = () => setIsSorteoModalOpen(false);
@@ -44,10 +47,8 @@ export default function App() {
     const openContactoModal = () => setIsContactoModalOpen(true);
     const closeContactoModal = () => setIsContactoModalOpen(false);
 
-    // const handleCloseModal = () => {
-    //     console.log("Closing modal"); // Añade un log para confirmar que se invoca esta función
-    //     setIsModalOpen(false);
-    // };
+    const openPoliticaModal = () => setIsPoliticaModalOpen(true);
+    const closePoliticaModal = () => setIsPoliticaModalOpen(false);
 
     useEffect(() => {
         fetch("/api/estado-evento")
@@ -107,6 +108,13 @@ export default function App() {
                 onClose={closeContactoModal}
             />
 
+    
+
+            <PoliticaModal
+                isOpen={IsPoliticaModalOpen}
+                onClose={closePoliticaModal}
+            />
+
             <div className="container">
                 <div className="row bg-row">
                     <div className="col-md-4 d-flex flex-column align-items-center pt-3">
@@ -159,7 +167,9 @@ export default function App() {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <Footer
+                onOpenPoliticaModal={openPoliticaModal}
+             />
         </div>
     );
 }

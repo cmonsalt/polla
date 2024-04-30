@@ -24,6 +24,7 @@ class NoMoreResultsMail extends Mailable
     public function build()
     {
         return $this->view('emails.noMoreResults')
+        ->subject('Actualización Importante Sobre Tu Participación')
             ->with([
                 'name' => $this->name,
                 'last_name' => $this->last_name,
