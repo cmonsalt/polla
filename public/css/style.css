@@ -75,7 +75,7 @@ body {
 }
 
 /* .custom-navbar-color {
-    background-color: #0275d8; 
+    background-color: #0275d8;
   }
    */
 
@@ -100,7 +100,7 @@ body {
 }
 
 /* .bg-row {
-  background-color: rgba(255, 255, 255, 0.7); 
+  background-color: rgba(255, 255, 255, 0.7);
 } */
 
 .table-responsive {
@@ -214,7 +214,7 @@ body {
 }
 
 .event-status span {
-    font-size: 1rem; /* Ajusta esto según el diseño */
+    font-size: 1.25rem; /* Ajusta esto según el diseño */
     font-weight: 600; /* Para darle énfasis */
     letter-spacing: 0.05em; /* Espaciado entre letras para mejor legibilidad */
 }
@@ -253,7 +253,6 @@ body {
     margin: 0.5rem 0; /* Menos margen para reducir espacio */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 
 .prize-title {
     font-size: 1.33rem; /* Título más pequeño */
@@ -309,6 +308,7 @@ body {
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-top: 15px;
 }
 
 .cta-button:hover,
@@ -323,7 +323,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 20px; /* Espacio entre iconos */
-    padding-top: 20px; /* Espacio por encima de los iconos */
+    padding-top: 15px; /* Espacio por encima de los iconos */
 }
 
 .social-icons a {
@@ -347,6 +347,7 @@ body {
 .whatsapp-icon .fa-whatsapp {
     color: #25d366; /* Color de WhatsApp */
 }
+
 .alto::before {
     content: "📈";
     font-size: 15px;
@@ -410,8 +411,8 @@ body {
 }
 
 .lead {
-    font-size: 1.1rem; /* Aumentar el tamaño de fuente para que sea consistente con el cambio en .text-primary */
-    font-weight: 600; /* Hacer el texto más grueso para mejorar la legibilidad */
+    font-size: 1.05rem; /* Aumentar el tamaño de fuente para que sea consistente con el cambio en .text-primary */
+    font-weight: 400; /* Hacer el texto más grueso para mejorar la legibilidad */
     /* Otras propiedades */
 }
 
@@ -428,8 +429,9 @@ body {
 
 .text-campeon,
 .text-subcampeon {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     color: #004085; /* Azul oscuro para el campeón */
+    font-weight: bold;
 }
 
 .flex-container {
@@ -451,6 +453,9 @@ body {
     border-bottom-left-radius: 15px;
     border-top-right-radius: 15px;
 }
+.social-icons a {
+    font-size: 20px; /* Tamaño estándar para escritorio */
+}
 
 footer a.text-white:hover {
     text-decoration: none;
@@ -464,7 +469,7 @@ footer a.text-white:hover {
 /* Estilos para móviles */
 @media (max-width: 768px) {
     .logo {
-        height: 80px;
+        height: 100px;
     }
     .navbar-toggler {
         margin-left: auto;
@@ -497,16 +502,81 @@ footer a.text-white:hover {
         width: 13px;
         height: 13px;
     }
-    .tooltipg {
-        top: 50%;
-        min-width: 70%;
-        max-width: 70%;
-    }
-
-    .tooltipg {
+   
+    .tooltipg { 
         top: 50% !important;
         left: 50% !important;
         min-width: 100% !important;
         max-width: 100% !important;
+    } 
+ 
+    /* .tooltipg {
+        position: "fixed";
+        top: "20%";
+        left: "50%";
+        transform: "translate(-50%, -50%)";
+        padding: "10px 20px";
+        background-color: "#333333";
+        color: "white";
+        border-radius: "5px";
+        display: "block";
+        min-width: "40%";
+        max-width: "40%";
+        height: "auto";
+        white-space: "normal";
+        overflow-wrap: "break-word";
+        box-sizing: "border-box";
+        font-size: "0.9rem";
+         top: 50% !important;
+        left: 50% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+    }  */
+
+    .lead {
+        font-size: 1.5rem;
+    }
+    .text-campeon,
+    .text-subcampeon {
+        font-size: 1.75rem;
+    }
+
+    .prize-detail {
+        font-size: 1.4rem;
+    }
+    .event-status span {
+        font-size: 1.75rem;
+    }
+    .grid-container {
+        /* gap: 15px; */
+        max-height: 310px;
+    }
+
+    .grid-container div {
+        width: 66px;
+        height: 66px;
+        font-size: 1.4rem;
+    }
+    .alto::before {
+        font-size: 25px;
+        top: -20px;
+    }
+    .medio::before {
+        font-size: 25px;
+        top: -20px;
+    }
+    .bajo::before {
+        font-size: 25px;
+        top: -20px;
+    }
+    .title-style {
+        font-size: 1.7em;
+        margin-bottom: 18px;
+    }
+    .social-icons {
+        gap: 35px; /* Espacio entre iconos */
+    }
+    .social-icons a {
+        font-size: 30px;
     }
 }
