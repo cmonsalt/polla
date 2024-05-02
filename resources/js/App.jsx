@@ -15,7 +15,7 @@ import PreguntasFrecuentesModal from "./components/PreguntasFrecuentesModal";
 import ContactoModal from "./components/ContactoModal";
 import PoliticaModal from "./components/PoliticaModal";
 import SocialIcons from "./components/SocialIcons";
-
+import DetallesModal from "./components/DetallesModal";
 
 window.Navbar = Navbar;
 export default function App() {
@@ -29,6 +29,7 @@ export default function App() {
         useState(false);
     const [IsContactoModalOpen, setIsContactoModalOpen] = useState(false);
     const [IsPoliticaModalOpen, setIsPoliticaModalOpen] = useState(false);
+    const [IsDetallesModalOpen, setIsDetallesModalOpen] = useState(false);
 
     const openSorteoModal = () => setIsSorteoModalOpen(true);
     const closeSorteoModal = () => setIsSorteoModalOpen(false);
@@ -49,6 +50,9 @@ export default function App() {
 
     const openPoliticaModal = () => setIsPoliticaModalOpen(true);
     const closePoliticaModal = () => setIsPoliticaModalOpen(false);
+
+    const openDetallesModal = () => setIsDetallesModalOpen(true);
+    const closeDetallesModal = () => setIsDetallesModalOpen(false);
 
     useEffect(() => {
         fetch("/api/estado-evento")
@@ -108,11 +112,14 @@ export default function App() {
                 onClose={closeContactoModal}
             />
 
-    
-
             <PoliticaModal
                 isOpen={IsPoliticaModalOpen}
                 onClose={closePoliticaModal}
+            />
+
+            <DetallesModal
+                isOpen={IsDetallesModalOpen}
+                onClose={closeDetallesModal}
             />
 
             <div className="container">
@@ -128,7 +135,10 @@ export default function App() {
                                 )}
                             </div>
 
-                            <PrizeCard onOpenTyCModal={openTyCModal} />
+                            <PrizeCard
+                                onOpenTyCModal={openDetallesModal}
+                                onOpenDetallesModal={openDetallesModal}
+                            />
                             <SocialIcons />
                         </div>
                     </div>
@@ -167,9 +177,7 @@ export default function App() {
                     </div>
                 </div>
             </div>
-            <Footer
-                onOpenPoliticaModal={openPoliticaModal}
-             />
+            <Footer onOpenPoliticaModal={openPoliticaModal} />
         </div>
     );
 }

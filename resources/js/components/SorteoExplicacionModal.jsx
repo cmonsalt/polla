@@ -45,15 +45,16 @@ function SorteoExplicacionModal({ isOpen, onClose }) {
                                 Paso 1: Recibe Tu Marcador 🎯
                             </strong>
                             <p>
-                                Al comprar tu marcador, el azar determinará tu
-                                marcador. No todos los marcadores tienen la
-                                misma probabilidad de ganar. Aunque algunos son
-                                más codiciados por sus altas probabilidades,
-                                también tienes la oportunidad de ser favorecido
-                                con uno de los cupones del premio de consolación.
-                                ¡La fortuna decide quién se lleva el gran premio
-                                y quién podría continuar participando con un
-                                bono para el próximo sorteo!
+                                Al comprar tu entrada, un sistema aleatorio
+                                asignará tu marcador. Los marcadores varían en
+                                probabilidades de ganar, distribuyéndose en
+                                categorías de 📈alta, 📊media y 📉baja probabilidad.
+                                Mientras algunos marcadores son altamente
+                                codiciados por sus grandes chances de ganar,
+                                todos ofrecen la posibilidad de obtener un
+                                premio. Incluso si tu marcador tiene menor
+                                probabilidad, aún podrías ser favorecido con uno
+                                de los cupones del premio de consolación.
                             </p>
                         </div>
                         <div style={{ marginBottom: "20px" }}>

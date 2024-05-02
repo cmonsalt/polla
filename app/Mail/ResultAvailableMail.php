@@ -29,7 +29,7 @@ class ResultAvailableMail extends Mailable
     public function build()
     {
         return $this->view('emails.resultAvailable')
-            ->subject('¡Aqui tienes tu mucha suerte!')
+            ->subject('¡Aqui tienes tu marcador, Mucha Suerte!')
             ->with([
                 'marcador' => $this->marcador,
                 'name' => $this->name,

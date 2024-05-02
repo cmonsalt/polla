@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function PrizeInfo({ onOpenTyCModal }) {
+export default function PrizeInfo({ onOpenTyCModal,onOpenDetallesModal}) {
     return (
         <div>
             <div className="text-center prize-header">
@@ -29,21 +29,14 @@ export default function PrizeInfo({ onOpenTyCModal }) {
                     </p>
                 </div>
                 <p className="prize-detail">
-                    Descubre cómo se determinan los ganadores en nuestra sección
+                    Descubre cómo se determinan los ganadores y se asignan los marcadores en nuestra sección
                     de{" "}
                     <a href="#" className="terms-link" onClick={onOpenTyCModal}>
                         Términos y Condiciones
                     </a>
                     .
                 </p>
-                <p className="prize-detail">
-                    Los marcadores se asignan de forma aleatoria una vez
-                    completado el pago.{" "}
-                    <a href="#" className="terms-link" onClick={onOpenTyCModal}>
-                        Términos y Condiciones
-                    </a>
-                    .
-                </p>
+               <button className="btn btn-secondary bt-detalles" onClick={onOpenDetallesModal}>Detalles Evento</button>
             </div>
 
             {/* <div className="d-flex justify-content-center">{children}</div> */}

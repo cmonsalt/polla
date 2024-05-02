@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboard } from "@fortawesome/free-solid-svg-icons";
 import ReCAPTCHA from "react-google-recaptcha";
 
-
 const EntryFormModal = ({ onClose }) => {
     const [formData, setFormData] = useState({
         name: "",
@@ -115,9 +114,8 @@ const EntryFormModal = ({ onClose }) => {
                     setTimeout(() => {
                         setShowSuccessModal(false);
                         onClose();
-                        window.location.reload()
+                        window.location.reload();
                     }, 3000);
-                  
                 }
             }
         } catch (error) {
@@ -182,13 +180,18 @@ const EntryFormModal = ({ onClose }) => {
                 <div
                     className="modal d-block"
                     style={{
-                        backgroundColor: "rgba(0,0,0,0.5)"
+                        backgroundColor: "rgba(0,0,0,0.5)",
                     }}
                 >
-                    <div className="modal-dialog modal-dialog-centered" role="document">
+                    <div
+                        className="modal-dialog modal-dialog-centered"
+                        role="document"
+                    >
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title text-success">Éxito</h5>
+                                <h5 className="modal-title text-success">
+                                    Éxito
+                                </h5>
                                 <button
                                     type="button"
                                     className="close"
@@ -199,9 +202,7 @@ const EntryFormModal = ({ onClose }) => {
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div className="modal-body">
-                                {successMessage}
-                            </div>
+                            <div className="modal-body">{successMessage}</div>
                             <div className="modal-footer">
                                 <button
                                     type="button"
@@ -355,7 +356,15 @@ const EntryFormModal = ({ onClose }) => {
                                         className="form-check-label d-flex align-items-center"
                                         htmlFor="gateway"
                                     >
-                                        PSE-Debito-Credito
+                                        <img
+                                            src="/images/pse.jpg"
+                                            alt="Logo PSE"
+                                            style={{
+                                                height: "40px",
+                                                width: "auto",
+                                                marginLeft: "5px",
+                                            }}
+                                        />
                                         <img
                                             src="/images/pse.png"
                                             alt="Logo PSE"

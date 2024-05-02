@@ -9,11 +9,11 @@ body {
     padding-top: 0px;
     display: flex;
     flex-direction: column;
-    background-image: url("/images/fondo.webp"); 
+    background-image: url("/images/fondo.webp");
     background-size: cover;
-    background-position: center center; 
-    background-attachment: fixed; 
-    background-repeat: no-repeat; 
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .logo {
@@ -27,13 +27,13 @@ body {
 }
 
 .grid-container {
-    max-height: 230px; 
-    overflow-y: auto; 
+    max-height: 230px;
+    overflow-y: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-    gap: 10px; 
+    gap: 10px;
     padding: 0.5rem;
 }
 .navbar {
@@ -43,20 +43,20 @@ body {
     font-size: 16px;
 }
 .nav-link-enhanced:hover {
-    text-decoration: underline; 
+    text-decoration: underline;
 }
 
 .grid-container div {
-    width: 40px; 
-    height: 40px; 
-    border-radius: 50%; 
-    background-color: #17a2b8; 
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #17a2b8;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 0.75rem; 
-    border: 1px solid #fff; 
+    font-size: 0.75rem;
+    border: 1px solid #fff;
 }
 
 .circle.gray {
@@ -303,7 +303,8 @@ body {
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Una ligera sombra para dar profundidad */
 }
 @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
     }
     50% {
@@ -327,8 +328,16 @@ body {
 .cta-button:hover,
 .cta-button:focus {
     background-color: #159ab6;
-    transform: scale(1.05); 
+    transform: scale(1.05);
     cursor: pointer;
+}
+
+.bt-detalles {
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
 }
 
 .social-icons {
@@ -508,7 +517,7 @@ footer {
     .navbar {
         font-size: 20px;
     }
-    
+
     .blinking-dot {
         width: 13px;
         height: 13px;
@@ -533,7 +542,6 @@ footer {
         margin-left: 0px;
         font-size: 1.2rem;
     }
-
 
     .prize-detail {
         font-size: 1.1rem;
@@ -582,13 +590,17 @@ footer {
     .cta-button {
         font-size: 1.7rem;
     }
+    .bt-detalles {
+        font-size: 1.7rem;
+    }
     .price-info {
         font-size: 1.1rem;
     }
     .my-table thead th {
         font-size: 0.95em;
     }
-    .my-table td, .my-table th{
+    .my-table td,
+    .my-table th {
         font-size: 0.8em;
     }
     /* .navbar {

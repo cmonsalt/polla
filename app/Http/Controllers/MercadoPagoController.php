@@ -40,8 +40,8 @@ class MercadoPagoController extends Controller
             "excluded_payment_types" => array(
                 array("id" => "ticket"),
                 array("id" => "atm"),
-                // array("id" => "credit_card"),
-                // array("id" => "debit_card")
+                array("id" => "credit_card"),
+                array("id" => "debit_card")
             ),
             "installments" => 6,
             "default_installments" => 1
