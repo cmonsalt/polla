@@ -45,17 +45,19 @@ function DetallesModal({ isOpen, onClose }) {
                                 Marcadores y Sorteo:
                             </strong>
                             <p>
-                                Al realizar el pago, recibirás un marcador de
-                                forma aleatoria. Hay un total de 50 marcadores
-                                disponibles.
+                                Tras tu compra, recibirás un marcador aleatorio
+                                entre los 50 disponibles, clasificados en
+                                categorías de alta 📈, media 📊, y baja 📉
+                                probabilidad. Cada marcador ofrece la
+                                posibilidad de ganar, incluyendo premios de
+                                consolación para las probabilidades más bajas.
                             </p>
                         </div>
                         <div style={{ marginBottom: "20px", color: "#333" }}>
-                            <strong className="step-header">
-                                Precio:
-                            </strong>
+                            <strong className="step-header">Precio:</strong>
                             <p>
-                               Cada marcador tiene un costo de  <strong>$20.000 COP</strong>
+                                Cada marcador tiene un costo de{" "}
+                                <strong>$20.000 COP</strong>
                             </p>
                         </div>
                         <div style={{ marginBottom: "20px" }}>
@@ -65,7 +67,7 @@ function DetallesModal({ isOpen, onClose }) {
                             <p>
                                 Una vez todos los marcadores sean distribuidos,
                                 se anunciará el partido de fútbol cuyo resultado
-                                determinará los ganadores.
+                                determinará los ganadores, por medio de nuestras redes sociales o sitio web.
                             </p>
                         </div>
                         <div style={{ marginBottom: "20px" }}>
@@ -73,7 +75,7 @@ function DetallesModal({ isOpen, onClose }) {
                                 Finalización del Evento
                             </strong>
                             <p>
-                                El evento finaliza una ves se venda la totalidad
+                                El evento finaliza una vez se venda la totalidad
                                 de los marcadores.
                             </p>
                         </div>

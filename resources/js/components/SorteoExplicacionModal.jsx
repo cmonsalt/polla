@@ -45,7 +45,7 @@ function SorteoExplicacionModal({ isOpen, onClose }) {
                                 Paso 1: Recibe Tu Marcador 🎯
                             </strong>
                             <p>
-                                Al comprar tu entrada, un sistema aleatorio
+                                Al comprar tu marcador, un sistema aleatorio
                                 asignará tu marcador. Los marcadores varían en
                                 probabilidades de ganar, distribuyéndose en
                                 categorías de 📈alta, 📊media y 📉baja probabilidad.
