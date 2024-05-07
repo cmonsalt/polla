@@ -398,7 +398,8 @@ const EntryFormModal = ({ onClose }) => {
                             </div>
                             <div className="form-group">
                                 <ReCAPTCHA
-                                    sitekey="6LfW2KkpAAAAAKKagjTC-G14JJ7fxCpP3T2kPgYM"
+                                    // sitekey="6LfW2KkpAAAAAKKagjTC-G14JJ7fxCpP3T2kPgYM"
+                                    sitekey="6LdAMNUpAAAAAMT8NxHJ3Mu5tBzRUpXk8w64hTMB"
                                     onChange={handleCaptchaVerify}
                                     required
                                 />
