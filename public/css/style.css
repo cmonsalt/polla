@@ -501,10 +501,6 @@ footer a {
 
 /* Estilos para móviles */
 @media (max-width: 768px) {
-   body {
-        background-size: auto;  /* Ajusta el tamaño de la imagen para evitar cortes */
-        padding: 10px 5px; /* Ajusta el padding para dar espacio en dispositivos pequeños */
-    }
     .logo {
         height: 100px;
     }
