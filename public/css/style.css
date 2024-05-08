@@ -503,6 +503,7 @@ footer a {
 @media (max-width: 768px) {
     body {
         background-size: auto;
+        background-position: top center;
     }
     .logo {
         height: 100px;
