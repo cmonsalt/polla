@@ -14,9 +14,6 @@ export default function Footer({onOpenPoliticaModal}) {
                             Política de Privacidad
                             
                         </a>
-                        {/* <a href="#" className="text-light mx-2">
-                            Términos y Condiciones
-                        </a> */}
                     </div>
                 </div>
             </div>

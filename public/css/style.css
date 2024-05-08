@@ -16,6 +16,12 @@ body {
     background-repeat: no-repeat;
 }
 
+#root, .App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Esto hará que .App ocupe al menos toda la altura de la ventana */
+}
+
 .logo {
     height: 70px;
     width: auto;
@@ -488,6 +494,13 @@ footer a.text-white:hover {
 footer {
     background-color: rgba(0, 0, 0, 0.2);
 }
+
+footer a {
+    padding: 8px;
+    margin: 0 5px;
+    display: inline-block; /* Asegura que el padding se aplique correctamente */
+}
+
 
 /* Estilos para móviles */
 @media (max-width: 768px) {
