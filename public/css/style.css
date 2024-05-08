@@ -495,6 +495,9 @@ footer a {
     display: inline-block; /* Asegura que el padding se aplique correctamente */
 }
 
+.footer-text {
+    line-height: 1; /* Ajusta este valor según necesites */
+}
 
 /* Estilos para móviles */
 @media (max-width: 768px) {

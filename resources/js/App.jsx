@@ -176,8 +176,8 @@ export default function App() {
                         </div>
                     </div>
                 </div>
-                <Footer onOpenPoliticaModal={openPoliticaModal} />
             </div>
+            <Footer onOpenPoliticaModal={openPoliticaModal} />
         </div>
     );
 }
