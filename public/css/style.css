@@ -501,6 +501,9 @@ footer a {
 
 /* Estilos para móviles */
 @media (max-width: 768px) {
+    body {
+        background-size: auto;
+    }
     .logo {
         height: 100px;
     }
