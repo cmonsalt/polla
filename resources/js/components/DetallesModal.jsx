@@ -45,19 +45,21 @@ function DetallesModal({ isOpen, onClose }) {
                                 Marcadores y Sorteo:
                             </strong>
                             <p>
-                                Tras tu compra, recibirás un marcador aleatorio
-                                entre los 50 disponibles, clasificados en
-                                categorías de alta 📈, media 📊, y baja 📉
-                                probabilidad. Cada marcador ofrece la
-                                posibilidad de ganar, incluyendo premios de
-                                consolación para las probabilidades más bajas.
+                                Tras tu compra, recibirás uno de los{" "}
+                                <strong>50 marcadores</strong> aleatorios,
+                                categorizados en alta 📈, media 📊, y baja 📉
+                                probabilidad. Todos ofrecen la chance de ganar,
+                                con premios especiales para las probabilidades
+                                más bajas.
                             </p>
                         </div>
                         <div style={{ marginBottom: "20px", color: "#333" }}>
                             <strong className="step-header">Precio:</strong>
                             <p>
                                 Cada marcador tiene un costo de{" "}
-                                <strong>$20.000 COP</strong>
+                                <strong>$20.000 COP</strong>. Realiza tu pago
+                                fácilmente a través de  <strong>Mercado Pago usando PSE</strong>,
+                                donde encontrarás los principales Bancos, Nequi y DaviPlata.
                             </p>
                         </div>
                         <div style={{ marginBottom: "20px" }}>
@@ -65,9 +67,16 @@ function DetallesModal({ isOpen, onClose }) {
                                 Partido de Fútbol:
                             </strong>
                             <p>
-                                Una vez todos los marcadores sean distribuidos,
-                                se anunciará el partido de fútbol cuyo resultado
-                                determinará los ganadores, por medio de nuestras redes sociales o sitio web.
+                                Una vez distribuidos todos los marcadores,
+                                anunciaremos en redes sociales o en nuestro
+                                sitio web el partido decisivo. Será un encuentro
+                                destacado de las{" "}
+                                <strong>
+                                    ligas top de Europa, la Champions League o
+                                    la Liga Colombiana.
+                                </strong>
+                                ¡Estén atentos a este emocionante evento en
+                                GolasoSorteos!
                             </p>
                         </div>
                         <div style={{ marginBottom: "20px" }}>

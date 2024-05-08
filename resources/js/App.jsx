@@ -129,14 +129,14 @@ export default function App() {
                             <div
                                 className={`event-status ${eventStatus.toLowerCase()} flex-container`}
                             >
-                                <span>Evento #1 {eventStatus}</span>
+                                <span>⚽Evento #1 {eventStatus}</span>
                                 {eventStatus === "Activo" && (
                                     <span className="blinking-dot"></span>
                                 )}
                             </div>
 
                             <PrizeCard
-                                onOpenTyCModal={openDetallesModal}
+                                onOpenTyCModal={openTyCModal}
                                 onOpenDetallesModal={openDetallesModal}
                             />
                             <SocialIcons />

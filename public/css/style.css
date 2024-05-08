@@ -227,6 +227,7 @@ body {
     background-color: rgba(220, 53, 69, 0.8);
 }
 .blinking-dot {
+    content: ⚽;
     display: inline-block;
     width: 9px;
     height: 9px;
@@ -588,10 +589,10 @@ footer {
         font-size: 1.5rem;
     }
     .cta-button {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
     }
     .bt-detalles {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
     }
     .price-info {
         font-size: 1.1rem;
