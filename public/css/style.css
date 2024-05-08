@@ -16,12 +16,6 @@ body {
     background-repeat: no-repeat;
 }
 
-#root, .App {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Esto hará que .App ocupe al menos toda la altura de la ventana */
-}
-
 .logo {
     height: 70px;
     width: auto;
