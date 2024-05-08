@@ -81,7 +81,7 @@ function DetallesModal({ isOpen, onClose }) {
                         </div>
                         <div style={{ marginBottom: "20px" }}>
                             <strong className="step-header">
-                                Finalización del Evento
+                                Finalización del Evento:
                             </strong>
                             <p>
                                 El evento finaliza una vez se venda la totalidad
