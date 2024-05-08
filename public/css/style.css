@@ -486,7 +486,14 @@ footer a.text-white:hover {
 }
 
 footer {
-    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 20px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 footer a {
