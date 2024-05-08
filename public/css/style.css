@@ -561,7 +561,7 @@ footer {
         font-size: 1rem;
     }
     .alto::before {
-        font-size: 22px;
+        font-size: 20px;
         top: -20px;
     }
     .medio::before {
