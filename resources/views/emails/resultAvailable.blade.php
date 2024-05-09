@@ -20,6 +20,10 @@
             width: 100%; 
             max-width: 600px; 
         }
+        .email-logo {
+        width: 100px;  
+        height: auto;
+    }
         .text-exit {
             color: #28a745;
             text-align: center;
@@ -45,7 +49,7 @@
 </head>
 <body>
     <table align="center" border="0" cellpadding="0" cellspacing="0" class="email-table">
-        <tr><img src="https://golazosorteos.co/images/logo.png" alt="logo"></tr>
+        <tr><img class="email-logo" src="https://golazosorteos.co/images/logo3.png" alt="logo"></tr>
         <tr>
             <td align="center" > 
                 <p class="email-content">Hola, <strong>{{ $name }} {{ $last_name }}<strong> </p>
