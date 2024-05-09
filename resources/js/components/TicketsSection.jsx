@@ -103,13 +103,13 @@ function getTooltipContent(marcador) {
 
         switch (marcador.peso) {
             case "Alto":
-                return `📈 <span className="alto">Probabilidad Alta De Ganar</span> - <strong>¡${marcador.marcador} Muy codiciado!</strong> Este marcador, común en partidos de fútbol, te ofrece las mejores chances de ser el CAMPEÓN del evento. ${statusText}`;
+                return `📈 <span className="alto">Probabilidad Alta De Ganar</span> - <strong>¡${marcador.marcador} Muy codiciado!</strong> Este marcador, común en partidos de fútbol, te ofrece las mejores chances de ser el CAMPEÓN del evento. </br> ${statusText}`;
         
             case "Medio":
                 return `📊 <span className="medio">Probabilidad Media De Ganar</span> - <strong>¡${marcador.marcador} Suficientemente habitual!</strong> Con este marcador, que aparece menos frecuentemente, todavía tienes buenas posibilidades de ser el CAMPEÓN, aunque con menos probabilidad que con un marcador alto. </br> ${statusText}`;
         
             case "Bajo":
-                return `📉 <span className="bajo">Probabilidad Baja De Ganar</span> - <strong>¡${marcador.marcador} Poco frecuente!</strong> Este marcador es raro, lo que significa menores chances de ser CAMPEÓN. Sin embargo, si coincide con el resultado especial para el SUBCAMPEÓN, recibirás un cupón para que participes en el próximo evento. </br> ${statusText}`;
+                return `📉 <span className="bajo">Probabilidad Baja De Ganar</span> - <strong>¡${marcador.marcador} Poco frecuente!</strong> Este marcador es raro, lo que significa menores chances de ser CAMPEÓN. Sin embargo, si coincide con el resultado de CONSOLACIÓN, recibirás un cupón para que participes en el próximo evento. </br> ${statusText}`;
         
             default:
                 return `<span className="default">Categoría no especificada</span> - <strong>${marcador.marcador}</strong> Cualquier marcador puede resultar ganador. Se te asignará uno al azar tras tu compra, y cualquier marcador podría hacerte CAMPEÓN o SUBCAMPEÓN dependiendo de los resultados oficiales. ¡La fortuna juega un papel crucial! </br> ${statusText}`;
