@@ -7,53 +7,58 @@
     <!-- Añade la CDN de Bootstrap para usar sus clases -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-    body {
-        background-color: #f8f9fa;
-        color: #333;
-        font-family: Arial, sans-serif;
-    }
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
 
-    .email-table {
-        background-color: #f7f7f7;
-        padding: 20px;
-        margin: 0 auto;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 600px;
-    }
-    .email-logo {
-        width: 100px;  
-        height: auto;
-    }
-    .text-error {
-        color: #FF0000;
-        text-align: center;
-    }
+        .email-table {
+            background-color: #f7f7f7;
+            padding: 20px;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
 
-    .email-content {
-        font-size: 15px;
-        line-height: 1.6;
-        text-align: center;
-    }
+        .email-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
 
-    .marcador-circle {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background-color: #0275d8;
-        color: white;
-        line-height: 40px;
-        border: 1px solid #fff;
-        margin: 0 auto;
-        text-align: center;
-    }
+        .text-error {
+            color: #FF0000;
+            text-align: center;
+        }
+
+        .email-content {
+            font-size: 15px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .marcador-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #0275d8;
+            color: white;
+            line-height: 40px;
+            border: 1px solid #fff;
+            margin: 0 auto;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
     <table align="center" border="0" cellpadding="0" cellspacing="0" class="email-table">
-    <tr><img class="email-logo " src="https://golazosorteos.co/images/logo3.png" alt="logo"></tr>
+        <tr><img class="email-logo " src="https://golazosorteos.co/images/logo3.png" alt="logo"></tr>
         <tr>
             <td>
                 <p class="email-content">Hola, <strong>{{ $name }} {{ $last_name }}<strong> </p>
@@ -69,7 +74,7 @@
             <p class="email-content">Nos contactaremos a los medios de contacto suministrados por ti, en
                 el formulario de registro.
             </p>
-            <p class="email-content">Si tienes dudas comunicate a la linea de soporte:
+            <p class="email-content">Si tienes dudas comunicate a la linea de soporte <STRONG>WhatsApp: 3001799385</STRONG>
             </p>
         </tr>
     </table>
