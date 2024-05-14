@@ -32,8 +32,6 @@ const EntryFormModal = ({ onClose }) => {
                 const { token } = await response.json();
                 setCsrfToken(token);
             } catch (error) {
-                console.error(error);
-                // Manejar el error
             }
         };
         fetchCsrfToken();
@@ -88,7 +86,6 @@ const EntryFormModal = ({ onClose }) => {
             const responseData = await response.json();
 
             if (!response.ok) {
-                // console.log(responseData);
                 const errors = responseData.errors
                     ? responseData.errors
                     : ["Ocurrió un error al enviar el formulario."];
@@ -106,7 +103,6 @@ const EntryFormModal = ({ onClose }) => {
                     openMercadoPagoCheckout(responseData.id);
                     onClose();
                 } else {
-                    // alert("El formulario se envió correctamente.");
                     setSuccessMessage(
                         "¡Registro exitoso! Bienvenido al sorteo."
                     );
@@ -126,7 +122,7 @@ const EntryFormModal = ({ onClose }) => {
     };
 
     const handleCaptchaVerify = (token) => {
-        setRecaptchaToken(token); // Almacena el token ReCAPTCHA en el estado del componente
+        setRecaptchaToken(token); 
         setIsCaptchaVerified(true);
     };
 

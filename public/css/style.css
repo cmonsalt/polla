@@ -60,14 +60,14 @@ body {
 }
 
 .circle.gray {
-    background-color: #6c757d; /* Mantiene el color de fondo gris para círculos inactivos */
+    background-color: #6c757d; 
 }
 
-/* Añade estilos para las columnas con bordes */
+
 .border {
-    border: 1px solid #ddd; /* Añade un borde sutil */
-    border-radius: 5px; /* Opcional: para bordes redondeados */
-    padding: 15px; /* Añade algo de espacio dentro de las columnas */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px; 
 }
 
 .info-sold {
@@ -78,14 +78,10 @@ body {
     color: #17a2b8;
 }
 
-/* .custom-navbar-color {
-    background-color: #0275d8;
-  }
-   */
 
 .fixed-size-card {
-    height: auto; /* Altura fija */
-    width: auto; /* Ancho fijo */
+    height: auto; 
+    width: auto;
 }
 
 .info-title {
@@ -93,19 +89,16 @@ body {
 }
 
 .info-text {
-    font-size: 14px; /* O cualquier tamaño que prefieras */
+    font-size: 14px; 
 }
 
 .highlight {
-    font-size: 1.2rem; /* Aumenta el tamaño del texto */
-    font-weight: bold; /* Haz el texto más grueso */
-    margin: 0; /* Elimina los márgenes por defecto si es necesario */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Opcional: añade una sombra para un mayor énfasis */
+    font-size: 1.2rem; 
+    font-weight: bold; 
+    margin: 0; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); 
 }
 
-/* .bg-row {
-  background-color: rgba(255, 255, 255, 0.7);
-} */
 
 .table-responsive {
     border-radius: 8px;
@@ -121,58 +114,53 @@ body {
         255,
         255,
         0.8
-    ); /* Considera reducir la opacidad para mayor contraste */
+    ); 
 }
 
 .my-table thead th {
     background-color: rgba(0, 123, 255, 0.8);
     color: white;
-    padding: 8px; /* Reducción del padding */
-    font-size: 0.8em; /* Ligeramente más pequeño */
+    padding: 8px; 
+    font-size: 0.8em; 
 }
 
 .my-table tbody tr {
     border-bottom: 1px solid #dee2e6;
 }
 
-/* .my-table tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-} */
-
 .my-table td,
 .my-table th {
-    padding: 7px; /* Reducción del padding para hacer las celdas más compactas */
-    font-size: 0.65em; /* Tamaño de fuente reducido para ahorrar espacio */
+    padding: 7px; 
+    font-size: 0.65em; 
     text-align: center;
 }
 
-/* Para títulos fuera de las tablas, si deseas hacerlos más pequeños y sutiles */
+
 .title-style {
     color: #17a2b8;
-    font-size: 1.2em; /* Ajuste del tamaño de fuente del título */
+    font-size: 1.2em; 
 }
 
-/* Estilos para las filas de la tabla */
 .table-row-odd {
-    background-color: #f8f9fa; /* Color para filas impares */
+    background-color: #f8f9fa; 
 }
 
 .table-row-even {
-    background-color: #ffffff; /* Color para filas pares */
+    background-color: #ffffff; 
 }
 
 .my-table-wrapper {
     display: block;
-    max-height: 200px; /* Ajusta según la altura deseada */
+    max-height: 200px; 
     overflow-y: auto;
 }
 
 .my-table thead th {
     position: sticky;
     top: 0;
-    background-color: #5f9ea0; /* O el color de fondo de tu encabezado */
+    background-color: #5f9ea0; 
     color: #ffffff;
-    z-index: 1; /* Asegura que el encabezado se sobreponga al contenido del cuerpo */
+    z-index: 1; /
 }
 
 .table-bordered-black td,
@@ -181,10 +169,10 @@ body {
 }
 
 .event-finished-message {
-    text-align: center; /* Alinea el texto al centro */
-    background: none; /* Sin fondo para mantener el diseño limpio */
-    font-size: 0.9rem; /* Un tamaño de fuente más pequeño */
-    color: #343a40; /* Un color oscuro que asumo es parte de tu paleta */
+    text-align: center; 
+    background: none; 
+    font-size: 0.9rem; 
+    color: #343a40; 
 }
 
 .event-finished-message h3 {
@@ -194,33 +182,33 @@ body {
 }
 
 .event-finished-message p {
-    margin-bottom: 0; /* Sin margen inferior para evitar espacio extra */
+    margin-bottom: 0; 
 }
 
 .nav-link-enhanced {
-    color: #ffffff !important; /* Asegura que el color sea blanco o cualquier color más claro que el fondo */
+    color: #ffffff !important; 
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
-    transition: opacity 0.5s ease; /* Añade una transición suave para la opacidad */
+    transition: opacity 0.5s ease;
 }
 
 .nav-link-enhanced:hover {
-    opacity: 0.75; /* Hace el enlace un poco opaco al pasar el mouse */
+    opacity: 0.75; 
 }
 .event-status {
-    font-size: 1.3rem; /* Tamaño de fuente pequeño */
-    color: #fff; /* Color de texto que contraste con tu barra de navegación */
+    font-size: 1.3rem; 
+    color: #fff; 
     background-color: rgba(40, 167, 69, 0.8);
-    padding: 2px 4px; /* Un poco de relleno alrededor del texto */
-    border-radius: 4px; /* Bordes redondeados */
-    display: block; /* Asegura que se muestre en una nueva línea */
+    padding: 2px 4px; 
+    border-radius: 4px;
+    display: block; 
     text-align: center;
-    margin-top: 4px; /* Espacio sobre el estado */
+    margin-top: 4px;
 }
 
 .event-status span {
-    font-size: 1.25rem; /* Ajusta esto según el diseño */
-    font-weight: 600; /* Para darle énfasis */
-    letter-spacing: 0.05em; /* Espaciado entre letras para mejor legibilidad */
+    font-size: 1.25rem; 
+    font-weight: 600; 
+    letter-spacing: 0.05em; 
 }
 
 .event-status.finalizado {
@@ -251,29 +239,29 @@ body {
     margin-right: 6px;
 }
 .containers {
-    padding: 1.5rem; /* Menos padding para compactar */
+    padding: 1.5rem; 
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid #ddd;
     border-radius: 8px;
-    margin: 0.5rem 0; /* Menos margen para reducir espacio */
+    margin: 0.5rem 0; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .prize-title {
-    font-size: 1.33rem; /* Título más pequeño */
+    font-size: 1.33rem; 
     color: #333;
-    margin-bottom: 0.25rem; /* Menos espacio entre el título y la cantidad */
+    margin-bottom: 0.25rem; 
 }
 
 .prize-amount {
-    font-size: 0.5rem; /* Texto de cantidad más pequeño */
+    font-size: 0.5rem;
     font-weight: bold;
     color: #2e8b57;
-    margin-bottom: 0.75rem; /* Menos espacio entre la cantidad y los detalles */
+    margin-bottom: 0.75rem; 
 }
 
 .prize-detail {
-    font-size: 0.9rem; /* Detalles más pequeños */
+    font-size: 0.9rem; 
     margin-top: 0.5rem;
     color: #495057;
 }
@@ -288,20 +276,20 @@ body {
 }
 
 .price-info strong {
-    font-weight: 700; /* Peso de fuente más fuerte para el precio */
-    color: #17a2b8; /* Color que combina con el botón de compra */
+    font-weight: 700; 
+    color: #17a2b8; 
 }
 
 .no-participants-alert {
-    color: #155724; /* Un verde oscuro para el texto */
-    background-color: #d4edda; /* Un verde claro para el fondo */
-    border-color: #c3e6cb; /* Un verde intermedio para el borde */
-    padding: 1rem; /* Un relleno generoso para la alerta */
-    border-radius: 0.25rem; /* Bordes redondeados */
-    font-weight: 400; /* Hacer el texto en negritas */
-    text-align: center; /* Centrar el texto */
-    margin-top: 2rem; /* Agregar espacio en la parte superior */
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Una ligera sombra para dar profundidad */
+    color: #155724; 
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    padding: 1rem; 
+    border-radius: 0.25rem; 
+    font-weight: 400;
+    text-align: center; 
+    margin-top: 2rem; 
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); 
 }
 @keyframes pulse {
     0%,
@@ -345,8 +333,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px; /* Espacio entre iconos */
-    padding-top: 15px; /* Espacio por encima de los iconos */
+    gap: 20px; 
+    padding-top: 15px;
 }
 
 .social-icons a {
@@ -355,20 +343,20 @@ body {
 
 .social-icons a:hover,
 .social-icons a:focus {
-    transform: scale(1.1); /* Aumenta el tamaño ligeramente */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transform: scale(1.1); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
 .instagram-icon .fa-instagram {
-    color: #c13584; /* Color de Instagram */
+    color: #c13584; 
 }
 
 .facebook-icon .fa-facebook-f {
-    color: #3b5998; /* Color de Facebook */
+    color: #3b5998; 
 }
 
 .whatsapp-icon .fa-whatsapp {
-    color: #25d366; /* Color de WhatsApp */
+    color: #25d366; 
 }
 
 .alto::before {
@@ -385,10 +373,9 @@ body {
 
 .alto {
     position: relative;
-    border: 1px solid #daa520; /* Color del borde para marcadores de peso Alto */
+    border: 1px solid #daa520; 
 }
 
-/* Estilos para marcadores de peso Medio */
 .medio::before {
     content: "📊";
     font-size: 15px;
@@ -403,10 +390,10 @@ body {
 
 .medio {
     position: relative;
-    border: 1px solid #333; /* Color del borde para marcadores de peso Medio */
+    border: 1px solid #333; 
 }
 
-/* Estilos para marcadores de peso Bajo */
+
 .bajo::before {
     content: "📉";
     font-size: 15px;
@@ -421,7 +408,7 @@ body {
 
 .bajo {
     position: relative;
-    border: 1px solid #333; /* Color del borde para marcadores de peso Bajo */
+    border: 1px solid #333; 
 }
 
 .circle {
@@ -434,26 +421,25 @@ body {
 }
 
 .lead {
-    font-size: 1.05rem; /* Aumentar el tamaño de fuente para que sea consistente con el cambio en .text-primary */
-    font-weight: 400; /* Hacer el texto más grueso para mejorar la legibilidad */
-    /* Otras propiedades */
+    font-size: 1.05rem; 
+    font-weight: 400;
+
 }
 
 .leadWarning {
     font-size: 1.1rem;
-    font-weight: 300; /* Hacer el texto más grueso para mejorar la legibilidad */
-    /* Otras propiedades */
+    font-weight: 300;
+
 }
 .text-primary,
 .text-secondary {
-    font-size: 1.3rem; /* Aumento para subtítulos */
-    /* Otras propiedades */
+    font-size: 1.3rem; 
 }
 
 .text-campeon,
 .text-subcampeon {
     font-size: 1.25rem;
-    color: #004085; /* Azul oscuro para el campeón */
+    color: #004085;
     font-weight: bold;
 }
 
@@ -477,12 +463,12 @@ body {
     border-top-right-radius: 15px;
 }
 .social-icons a {
-    font-size: 20px; /* Tamaño estándar para escritorio */
+    font-size: 20px;
 }
 
 footer a.text-white:hover {
     text-decoration: none;
-    color: #ccc; /* Cambia el color al pasar el mouse */
+    color: #ccc; 
 }
 
 footer {
@@ -492,14 +478,9 @@ footer {
 footer a {
     padding: 8px;
     margin: 0 5px;
-    display: inline-block; /* Asegura que el padding se aplique correctamente */
+    display: inline-block; 
 }
 
-/* .footer-text {
-    line-height: 1;
-} */
-
-/* Estilos para móviles */
 @media (max-width: 768px) {
     .logo {
         height: 100px;
@@ -587,7 +568,7 @@ footer a {
         margin-bottom: 18px;
     }
     .social-icons {
-        gap: 35px; /* Espacio entre iconos */
+        gap: 35px; 
     }
     .social-icons a {
         font-size: 24px;
@@ -614,7 +595,4 @@ footer a {
     .my-table th {
         font-size: 0.8em;
     }
-    /* .navbar {
-        background-color: rgba(0, 0, 0, 0.4);
-    } */
 }

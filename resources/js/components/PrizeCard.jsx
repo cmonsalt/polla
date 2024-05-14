@@ -44,8 +44,6 @@ export default function PrizeInfo({ onOpenTyCModal, onOpenDetallesModal }) {
                     Detalles Evento
                 </button>
             </div>
-
-            {/* <div className="d-flex justify-content-center">{children}</div> */}
         </div>
     );
 }
