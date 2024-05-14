@@ -22,11 +22,11 @@ export default function PrizeInfo({ onOpenTyCModal, onOpenDetallesModal }) {
                     </div>
                     <p className="lead">
                         <strong>9 cupones</strong> próximo sorteo para los
-                        marcadores: <strong>1-4</strong>, <strong>5-1</strong>,{" "}
-                        <strong>6-0</strong>, <strong>1-5</strong>,{" "}
-                        <strong>7-2</strong>, <strong>7-1</strong>,{" "}
-                        <strong>2-6</strong>, <strong>8-1</strong>, y{" "}
-                        <strong>4-5</strong>.
+                        marcadores: <strong>[1-4]</strong>, <strong>[5-1]</strong>,{" "}
+                        <strong>[6-0]</strong>, <strong>[1-5]</strong>,{" "}
+                        <strong>[7-2]</strong>, <strong>[7-1]</strong>,{" "}
+                        <strong>[2-6]</strong>, <strong>[8-1]</strong>, y{" "}
+                        <strong>[4-5]</strong>.
                     </p>
                 </div>
                 <p className="prize-detail">
