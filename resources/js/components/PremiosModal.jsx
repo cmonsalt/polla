@@ -49,7 +49,7 @@ function PremiosModal({ isOpen, onClose }) {
                                 premio mayor sustancial. El poseedor del
                                 marcador que coincida con el resultado final del
                                 partido de fútbol seleccionado ganará 20 veces
-                                lo apostado, es decir, $400,000. Este premio se
+                                el valor de su marcador, es decir, $400,000. Este premio se
                                 entrega como reconocimiento al marcador campeón
                                 y la emoción no termina hasta el pitido final,
                                 donde solo unos pocos marcadores tienen la clave

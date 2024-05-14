@@ -38,7 +38,7 @@ function TicketsSection() {
             show: true,
             content: content,
             x: event.clientX,
-            y: event.clientY + 20, // Offset para posicionar debajo del cursor
+            y: event.clientY + 20,
         });
     };
 
@@ -58,21 +58,21 @@ function TicketsSection() {
                         className="tooltipg"
                         style={{
                             position: "fixed",
-                            top: "20%", // Centrar verticalmente
-                            left: "50%", // Centrar horizontalmente
-                            transform: "translate(-50%, -50%)", // Ajustar el desplazamiento para centrar el elemento
+                            top: "20%", 
+                            left: "50%", 
+                            transform: "translate(-50%, -50%)", 
                             padding: "10px 20px",
                             backgroundColor: "#333333",
                             color: "white",
                             borderRadius: "5px",
                             zIndex: 2,
                             display: "block",
-                            minWidth: "40%", // Usar un porcentaje para que sea responsivo
+                            minWidth: "40%", 
                             maxWidth: "40%", 
                             height: "auto",
                             whiteSpace: "normal",
                             overflowWrap: "break-word",
-                            boxSizing: "border-box", // Asegura que el padding esté incluido en el ancho
+                            boxSizing: "border-box", 
                             fontSize: "0.9rem",
                         }}
                         dangerouslySetInnerHTML={{ __html: tooltip.content }}

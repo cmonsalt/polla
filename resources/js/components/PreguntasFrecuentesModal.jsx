@@ -84,7 +84,7 @@ function PreguntasFrecuentesModal({ isOpen, onClose }) {
                             </strong>
                             <p>
                                 Ofrecemos diversos premios, incluyendo un premio
-                                campeón sustancial y varios premios de sonsolación en
+                                campeón sustancial y varios premios de consolación en
                                 cada sorteo. Los detalles específicos de los
                                 premios se anuncian antes de cada evento en
                                 nuestras redes sociales.
