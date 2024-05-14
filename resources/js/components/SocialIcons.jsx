@@ -26,7 +26,7 @@ export default function SocialIcons() {
                 <FontAwesomeIcon icon={faFacebookF} size="2x" />
             </a>
             <a
-                href="https://wa.me/3001799385"
+                href="https://wa.me/+573001799385"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="whatsapp-icon"
