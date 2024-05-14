@@ -129,7 +129,7 @@ export default function App() {
                             <div
                                 className={`event-status ${eventStatus.toLowerCase()} flex-container`}
                             >
-                                <span>⚽Evento #1 {eventStatus}</span>
+                                <span>⚽Evento Inaugural <br />[{eventStatus}]</span>
                                 {eventStatus === "Activo" && (
                                     <span className="blinking-dot"></span>
                                 )}
