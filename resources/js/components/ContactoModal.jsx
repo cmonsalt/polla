@@ -34,9 +34,22 @@ function ContactoModal({ isOpen, onClose }) {
                     </button>
                 </div>
 
-                <div className="modal-body d-flex justify-content-center align-items-center flex-column flex-md-row" style={{ width: "100%" }}>
+                <div
+                    className="modal-body d-flex justify-content-center align-items-center flex-column flex-md-row"
+                    style={{ width: "100%" }}
+                >
                     <div className="col-md-8">
                         <SocialIcons />
+                        <p className="mt-3 text-center">
+                            Para soporte directo, por favor envíanos un correo
+                            a:
+                            <a
+                                href="mailto:soporte@golazosorteos.com"
+                                className="ml-2"
+                            >
+                                soporte@golazosorteos.co
+                            </a>
+                        </p>
                     </div>
                 </div>
 
