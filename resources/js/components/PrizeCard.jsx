@@ -17,7 +17,7 @@ export default function PrizeInfo({ onOpenTyCModal, onOpenDetallesModal }) {
                 <div className="prize-amount mb-4">
                     <div className="d-flex align-items-center justify-content-center">
                         <h3 className="text-subcampeon">
-                            🥉 PREMIO CONSOLACIÓN:
+                            🥉 PREMIO CONSOLACION:
                         </h3>
                     </div>
                     <p className="lead">
